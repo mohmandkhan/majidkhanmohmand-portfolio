@@ -54,3 +54,11 @@
 - [x] Persist theme preference in localStorage
 - [x] Add smooth transitions between theme changes
 - [x] Test theme toggle functionality
+
+
+## CV Integration
+- [x] Add education section (Master's in Data Science and Business Informatics)
+- [x] Add professional summary/about section
+- [x] Incorporate skills and expertise areas
+- [x] Add certifications if applicable
+- [x] Ensure no duplication with existing content

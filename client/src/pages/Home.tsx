@@ -291,6 +291,42 @@ export default function Home() {
           </div>
         </section>
 
+        {/* About Section */}
+        <section className="mb-20">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">About Me</h2>
+          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+            <p className="text-lg text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+              I am a passionate Full Stack Web Developer and Cloud Architect with extensive experience in building scalable applications. Currently pursuing a Master's degree in Data Science and Business Informatics from Università di Pisa, I combine technical expertise with business acumen to deliver innovative solutions.
+            </p>
+            <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+              My expertise spans across modern web technologies, cloud infrastructure, AI automation, and data-driven development. I am dedicated to creating impactful digital experiences and helping businesses leverage technology for growth.
+            </p>
+          </div>
+        </section>
+
+        {/* Education Section */}
+        <section className="mb-20">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">Education</h2>
+          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0">
+                <BookOpen className="w-8 h-8 text-gray-700 dark:text-gray-400 mt-1" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  Master's Degree in Data Science and Business Informatics
+                </h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-2">
+                  Università di Pisa, Italy
+                </p>
+                <p className="text-gray-500 dark:text-gray-500">
+                  Starting September 2025 • Specializing in Data Science and Business Intelligence
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Hire Me Section */}
         <section id="hire" className="mb-20">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">Hire Me</h2>

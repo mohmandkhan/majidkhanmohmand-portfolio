@@ -20,6 +20,9 @@ import {
   Award,
   Moon,
   Sun,
+  Cpu,
+  Award as AwardIcon,
+  CheckCircle,
 } from "lucide-react";
 
 const projects = [
@@ -76,6 +79,80 @@ const projects = [
     url: "https://pearltrips.com/",
     category: "Project",
     icon: Globe,
+  },
+];
+
+const experiences = [
+  {
+    title: "Senior Full Stack Web Developer",
+    company: "STORESWIKI – USA – REMOTE",
+    period: "04-2024 - Present",
+    description: "Leading full-stack development with modern web technologies and cloud infrastructure",
+    technologies: ["JavaScript", "React", "Node.js", "AWS", "Docker", "MySQL"],
+  },
+  {
+    title: "Senior Full Stack Web Developer",
+    company: "Aller Media AB – Sweden – REMOTE",
+    period: "04-2020 - 02-2025",
+    description: "Developed and maintained multiple content management systems and web applications",
+    technologies: ["React", "Node.js", "AWS", "Docker", "MySQL", "SCSS"],
+  },
+  {
+    title: "AWS Cloud Developer",
+    company: "Nordic Software Technologies FZE – UAE – CONTRACT",
+    period: "01-2024 - 03-2024",
+    description: "Designed and implemented cloud infrastructure with EC2, ALBs, and auto-scaling",
+    technologies: ["AWS", "EC2", "CloudFormation", "CI/CD", "NodeJS"],
+  },
+  {
+    title: "Tech-Lead and MERN Stack Developer",
+    company: "QURB L.L.C F-Z – UAE – CONTRACT",
+    period: "11-2022 - 01-2024",
+    description: "Led team of 5 developers, managed cloud infrastructure and MERN stack development",
+    technologies: ["React", "Node.js", "MongoDB", "AWS", "Azure", "Docker"],
+  },
+  {
+    title: "Full Stack Web Developer",
+    company: "ACSAB – CONTRACT – REMOTE",
+    period: "07-2022 - 09-2022",
+    description: "Developed e-learning platform with payment gateway integration",
+    technologies: ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
+  },
+  {
+    title: "Full Stack Web Developer / CEO",
+    company: "Code Engineers – PAKISTAN",
+    period: "2013 - 2019",
+    description: "Founded and managed software development company, built multiple enterprise solutions",
+    technologies: ["JavaScript", "PHP", "C#", "Azure", "SQL Server"],
+  },
+];
+
+const skills = {
+  "Languages & Frameworks": ["React JS", "Next JS", "HTML5", "CSS3", "JavaScript", "jQuery", "Ajax", "PHP", "C#", "ASP.NET", "NodeJS"],
+  "UI/UX": ["Bootstrap", "React strap", "Ant Design", "Webpack", "Gulp"],
+  "Backend Technologies": ["PHP/MySQL", "C#/SQL Server", "NodeJS/MongoDB", "Oracle 10g/11g/APEX"],
+  "Cloud & DevOps": ["AWS", "Azure", "Docker", "Jenkins", "GitLab", "Ansible", "Nagios", "Red Hat Linux"],
+  "Desktop & CLI": ["Windows Forms", "Java", "Bash Scripting"],
+  "CMS/ERP": ["WordPress", "Odoo"],
+  "SDLC Methodologies": ["Agile", "Scrum", "Kanban", "Extreme Programming (XP)"],
+};
+
+const certifications = [
+  {
+    title: "Microsoft Solution Framework Certification",
+    issuer: "Microsoft",
+  },
+  {
+    title: "Business Partner Integrità Training",
+    issuer: "IBM",
+  },
+  {
+    title: "ETL Data Extraction Certification",
+    issuer: "Databricks",
+  },
+  {
+    title: "Unified Data Analytics Certification",
+    issuer: "Databricks",
   },
 ];
 
@@ -307,23 +384,125 @@ export default function Home() {
         {/* Education Section */}
         <section className="mb-20">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">Education</h2>
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0">
-                <BookOpen className="w-8 h-8 text-gray-700 dark:text-gray-400 mt-1" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                  Master's Degree in Data Science and Business Informatics
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-2">
-                  Università di Pisa, Italy
-                </p>
-                <p className="text-gray-500 dark:text-gray-500">
-                  Starting September 2025 • Specializing in Data Science and Business Intelligence
-                </p>
+          <div className="space-y-4">
+            <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <BookOpen className="w-8 h-8 text-gray-700 dark:text-gray-400 mt-1" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                    Master's Degree in Data Science and Business Informatics
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-2">
+                    Università di Pisa, Italy
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-500">
+                    Starting September 2025 • Specializing in Data Science and Business Intelligence
+                  </p>
+                </div>
               </div>
             </div>
+            <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <BookOpen className="w-8 h-8 text-gray-700 dark:text-gray-400 mt-1" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                    Masters in Software Engineering
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-2">
+                    University of Peshawar, Pakistan
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-500">
+                    2012 - 2015 • GPA: 4.0/4.0
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0">
+                  <BookOpen className="w-8 h-8 text-gray-700 dark:text-gray-400 mt-1" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                    Bachelor in Computer Science
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400 mb-2">
+                    University of Peshawar, Pakistan
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-500">
+                    2008 - 2011 • 4 Years (Honour) • GPA: 3.0/4.0
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section className="mb-20">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">Professional Experience</h2>
+          <div className="space-y-4">
+            {experiences.map((exp, idx) => (
+              <div key={idx} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+                <div className="flex items-start justify-between mb-3">
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-400">{exp.company}</p>
+                  </div>
+                  <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 whitespace-nowrap ml-4">{exp.period}</span>
+                </div>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">{exp.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {exp.technologies.map((tech, i) => (
+                    <span key={i} className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Skills Section */}
+        <section className="mb-20">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">Technical Skills & Tools</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {Object.entries(skills).map(([category, skillList]) => (
+              <div key={category} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+                  <Cpu className="w-5 h-5" />
+                  {category}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {skillList.map((skill, idx) => (
+                    <span key={idx} className="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Certifications Section */}
+        <section className="mb-20">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">Certifications</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {certifications.map((cert, idx) => (
+              <div key={idx} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 flex items-start gap-4">
+                <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="font-bold text-gray-900 dark:text-white">{cert.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{cert.issuer}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 

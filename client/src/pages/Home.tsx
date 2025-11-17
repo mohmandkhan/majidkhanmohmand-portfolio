@@ -353,18 +353,67 @@ export default function Home() {
       </nav>
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        {/* Hero Section */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-4">
-              Majid Khan Mohmand
-            </h1>
-            <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-              Full Stack Developer • AI Enthusiast • Content Creator • Entrepreneur
-            </p>
-            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-3xl mx-auto">
-              Programming, Travel, Games, Fun, Learning, Entertainment, and Experiences
-            </p>
+        {/* Animated Hero Section */}
+        <section className="mb-20 hero-background relative py-20 sm:py-32 lg:py-40">
+          <div className="hero-content text-center">
+            {/* Animated Title */}
+            <div className="mb-6 animate-fade-in-up">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4">
+                <span className="glow-text inline-block">Majid Khan Mohmand</span>
+              </h1>
+            </div>
+
+            {/* Animated Subtitle with Gradient */}
+            <div className="mb-8 animate-fade-in-up delay-200">
+              <p className="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient mb-4">
+                Full Stack Developer • AI Enthusiast • Content Creator • Entrepreneur
+              </p>
+            </div>
+
+            {/* Animated Description */}
+            <div className="mb-12 animate-fade-in-up delay-300">
+              <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Programming, Travel, Games, Fun, Learning, Entertainment, and Experiences
+              </p>
+            </div>
+
+            {/* Animated CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-400">
+              <a
+                href="#projects"
+                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 animate-pulse-scale"
+              >
+                View My Work
+              </a>
+              <a
+                href="#hire"
+                className="px-8 py-3 border-2 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 hover:scale-105"
+              >
+                Hire Me
+              </a>
+            </div>
+
+            {/* Floating Icons */}
+            <div className="mt-16 flex justify-center gap-8 flex-wrap animate-fade-in-up delay-500">
+              <div className="floating-element text-center">
+                <div className="w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mx-auto mb-2">
+                  <Code2 className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                </div>
+                <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">Development</p>
+              </div>
+              <div className="floating-element text-center" style={{ animationDelay: '0.2s' }}>
+                <div className="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mx-auto mb-2">
+                  <Cpu className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+                </div>
+                <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">AI & Cloud</p>
+              </div>
+              <div className="floating-element text-center" style={{ animationDelay: '0.4s' }}>
+                <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-2">
+                  <Zap className="w-8 h-8 text-green-600 dark:text-green-400" />
+                </div>
+                <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">Innovation</p>
+              </div>
+            </div>
           </div>
         </section>
 

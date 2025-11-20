@@ -29,6 +29,7 @@ import {
   GitBranch,
   Terminal,
   Layers,
+  MessageCircle,
 } from "lucide-react";
 
 const projects = [
@@ -304,6 +305,127 @@ const referrals = [
   },
 ];
 
+const whatsappChannels = {
+  "Business & Entrepreneurship": [
+    {
+      title: "Market Maverick (MKM)",
+      url: "https://whatsapp.com/channel/0029VayosDMLNSa9rgibaX0H",
+      flag: "🇺🇸",
+      category: "Business",
+    },
+    {
+      title: "Millionaires Mindset",
+      url: "https://whatsapp.com/channel/0029VaosSLIFSAtCtIXmbC0E",
+      flag: "🇺🇸",
+      category: "Mindset",
+    },
+    {
+      title: "Storeswiki LLC",
+      url: "https://whatsapp.com/channel/0029Vaytxl759PwQEA7MEk3z",
+      flag: "🇺🇸",
+      category: "Business",
+    },
+    {
+      title: "MKM Enterprise: Hosting, RDP, VPS, VPN, Digital Products",
+      url: "https://whatsapp.com/channel/0029VayzX3HDeON89j5UZ10Z",
+      flag: "🇵🇰",
+      category: "Services",
+    },
+  ],
+  "Pakistan-Based Channels": [
+    {
+      title: "Batman Pakistan",
+      url: "https://whatsapp.com/channel/0029VatthhYBqbr4Sx3Erf1L",
+      flag: "🇵🇰",
+      category: "Community",
+    },
+    {
+      title: "MonsterTools",
+      url: "https://whatsapp.com/channel/0029VayIHbs7oQhUO9IsHM00",
+      flag: "🇵🇰",
+      category: "Tools",
+    },
+    {
+      title: "Secret Pakistan",
+      url: "https://whatsapp.com/channel/0029Vauzcbo90x2zsSZUyK1M",
+      flag: "🇵🇰",
+      category: "Exclusive",
+    },
+    {
+      title: "DALLHAMAI Pakistan",
+      url: "https://whatsapp.com/channel/0029VauFrN7DJ6HAJwAla73z",
+      flag: "🇵🇰",
+      category: "AI",
+    },
+    {
+      title: "MKM Exclusive Dunya",
+      url: "https://t.me/+IbUgFAYlWVE5NDk0",
+      flag: "🇵🇰",
+      category: "Telegram",
+    },
+    {
+      title: "MKM Batman.pk",
+      url: "https://t.me/+XacbHcUTT6c1ZTFk",
+      flag: "🇵🇰",
+      category: "Telegram",
+    },
+  ],
+  "Technology & Tools": [
+    {
+      title: "TechABC WhatsApp API",
+      url: "https://whatsapp.com/channel/0029Vatxc4KL2ATy0f8QGB1E",
+      flag: "💻",
+      category: "Tech",
+    },
+    {
+      title: "ClickGrow: SocialMedia Automation",
+      url: "https://whatsapp.com/channel/0029VayD0iQGE56cPNzrY90r",
+      flag: "🤖",
+      category: "Automation",
+    },
+    {
+      title: "MEGA COURSE Channel",
+      url: "https://whatsapp.com/channel/0029VauBiyv3bbV4mnJ7d63S",
+      flag: "📚",
+      category: "Education",
+    },
+  ],
+  "Interest Groups": [
+    {
+      title: "Game Lovers",
+      url: "https://whatsapp.com/channel/0029VazdNxrLikg13bzZiO3n",
+      flag: "🎮",
+      category: "Gaming",
+    },
+    {
+      title: "Technology Lovers",
+      url: "https://whatsapp.com/channel/0029VazQM1jJENy3drf3s83D",
+      flag: "🔬",
+      category: "Tech",
+    },
+    {
+      title: "Cricket Lovers",
+      url: "https://whatsapp.com/channel/0029VazTgFYBA1f0SOpg1y0N",
+      flag: "🏏",
+      category: "Sports",
+    },
+    {
+      title: "News Lovers",
+      url: "https://whatsapp.com/channel/0029Vav6NJ72phHQtxGIIw0n",
+      flag: "📰",
+      category: "News",
+    },
+  ],
+  "Telegram Channels": [
+    {
+      title: "MKM HYPE",
+      url: "https://t.me/MKMEnterprise",
+      flag: "📱",
+      category: "Telegram",
+    },
+  ],
+};
+
 function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   const Icon = project.icon;
   return (
@@ -387,6 +509,25 @@ function CompanyCard({ company }: { company: (typeof companies)[0] }) {
         {company.title.replace("Company - ", "")}
       </span>
       <ExternalLink className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors" />
+    </a>
+  );
+}
+
+function WhatsAppChannelCard({ channel }: { channel: any }) {
+  return (
+    <a
+      href={channel.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-3 transition-all duration-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-md dark:hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800"
+    >
+      <span className="text-xl">{channel.flag}</span>
+      <div className="flex-1 min-w-0">
+        <span className="font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors block truncate">
+          {channel.title}
+        </span>
+      </div>
+      <ExternalLink className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors flex-shrink-0" />
     </a>
   );
 }
@@ -684,6 +825,26 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {companies.map((company) => (
               <CompanyCard key={company.url} company={company} />
+            ))}
+          </div>
+        </section>
+
+        {/* WhatsApp Channels Section */}
+        <section className="mb-20">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-2">
+            <MessageCircle className="w-8 h-8" />
+            WhatsApp & Telegram Channels
+          </h2>
+          <div className="space-y-8">
+            {Object.entries(whatsappChannels).map(([categoryName, channels]) => (
+              <div key={categoryName}>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">{categoryName}</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {channels.map((channel) => (
+                    <WhatsAppChannelCard key={channel.url} channel={channel} />
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </section>

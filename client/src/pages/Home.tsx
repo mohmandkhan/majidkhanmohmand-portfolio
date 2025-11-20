@@ -86,6 +86,7 @@ const experiences = [
   {
     title: "Senior Full Stack Web Developer",
     company: "STORESWIKI – USA – REMOTE",
+    logo: "/logos/storeswiki-logo.png",
     period: "04-2024 - Present",
     description: "Leading full-stack development with modern web technologies and cloud infrastructure",
     technologies: ["JavaScript", "React", "Node.js", "AWS", "Docker", "MySQL"],
@@ -93,6 +94,7 @@ const experiences = [
   {
     title: "Senior Full Stack Web Developer",
     company: "Aller Media AB – Sweden – REMOTE",
+    logo: "/logos/aller-media-logo.jpg",
     period: "04-2020 - 02-2025",
     description: "Developed and maintained multiple content management systems and web applications",
     technologies: ["React", "Node.js", "AWS", "Docker", "MySQL", "SCSS"],
@@ -100,6 +102,7 @@ const experiences = [
   {
     title: "AWS Cloud Developer",
     company: "Nordic Software Technologies FZE – UAE – CONTRACT",
+    logo: null,
     period: "01-2024 - 03-2024",
     description: "Designed and implemented cloud infrastructure with EC2, ALBs, and auto-scaling",
     technologies: ["AWS", "EC2", "CloudFormation", "CI/CD", "NodeJS"],
@@ -107,6 +110,7 @@ const experiences = [
   {
     title: "Tech-Lead and MERN Stack Developer",
     company: "QURB L.L.C F-Z – UAE – CONTRACT",
+    logo: "/logos/qurb-logo.jpg",
     period: "11-2022 - 01-2024",
     description: "Led team of 5 developers, managed cloud infrastructure and MERN stack development",
     technologies: ["React", "Node.js", "MongoDB", "AWS", "Azure", "Docker"],
@@ -114,6 +118,7 @@ const experiences = [
   {
     title: "Full Stack Web Developer",
     company: "ACSAB – CONTRACT – REMOTE",
+    logo: null,
     period: "07-2022 - 09-2022",
     description: "Developed e-learning platform with payment gateway integration",
     technologies: ["React", "Node.js", "MongoDB", "Stripe", "AWS"],
@@ -121,6 +126,7 @@ const experiences = [
   {
     title: "Full Stack Web Developer / CEO",
     company: "Code Engineers – PAKISTAN",
+    logo: "/logos/code-engineers-logo.png",
     period: "2013 - 2019",
     description: "Founded and managed software development company, built multiple enterprise solutions",
     technologies: ["JavaScript", "PHP", "C#", "Azure", "SQL Server"],
@@ -183,11 +189,13 @@ const companies = [
   {
     title: "Company - StoresWiki LLC",
     url: "https://www.storeswikillc.com/",
+    logo: "/logos/storeswiki-logo.png",
     icon: Briefcase,
   },
   {
     title: "Company - Code Engineers",
     url: "https://codeengineers.net/",
+    logo: "/logos/code-engineers-logo.png",
     icon: Code2,
   },
 ];
@@ -196,16 +204,19 @@ const hireLinks = [
   {
     title: "Hire Me - WhatsApp",
     url: "https://wa.me/393508274261",
+    logo: null,
     icon: Mail,
   },
   {
     title: "Fiverr - Hire Me",
     url: "https://www.fiverr.com/majidkhan_moh",
+    logo: "/logos/fiverr-logo.png",
     icon: Award,
   },
   {
     title: "Upwork",
     url: "https://www.upwork.com/freelancers/~01656cd2c7681104f0",
+    logo: "/logos/upwork-logo.png",
     icon: Briefcase,
   },
 ];
@@ -224,26 +235,31 @@ const referrals = [
   {
     title: "$50 Free - MegaLLM",
     url: "https://megallm.io/ref/REF-VP1P0URC",
+    logo: null,
     icon: Zap,
   },
   {
     title: "Hostinger 50% Off",
     url: "https://hostinger.com/?REFERRALCODE=QLFMOHMANZY7",
+    logo: null,
     icon: Globe,
   },
   {
     title: "$200 CLAUDE API Credits",
     url: "https://agentrouter.org/register?aff=f4s7",
+    logo: null,
     icon: Code2,
   },
   {
     title: "n8n Promo",
     url: "https://n8n.partnerlinks.io/z2s50mlq8na1",
+    logo: null,
     icon: Zap,
   },
   {
     title: "Manus AI Credits",
     url: "https://manus.im/invitation/VKFEHQEDAS7M",
+    logo: null,
     icon: Zap,
   },
 ];
@@ -290,7 +306,7 @@ function SocialLink({ social }: { social: (typeof socialLinks)[0] }) {
   );
 }
 
-function SimpleCard({ item }: { item: { title: string; url: string; icon: any } }) {
+function SimpleCard({ item }: { item: { title: string; url: string; logo?: string | null; icon: any } }) {
   const Icon = item.icon;
   return (
     <a
@@ -299,11 +315,38 @@ function SimpleCard({ item }: { item: { title: string; url: string; icon: any } 
       rel="noopener noreferrer"
       className="group flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-3 transition-all duration-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-md dark:hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800"
     >
-      <Icon className="w-5 h-5 text-gray-700 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+      {item.logo ? (
+        <img src={item.logo} alt={item.title} className="w-5 h-5 object-contain" />
+      ) : (
+        <Icon className="w-5 h-5 text-gray-700 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" />
+      )}
       <span className="font-medium text-gray-900 dark:text-gray-100 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
         {item.title}
       </span>
       <ExternalLink className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors ml-auto" />
+    </a>
+  );
+}
+
+function CompanyCard({ company }: { company: (typeof companies)[0] }) {
+  return (
+    <a
+      href={company.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex flex-col items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-6 transition-all duration-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-md dark:hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800"
+    >
+      {company.logo ? (
+        <img src={company.logo} alt={company.title} className="w-16 h-16 object-contain" />
+      ) : (
+        <div className="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
+          <company.icon className="w-8 h-8 text-gray-700 dark:text-gray-400" />
+        </div>
+      )}
+      <span className="font-medium text-center text-gray-900 dark:text-gray-100 group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors text-sm">
+        {company.title.replace("Company - ", "")}
+      </span>
+      <ExternalLink className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors" />
     </a>
   );
 }
@@ -497,12 +540,21 @@ export default function Home() {
           <div className="space-y-4">
             {experiences.map((exp, idx) => (
               <div key={idx} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-400">{exp.company}</p>
+                <div className="flex items-start justify-between mb-3 gap-4">
+                  <div className="flex items-start gap-4 flex-1">
+                    {exp.logo ? (
+                      <img src={exp.logo} alt={exp.company} className="w-12 h-12 object-contain flex-shrink-0" />
+                    ) : (
+                      <div className="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center flex-shrink-0">
+                        <Briefcase className="w-6 h-6 text-gray-700 dark:text-gray-400" />
+                      </div>
+                    )}
+                    <div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.title}</h3>
+                      <p className="text-gray-600 dark:text-gray-400">{exp.company}</p>
+                    </div>
                   </div>
-                  <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 whitespace-nowrap ml-4">{exp.period}</span>
+                  <span className="text-sm font-semibold text-gray-500 dark:text-gray-400 whitespace-nowrap">{exp.period}</span>
                 </div>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">{exp.description}</p>
                 <div className="flex flex-wrap gap-2">
@@ -588,9 +640,9 @@ export default function Home() {
         {/* Companies Section */}
         <section className="mb-20">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">Companies & Ventures</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {companies.map((company) => (
-              <SimpleCard key={company.url} item={company} />
+              <CompanyCard key={company.url} company={company} />
             ))}
           </div>
         </section>

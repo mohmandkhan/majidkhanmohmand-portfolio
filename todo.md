@@ -71,3 +71,11 @@
 - [x] Implement floating/parallax elements
 - [x] Add floating icon elements with staggered animations
 - [x] Create eye-catching visual effects with glow text and pulse buttons
+
+
+## Company Logos Integration
+- [x] Find and download logos for all companies (StoresWiki, Code Engineers, QURB, Aller Media, etc.)
+- [x] Add logos to public folder
+- [x] Update company cards to display logos
+- [x] Update experience section to show company logos
+- [x] Ensure logos display properly in light and dark modes

@@ -3,6 +3,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router, protectedProcedure } from "./_core/trpc";
 import { z } from "zod";
+import { TRPCError } from "@trpc/server";
 import {
   getProjects,
   getProjectById,
@@ -48,6 +49,19 @@ import {
   createSocialLink,
   updateSocialLink,
   deleteSocialLink,
+  createContactSubmission,
+  getContactSubmissions,
+  getContactSubmissionById,
+  markContactAsRead,
+  replyToContact,
+  deleteContactSubmission,
+  trackAnalyticsEvent,
+  getAnalyticsStats,
+  getAnalyticsEvents,
+  createMediaFile,
+  getMediaFiles,
+  getMediaFileById,
+  deleteMediaFile,
   getHireOptions,
   createHireOption,
   updateHireOption,
@@ -213,13 +227,186 @@ const adminProcedure = protectedProcedure.use(async ({ ctx, next }) => {
 // ROUTERS
 // ============================================================================
 
+
+// ============================================================================
+// CONTACT FORM ROUTER
+// ============================================================================
+
+const contactRouter = router({
+  submit: publicProcedure
+    .input(z.object({
+      name: z.string().min(2),
+      email: z.string().email(),
+      subject: z.string().min(5),
+      message: z.string().min(10),
+      phone: z.string().optional(),
+    }))
+    .mutation(async ({ input }) => {
+      try {
+        const result = await createContactSubmission(input);
+        await trackAnalyticsEvent({
+          eventType: 'form_submit',
+          eventName: 'contact_form_submitted',
+          pagePath: '/contact',
+          metadata: { name: input.name },
+        });
+        return { success: true };
+      } catch (error) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Failed to submit contact form',
+        });
+      }
+    }),
+
+  list: protectedProcedure
+    .input(z.object({
+      limit: z.number().default(50),
+      offset: z.number().default(0),
+    }))
+    .query(async ({ input, ctx }) => {
+      if (ctx.user.role !== 'admin') {
+        throw new TRPCError({ code: 'FORBIDDEN' });
+      }
+      return await getContactSubmissions(input.limit, input.offset);
+    }),
+
+  getById: protectedProcedure
+    .input(z.number())
+    .query(async ({ input, ctx }) => {
+      if (ctx.user.role !== 'admin') {
+        throw new TRPCError({ code: 'FORBIDDEN' });
+      }
+      return await getContactSubmissionById(input);
+    }),
+
+  markAsRead: protectedProcedure
+    .input(z.number())
+    .mutation(async ({ input, ctx }) => {
+      if (ctx.user.role !== 'admin') {
+        throw new TRPCError({ code: 'FORBIDDEN' });
+      }
+      return await markContactAsRead(input);
+    }),
+
+  delete: protectedProcedure
+    .input(z.number())
+    .mutation(async ({ input, ctx }) => {
+      if (ctx.user.role !== 'admin') {
+        throw new TRPCError({ code: 'FORBIDDEN' });
+      }
+      return await deleteContactSubmission(input);
+    }),
+});
+
+// ============================================================================
+// ANALYTICS ROUTER
+// ============================================================================
+
+const analyticsRouter = router({
+  trackEvent: publicProcedure
+    .input(z.object({
+      eventType: z.string(),
+      eventName: z.string().optional(),
+      pagePath: z.string().optional(),
+      sessionId: z.string().optional(),
+    }))
+    .mutation(async ({ input }) => {
+      try {
+        await trackAnalyticsEvent(input);
+        return { success: true };
+      } catch (error) {
+        return { success: false };
+      }
+    }),
+
+  getStats: protectedProcedure
+    .input(z.object({ days: z.number().default(30) }))
+    .query(async ({ input, ctx }) => {
+      if (ctx.user.role !== 'admin') {
+        throw new TRPCError({ code: 'FORBIDDEN' });
+      }
+      return await getAnalyticsStats(input.days);
+    }),
+
+  getEvents: protectedProcedure
+    .input(z.object({
+      limit: z.number().default(100),
+      offset: z.number().default(0),
+    }))
+    .query(async ({ input, ctx }) => {
+      if (ctx.user.role !== 'admin') {
+        throw new TRPCError({ code: 'FORBIDDEN' });
+      }
+      return await getAnalyticsEvents(input.limit, input.offset);
+    }),
+});
+
+// ============================================================================
+// MEDIA ROUTER
+// ============================================================================
+
+const mediaRouter = router({
+  list: protectedProcedure
+    .input(z.object({
+      limit: z.number().default(50),
+      offset: z.number().default(0),
+    }))
+    .query(async ({ input, ctx }) => {
+      if (ctx.user.role !== 'admin') {
+        throw new TRPCError({ code: 'FORBIDDEN' });
+      }
+      return await getMediaFiles(input.limit, input.offset);
+    }),
+
+  getById: protectedProcedure
+    .input(z.number())
+    .query(async ({ input, ctx }) => {
+      if (ctx.user.role !== 'admin') {
+        throw new TRPCError({ code: 'FORBIDDEN' });
+      }
+      return await getMediaFileById(input);
+    }),
+
+  delete: protectedProcedure
+    .input(z.number())
+    .mutation(async ({ input, ctx }) => {
+      if (ctx.user.role !== 'admin') {
+        throw new TRPCError({ code: 'FORBIDDEN' });
+      }
+      return await deleteMediaFile(input);
+    }),
+
+  upload: protectedProcedure
+    .input(z.object({
+      filename: z.string(),
+      s3Key: z.string(),
+      s3Url: z.string(),
+      mimeType: z.string().optional(),
+      fileSize: z.number().optional(),
+    }))
+    .mutation(async ({ input, ctx }) => {
+      if (ctx.user.role !== 'admin') {
+        throw new TRPCError({ code: 'FORBIDDEN' });
+      }
+      return await createMediaFile({
+        ...input,
+        uploadedBy: ctx.user.id,
+      });
+    }),
+});
+
 export const appRouter = router({
   system: systemRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
     logout: publicProcedure.mutation(({ ctx }) => {
       const cookieOptions = getSessionCookieOptions(ctx.req);
-      ctx.res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: -1 });
+      ctx.res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: -1 ,
+  contact: contactRouter,
+  analytics: analyticsRouter,
+  media: mediaRouter,
+});
       return {
         success: true,
       } as const;

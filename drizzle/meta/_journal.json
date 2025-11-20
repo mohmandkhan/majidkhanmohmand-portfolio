@@ -15,6 +15,13 @@
       "when": 1763608390905,
       "tag": "0001_common_wallow",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1763627653999,
+      "tag": "0002_pretty_eternals",
+      "breakpoints": true
     }
   ]
 }

@@ -537,3 +537,133 @@ export async function getActivityLogs(limit: number = 50) {
   if (!db) return [];
   return db.select().from(activityLogs).orderBy(desc(activityLogs.createdAt)).limit(limit);
 }
+
+// ============================================================================
+// CONTACT FORM HELPERS
+// ============================================================================
+
+import { contactSubmissions, analyticsEvents, mediaLibrary, InsertContactSubmission, InsertAnalyticsEvent, InsertMediaFile } from '../drizzle/schema';
+import { eq, desc, gte } from 'drizzle-orm';
+import { TRPCError } from '@trpc/server';
+
+export async function createContactSubmission(data: InsertContactSubmission) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  return await db.insert(contactSubmissions).values(data);
+}
+
+export async function getContactSubmissions(limit = 50, offset = 0) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.query.contactSubmissions.findMany({
+    limit,
+    offset,
+    orderBy: (submissions, { desc }) => desc(submissions.createdAt),
+  });
+}
+
+export async function getContactSubmissionById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+  return await db.query.contactSubmissions.findFirst({
+    where: (submissions, { eq }) => eq(submissions.id, id),
+  });
+}
+
+export async function markContactAsRead(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  return await db.update(contactSubmissions)
+    .set({ isRead: true })
+    .where(eq(contactSubmissions.id, id));
+}
+
+export async function replyToContact(id: number, replyMessage: string) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  return await db.update(contactSubmissions)
+    .set({ isReplied: true, replyMessage })
+    .where(eq(contactSubmissions.id, id));
+}
+
+export async function deleteContactSubmission(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  return await db.delete(contactSubmissions)
+    .where(eq(contactSubmissions.id, id));
+}
+
+// ============================================================================
+// ANALYTICS HELPERS
+// ============================================================================
+
+export async function trackAnalyticsEvent(data: InsertAnalyticsEvent) {
+  const db = await getDb();
+  if (!db) return null;
+  return await db.insert(analyticsEvents).values(data);
+}
+
+export async function getAnalyticsStats(days = 30) {
+  const db = await getDb();
+  if (!db) return { totalEvents: 0, pageViews: 0, clicks: 0, formSubmissions: 0, uniqueSessions: 0 };
+  
+  const startDate = new Date();
+  startDate.setDate(startDate.getDate() - days);
+  
+  const events = await db.query.analyticsEvents.findMany({
+    where: (events, { gte }) => gte(events.createdAt, startDate),
+  });
+
+  return {
+    totalEvents: events.length,
+    pageViews: events.filter(e => e.eventType === 'page_view').length,
+    clicks: events.filter(e => e.eventType === 'click').length,
+    formSubmissions: events.filter(e => e.eventType === 'form_submit').length,
+    uniqueSessions: new Set(events.map(e => e.sessionId)).size,
+  };
+}
+
+export async function getAnalyticsEvents(limit = 100, offset = 0) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.query.analyticsEvents.findMany({
+    limit,
+    offset,
+    orderBy: (events, { desc }) => desc(events.createdAt),
+  });
+}
+
+// ============================================================================
+// MEDIA LIBRARY HELPERS
+// ============================================================================
+
+export async function createMediaFile(data: InsertMediaFile) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  return await db.insert(mediaLibrary).values(data);
+}
+
+export async function getMediaFiles(limit = 50, offset = 0) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.query.mediaLibrary.findMany({
+    limit,
+    offset,
+    orderBy: (media, { desc }) => desc(media.createdAt),
+  });
+}
+
+export async function getMediaFileById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+  return await db.query.mediaLibrary.findFirst({
+    where: (media, { eq }) => eq(media.id, id),
+  });
+}
+
+export async function deleteMediaFile(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  return await db.delete(mediaLibrary)
+    .where(eq(mediaLibrary.id, id));
+}

@@ -301,3 +301,66 @@ export const activityLogs = mysqlTable("activity_logs", {
 
 export type ActivityLog = typeof activityLogs.$inferSelect;
 export type InsertActivityLog = typeof activityLogs.$inferInsert;
+
+// ============================================================================
+// CONTACT FORM & ANALYTICS
+// ============================================================================
+
+/**
+ * Contact Form Submissions
+ */
+export const contactSubmissions = mysqlTable("contact_submissions", {
+  id: int("id").primaryKey().autoincrement(),
+  name: varchar("name", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull(),
+  subject: varchar("subject", { length: 255 }).notNull(),
+  message: text("message").notNull(),
+  phone: varchar("phone", { length: 20 }),
+  isRead: boolean("is_read").default(false),
+  isReplied: boolean("is_replied").default(false),
+  replyMessage: text("reply_message"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
+});
+
+export type ContactSubmission = typeof contactSubmissions.$inferSelect;
+export type InsertContactSubmission = typeof contactSubmissions.$inferInsert;
+
+/**
+ * Analytics Events - Track visitor interactions
+ */
+export const analyticsEvents = mysqlTable("analytics_events", {
+  id: int("id").primaryKey().autoincrement(),
+  eventType: varchar("event_type", { length: 100 }).notNull(), // page_view, click, form_submit, etc.
+  eventName: varchar("event_name", { length: 255 }),
+  pagePath: varchar("page_path", { length: 500 }),
+  referrer: varchar("referrer", { length: 500 }),
+  userAgent: text("user_agent"),
+  ipAddress: varchar("ip_address", { length: 45 }),
+  sessionId: varchar("session_id", { length: 100 }),
+  metadata: json("metadata"), // Additional event data
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
+export type AnalyticsEvent = typeof analyticsEvents.$inferSelect;
+export type InsertAnalyticsEvent = typeof analyticsEvents.$inferInsert;
+
+/**
+ * Media Library - Track uploaded images
+ */
+export const mediaLibrary = mysqlTable("media_library", {
+  id: int("id").primaryKey().autoincrement(),
+  filename: varchar("filename", { length: 255 }).notNull(),
+  s3Key: varchar("s3_key", { length: 500 }).notNull().unique(),
+  s3Url: varchar("s3_url", { length: 500 }).notNull(),
+  mimeType: varchar("mime_type", { length: 100 }),
+  fileSize: int("file_size"),
+  width: int("width"),
+  height: int("height"),
+  uploadedBy: int("uploaded_by").references(() => users.id),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
+});
+
+export type MediaFile = typeof mediaLibrary.$inferSelect;
+export type InsertMediaFile = typeof mediaLibrary.$inferInsert;

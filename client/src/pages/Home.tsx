@@ -23,6 +23,12 @@ import {
   Cpu,
   Award as AwardIcon,
   CheckCircle,
+  Database,
+  Cloud,
+  Container,
+  GitBranch,
+  Terminal,
+  Layers,
 } from "lucide-react";
 
 const projects = [
@@ -134,13 +140,47 @@ const experiences = [
 ];
 
 const skills = {
-  "Languages & Frameworks": ["React JS", "Next JS", "HTML5", "CSS3", "JavaScript", "jQuery", "Ajax", "PHP", "C#", "ASP.NET", "NodeJS"],
-  "UI/UX": ["Bootstrap", "React strap", "Ant Design", "Webpack", "Gulp"],
-  "Backend Technologies": ["PHP/MySQL", "C#/SQL Server", "NodeJS/MongoDB", "Oracle 10g/11g/APEX"],
-  "Cloud & DevOps": ["AWS", "Azure", "Docker", "Jenkins", "GitLab", "Ansible", "Nagios", "Red Hat Linux"],
-  "Desktop & CLI": ["Windows Forms", "Java", "Bash Scripting"],
-  "CMS/ERP": ["WordPress", "Odoo"],
-  "SDLC Methodologies": ["Agile", "Scrum", "Kanban", "Extreme Programming (XP)"],
+  "Languages & Frameworks": [
+    { name: "React JS", icon: "⚛️" },
+    { name: "Next JS", icon: "▲" },
+    { name: "HTML5", icon: "🔷" },
+    { name: "CSS3", icon: "🎨" },
+    { name: "JavaScript", icon: "⚡" },
+    { name: "jQuery", icon: "📦" },
+    { name: "PHP", icon: "🐘" },
+    { name: "C#", icon: "🔶" },
+    { name: "NodeJS", icon: "🟢" },
+  ],
+  "UI/UX": [
+    { name: "Bootstrap", icon: "📐" },
+    { name: "Tailwind CSS", icon: "🎯" },
+    { name: "Ant Design", icon: "🐜" },
+    { name: "Webpack", icon: "📦" },
+    { name: "Gulp", icon: "🌊" },
+  ],
+  "Backend Technologies": [
+    { name: "PHP/MySQL", icon: "🗄️" },
+    { name: "C#/SQL Server", icon: "🔷" },
+    { name: "Node.js/MongoDB", icon: "🍃" },
+    { name: "Oracle 10g/11g", icon: "🗄️" },
+  ],
+  "Cloud & DevOps": [
+    { name: "AWS", icon: "☁️" },
+    { name: "Azure", icon: "☁️" },
+    { name: "Docker", icon: "🐳" },
+    { name: "Jenkins", icon: "🔧" },
+    { name: "GitLab", icon: "🔀" },
+    { name: "Ansible", icon: "⚙️" },
+  ],
+  "Desktop & CLI": [
+    { name: "Windows Forms", icon: "🪟" },
+    { name: "Java", icon: "☕" },
+    { name: "Bash Scripting", icon: "💻" },
+  ],
+  "CMS/ERP": [
+    { name: "WordPress", icon: "📝" },
+    { name: "Odoo", icon: "📊" },
+  ],
 };
 
 const certifications = [
@@ -271,13 +311,13 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-6 transition-all duration-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-lg dark:hover:shadow-lg hover:scale-105"
+      className="group relative overflow-hidden rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-6 transition-all duration-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-lg dark:hover:shadow-lg hover:scale-105"
     >
       <div className="flex items-start justify-between">
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-2">
             <Icon className="w-5 h-5 text-gray-700 dark:text-gray-400" />
-            <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <span className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider">
               {project.category}
             </span>
           </div>
@@ -298,7 +338,7 @@ function SocialLink({ social }: { social: (typeof socialLinks)[0] }) {
       href={social.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center justify-center w-12 h-12 rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-gray-900 hover:border-gray-900 dark:hover:border-white transition-all duration-300"
+      className="flex items-center justify-center w-12 h-12 rounded-full border-2 border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-gray-900 hover:border-gray-900 dark:hover:border-white transition-all duration-300"
       title={social.title}
     >
       <Icon className="w-5 h-5" />
@@ -313,7 +353,7 @@ function SimpleCard({ item }: { item: { title: string; url: string; logo?: strin
       href={item.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-3 transition-all duration-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-md dark:hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800"
+      className="group flex items-center gap-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-3 transition-all duration-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-md dark:hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800"
     >
       {item.logo ? (
         <img src={item.logo} alt={item.title} className="w-5 h-5 object-contain" />
@@ -334,7 +374,7 @@ function CompanyCard({ company }: { company: (typeof companies)[0] }) {
       href={company.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col items-center gap-3 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-6 transition-all duration-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-md dark:hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800"
+      className="group flex flex-col items-center gap-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 p-6 transition-all duration-300 hover:border-gray-400 dark:hover:border-gray-600 hover:shadow-md dark:hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-800"
     >
       {company.logo ? (
         <img src={company.logo} alt={company.title} className="w-16 h-16 object-contain" />
@@ -357,7 +397,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 transition-colors duration-300">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-950/95 backdrop-blur-sm transition-colors duration-300">
+      <nav className="sticky top-0 z-50 border-b border-gray-300 dark:border-gray-800 bg-white/95 dark:bg-gray-950/95 backdrop-blur-sm transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
           <div className="text-2xl font-bold text-gray-900 dark:text-white">MKM</div>
           <div className="flex gap-2 items-center">
@@ -396,63 +436,63 @@ export default function Home() {
       </nav>
 
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
-        {/* Animated Hero Section */}
-        <section className="mb-20 hero-background relative py-20 sm:py-32 lg:py-40">
-          <div className="hero-content text-center">
-            {/* Animated Title */}
+        {/* Hero Section - Simplified Black & White */}
+        <section className="mb-20 relative py-20 sm:py-32 lg:py-40">
+          <div className="text-center">
+            {/* Title */}
             <div className="mb-6 animate-fade-in-up">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-4">
-                <span className="glow-text inline-block">Majid Khan Mohmand</span>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white">
+                Majid Khan Mohmand
               </h1>
             </div>
 
-            {/* Animated Subtitle with Gradient */}
+            {/* Subtitle */}
             <div className="mb-8 animate-fade-in-up delay-200">
-              <p className="text-xl sm:text-2xl font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 bg-clip-text text-transparent animate-gradient mb-4">
+              <p className="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
                 Full Stack Developer • AI Enthusiast • Content Creator • Entrepreneur
               </p>
             </div>
 
-            {/* Animated Description */}
+            {/* Description */}
             <div className="mb-12 animate-fade-in-up delay-300">
               <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
                 Programming, Travel, Games, Fun, Learning, Entertainment, and Experiences
               </p>
             </div>
 
-            {/* Animated CTA Buttons */}
+            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-400">
               <a
                 href="#projects"
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105 animate-pulse-scale"
+                className="px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105"
               >
                 View My Work
               </a>
               <a
                 href="#hire"
-                className="px-8 py-3 border-2 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white font-semibold rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 hover:scale-105"
+                className="px-8 py-3 border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white font-semibold rounded-lg hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-gray-900 transition-all duration-300 hover:scale-105"
               >
                 Hire Me
               </a>
             </div>
 
-            {/* Floating Icons */}
+            {/* Floating Icons - Minimal */}
             <div className="mt-16 flex justify-center gap-8 flex-wrap animate-fade-in-up delay-500">
               <div className="floating-element text-center">
-                <div className="w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mx-auto mb-2">
-                  <Code2 className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                <div className="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center mx-auto mb-2">
+                  <Code2 className="w-8 h-8 text-gray-900 dark:text-gray-100" />
                 </div>
                 <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">Development</p>
               </div>
               <div className="floating-element text-center" style={{ animationDelay: '0.2s' }}>
-                <div className="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center mx-auto mb-2">
-                  <Cpu className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+                <div className="w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center mx-auto mb-2">
+                  <Cloud className="w-8 h-8 text-gray-900 dark:text-gray-100" />
                 </div>
-                <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">AI & Cloud</p>
+                <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">Cloud & AI</p>
               </div>
               <div className="floating-element text-center" style={{ animationDelay: '0.4s' }}>
-                <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-2">
-                  <Zap className="w-8 h-8 text-green-600 dark:text-green-400" />
+                <div className="w-16 h-16 rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center mx-auto mb-2">
+                  <Zap className="w-8 h-8 text-yellow-600 dark:text-yellow-400" />
                 </div>
                 <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">Innovation</p>
               </div>
@@ -463,7 +503,7 @@ export default function Home() {
         {/* About Section */}
         <section className="mb-20">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">About Me</h2>
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+          <div className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg p-6 sm:p-8">
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
               I am a passionate Full Stack Web Developer and Cloud Architect with extensive experience in building scalable applications. Currently pursuing a Master's degree in Data Science and Business Informatics from Università di Pisa, I combine technical expertise with business acumen to deliver innovative solutions.
             </p>
@@ -477,7 +517,7 @@ export default function Home() {
         <section className="mb-20">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">Education</h2>
           <div className="space-y-4">
-            <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+            <div className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg p-6 sm:p-8">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
                   <BookOpen className="w-8 h-8 text-gray-700 dark:text-gray-400 mt-1" />
@@ -495,7 +535,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+            <div className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg p-6 sm:p-8">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
                   <BookOpen className="w-8 h-8 text-gray-700 dark:text-gray-400 mt-1" />
@@ -513,7 +553,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+            <div className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg p-6 sm:p-8">
               <div className="flex items-start gap-4">
                 <div className="flex-shrink-0">
                   <BookOpen className="w-8 h-8 text-gray-700 dark:text-gray-400 mt-1" />
@@ -539,7 +579,7 @@ export default function Home() {
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">Professional Experience</h2>
           <div className="space-y-4">
             {experiences.map((exp, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+              <div key={idx} className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg p-6 sm:p-8">
                 <div className="flex items-start justify-between mb-3 gap-4">
                   <div className="flex items-start gap-4 flex-1">
                     {exp.logo ? (
@@ -559,7 +599,7 @@ export default function Home() {
                 <p className="text-gray-700 dark:text-gray-300 mb-4">{exp.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech, i) => (
-                    <span key={i} className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full">
+                    <span key={i} className="text-xs bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700">
                       {tech}
                     </span>
                   ))}
@@ -574,15 +614,16 @@ export default function Home() {
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">Technical Skills & Tools</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {Object.entries(skills).map(([category, skillList]) => (
-              <div key={category} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+              <div key={category} className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg p-6">
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
                   <Cpu className="w-5 h-5" />
                   {category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {skillList.map((skill, idx) => (
-                    <span key={idx} className="text-sm bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full">
-                      {skill}
+                    <span key={idx} className="text-sm bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700 flex items-center gap-1">
+                      <span>{skill.icon}</span>
+                      {skill.name}
                     </span>
                   ))}
                 </div>
@@ -596,8 +637,8 @@ export default function Home() {
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-8">Certifications</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {certifications.map((cert, idx) => (
-              <div key={idx} className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-6 flex items-start gap-4">
-                <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-1" />
+              <div key={idx} className="bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-lg p-6 flex items-start gap-4">
+                <CheckCircle className="w-6 h-6 text-gray-700 dark:text-gray-400 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-bold text-gray-900 dark:text-white">{cert.title}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400">{cert.issuer}</p>
@@ -669,7 +710,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 mt-20 transition-colors duration-300">
+      <footer className="border-t border-gray-300 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 mt-20 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center text-gray-600 dark:text-gray-400">
           <p className="mb-4">
             © 2024 Majid Khan Mohmand. All rights reserved.

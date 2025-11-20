@@ -79,3 +79,13 @@
 - [x] Update company cards to display logos
 - [x] Update experience section to show company logos
 - [x] Ensure logos display properly in light and dark modes
+
+
+## Design Refinement - Black & White with Yellow Accents
+- [x] Simplify hero section to pure black and white with minimal yellow
+- [x] Remove colorful gradients from hero text
+- [x] Add technology stack icons (AWS, React, Node.js, Docker, etc.)
+- [x] Add icons for all skills and tools
+- [x] Add icons for technologies in experience section
+- [x] Add icons for project categories
+- [x] Ensure consistent black/white/yellow color scheme throughout

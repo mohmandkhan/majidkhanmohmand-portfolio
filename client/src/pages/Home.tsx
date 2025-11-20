@@ -176,7 +176,7 @@ export default function Home() {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl font-bold mb-8">About Me</h2>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {about.description}
+              {about.content}
             </p>
           </div>
         </section>
@@ -196,9 +196,9 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="bg-card border border-border rounded-lg p-6 hover:border-accent transition-colors group"
                 >
-                  <div className="text-3xl mb-4">{option.icon || "💼"}</div>
+                  <div className="text-3xl mb-4">{option.iconType || "💼"}</div>
                   <h3 className="text-xl font-semibold group-hover:text-accent transition-colors">
-                    {option.platform}
+                    {option.title}
                   </h3>
                   {option.description && (
                     <p className="text-sm text-muted-foreground mt-2">
@@ -304,7 +304,7 @@ export default function Home() {
                   )}
                   {edu.endDate && (
                     <p className="text-sm text-muted-foreground mt-2">
-                      Graduated: {edu.endDate}
+                      Graduated: {new Date(edu.endDate).toLocaleDateString()}
                     </p>
                   )}
                 </div>
@@ -405,7 +405,7 @@ export default function Home() {
                     </p>
                   )}
                   <p className="text-xs text-muted-foreground mt-4">
-                    📖 Read on {blog.platform}
+                    📖 Read on {blog.title}
                   </p>
                 </a>
               ))}
@@ -541,9 +541,9 @@ export default function Home() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 flex items-center justify-center bg-card border border-border rounded-full hover:border-accent hover:bg-accent/10 transition-colors"
-                  title={link.platform}
+                  title={link.title}
                 >
-                  <span className="text-xl">{link.icon || "🔗"}</span>
+                  <span className="text-xl">{link.iconType || "🔗"}</span>
                 </a>
               ))}
             </div>

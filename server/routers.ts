@@ -58,10 +58,6 @@ import {
   trackAnalyticsEvent,
   getAnalyticsStats,
   getAnalyticsEvents,
-  createMediaFile,
-  getMediaFiles,
-  getMediaFileById,
-  deleteMediaFile,
   getHireOptions,
   createHireOption,
   updateHireOption,
@@ -342,59 +338,7 @@ const analyticsRouter = router({
     }),
 });
 
-// ============================================================================
-// MEDIA ROUTER
-// ============================================================================
 
-const mediaRouter = router({
-  list: protectedProcedure
-    .input(z.object({
-      limit: z.number().default(50),
-      offset: z.number().default(0),
-    }))
-    .query(async ({ input, ctx }) => {
-      if (ctx.user.role !== 'admin') {
-        throw new TRPCError({ code: 'FORBIDDEN' });
-      }
-      return await getMediaFiles(input.limit, input.offset);
-    }),
-
-  getById: protectedProcedure
-    .input(z.number())
-    .query(async ({ input, ctx }) => {
-      if (ctx.user.role !== 'admin') {
-        throw new TRPCError({ code: 'FORBIDDEN' });
-      }
-      return await getMediaFileById(input);
-    }),
-
-  delete: protectedProcedure
-    .input(z.number())
-    .mutation(async ({ input, ctx }) => {
-      if (ctx.user.role !== 'admin') {
-        throw new TRPCError({ code: 'FORBIDDEN' });
-      }
-      return await deleteMediaFile(input);
-    }),
-
-  upload: protectedProcedure
-    .input(z.object({
-      filename: z.string(),
-      s3Key: z.string(),
-      s3Url: z.string(),
-      mimeType: z.string().optional(),
-      fileSize: z.number().optional(),
-    }))
-    .mutation(async ({ input, ctx }) => {
-      if (ctx.user.role !== 'admin') {
-        throw new TRPCError({ code: 'FORBIDDEN' });
-      }
-      return await createMediaFile({
-        ...input,
-        uploadedBy: ctx.user.id,
-      });
-    }),
-});
 
 export const appRouter = router({
   system: systemRouter,
@@ -402,11 +346,7 @@ export const appRouter = router({
     me: publicProcedure.query(opts => opts.ctx.user),
     logout: publicProcedure.mutation(({ ctx }) => {
       const cookieOptions = getSessionCookieOptions(ctx.req);
-      ctx.res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: -1 ,
-  contact: contactRouter,
-  analytics: analyticsRouter,
-  media: mediaRouter,
-});
+      ctx.res.clearCookie(COOKIE_NAME, { ...cookieOptions, maxAge: -1 });
       return {
         success: true,
       } as const;

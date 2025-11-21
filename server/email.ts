@@ -80,3 +80,39 @@ export async function sendAdminNotificationEmail(data: ContactEmailData) {
     throw error;
   }
 }
+
+
+/**
+ * Send reply email to user
+ */
+export async function sendReplyEmail(data: {
+  name: string;
+  email: string;
+  subject: string;
+  replyMessage: string;
+}) {
+  try {
+    const result = await resend.emails.send({
+      from: 'noreply@majidkhanmohmand.com',
+      to: data.email,
+      subject: `Re: ${data.subject}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2>Reply to Your Message</h2>
+          <p>Hi ${data.name},</p>
+          
+          <div style="background-color: #f5f5f5; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <p>${data.replyMessage.replace(/\n/g, '<br>')}</p>
+          </div>
+          
+          <p>Best regards,<br>Majid Khan Mohmand</p>
+        </div>
+      `,
+    });
+
+    return result;
+  } catch (error) {
+    console.error('Failed to send reply email:', error);
+    throw error;
+  }
+}

@@ -32,6 +32,7 @@ interface AdminLayoutProps {
 const adminMenuItems = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { label: "Analytics", href: "/admin/analytics", icon: BarChart3 },
+  { label: "Contact Submissions", href: "/admin/contact", icon: MessageCircle },
   { label: "Media Library", href: "/admin/media", icon: FileText },
   { label: "Hero Section", href: "/admin/hero", icon: Zap },
   { label: "About Section", href: "/admin/about", icon: FileText },

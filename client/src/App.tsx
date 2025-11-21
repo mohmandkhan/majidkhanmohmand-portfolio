@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Search from "./pages/Search";
 
 // Admin Pages
 import AdminDashboard from "./pages/admin/Dashboard";
@@ -26,18 +27,21 @@ import {
   AboutSectionEditor,
   SiteSettingsEditor,
 } from "./pages/admin/SectionEditors";
-import { AnalyticsDashboard } from "./pages/admin/AnalyticsDashboard";
+import { EnhancedAnalytics } from "./pages/admin/EnhancedAnalytics";
 import { MediaLibrary } from "./pages/admin/MediaLibrary";
+import { ContactSubmissions } from "./pages/admin/ContactSubmissions";
 
 function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/search"} component={Search} />
 
       {/* Admin Routes */}
       <Route path={"/admin"} component={AdminDashboard} />
-      <Route path={"/admin/analytics"} component={AnalyticsDashboard} />
+      <Route path={"/admin/analytics"} component={EnhancedAnalytics} />
       <Route path={"/admin/media"} component={MediaLibrary} />
+      <Route path={"/admin/contact"} component={ContactSubmissions} />
       <Route path={"/admin/projects"} component={ProjectsManager} />
       <Route path={"/admin/experiences"} component={ExperiencesManager} />
       <Route path={"/admin/skills"} component={SkillsManager} />

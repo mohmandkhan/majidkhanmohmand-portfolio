@@ -306,6 +306,29 @@ const contactRouter = router({
       }
       return await deleteContactSubmission(input);
     }),
+
+  reply: protectedProcedure
+    .input(z.object({
+      id: z.number(),
+      replyMessage: z.string().min(5),
+    }))
+    .mutation(async ({ input, ctx }) => {
+      if (ctx.user.role !== 'admin') {
+        throw new TRPCError({ code: 'FORBIDDEN' });
+      }
+      try {
+        const submission = await getContactSubmissionById(input.id);
+        if (!submission) {
+          throw new TRPCError({ code: 'NOT_FOUND', message: 'Submission not found' });
+        }
+        return await replyToContact(input.id, input.replyMessage);
+      } catch (error) {
+        throw new TRPCError({
+          code: 'INTERNAL_SERVER_ERROR',
+          message: 'Failed to send reply',
+        });
+      }
+    }),
 });
 
 // ============================================================================

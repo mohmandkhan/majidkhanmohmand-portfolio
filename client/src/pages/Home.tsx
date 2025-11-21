@@ -2,6 +2,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 import { trpc } from "@/lib/trpc";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useState } from "react";
+import ContactForm from "@/components/ContactForm";
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
@@ -550,6 +551,9 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* Contact Form */}
+      <ContactForm />
 
       {/* Footer */}
       <footer className="py-8 px-4 border-t border-border text-center text-muted-foreground">

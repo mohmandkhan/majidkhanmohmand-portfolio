@@ -26,6 +26,8 @@ import {
   AboutSectionEditor,
   SiteSettingsEditor,
 } from "./pages/admin/SectionEditors";
+import { AnalyticsDashboard } from "./pages/admin/AnalyticsDashboard";
+import { MediaLibrary } from "./pages/admin/MediaLibrary";
 
 function Router() {
   return (
@@ -34,6 +36,8 @@ function Router() {
 
       {/* Admin Routes */}
       <Route path={"/admin"} component={AdminDashboard} />
+      <Route path={"/admin/analytics"} component={AnalyticsDashboard} />
+      <Route path={"/admin/media"} component={MediaLibrary} />
       <Route path={"/admin/projects"} component={ProjectsManager} />
       <Route path={"/admin/experiences"} component={ExperiencesManager} />
       <Route path={"/admin/skills"} component={SkillsManager} />

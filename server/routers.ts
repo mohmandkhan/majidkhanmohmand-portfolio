@@ -239,7 +239,20 @@ const contactRouter = router({
     }))
     .mutation(async ({ input }) => {
       try {
+        const { sendContactConfirmationEmail, sendAdminNotificationEmail } = await import('./email');
         const result = await createContactSubmission(input);
+        await sendContactConfirmationEmail({
+          name: input.name,
+          email: input.email,
+          subject: input.subject,
+          message: input.message,
+        }).catch(err => console.error('Failed to send confirmation email:', err));
+        await sendAdminNotificationEmail({
+          name: input.name,
+          email: input.email,
+          subject: input.subject,
+          message: input.message,
+        }).catch(err => console.error('Failed to send admin notification:', err));
         await trackAnalyticsEvent({
           eventType: 'form_submit',
           eventName: 'contact_form_submitted',

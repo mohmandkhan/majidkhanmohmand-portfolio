@@ -364,3 +364,128 @@ export const mediaLibrary = mysqlTable("media_library", {
 
 export type MediaFile = typeof mediaLibrary.$inferSelect;
 export type InsertMediaFile = typeof mediaLibrary.$inferInsert;
+
+
+// ============================================================================
+// NO-CODE ADMIN SYSTEM - THEMES, SECTIONS, NAVIGATION
+// ============================================================================
+
+/**
+ * Themes - Pre-built and custom themes
+ */
+export const themes = mysqlTable("themes", {
+  id: int("id").primaryKey().autoincrement(),
+  name: varchar("name", { length: 100 }).notNull().unique(),
+  displayName: varchar("display_name", { length: 100 }).notNull(),
+  description: text("description"),
+  isPrebuilt: boolean("is_prebuilt").default(true),
+  colors: json("colors").notNull(), // { primary, accent, background, foreground, etc. }
+  typography: json("typography"), // { fontFamily, headingSize, bodySize, etc. }
+  layout: json("layout"), // { sectionLayout, cardStyle, etc. }
+  thumbnail: varchar("thumbnail", { length: 500 }), // URL to theme preview image
+  isActive: boolean("is_active").default(false),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
+});
+export type Theme = typeof themes.$inferSelect;
+export type InsertTheme = typeof themes.$inferInsert;
+
+/**
+ * Section Settings - Control visibility and order of sections
+ */
+export const sectionSettings = mysqlTable("section_settings", {
+  id: int("id").primaryKey().autoincrement(),
+  sectionName: varchar("section_name", { length: 100 }).notNull().unique(), // "hero", "about", "projects", etc.
+  displayName: varchar("display_name", { length: 100 }).notNull(),
+  isVisible: boolean("is_visible").default(true),
+  displayOrder: int("display_order").default(0),
+  layoutTemplate: varchar("layout_template", { length: 50 }).default("default"), // "grid", "list", "card", "minimal"
+  customTitle: varchar("custom_title", { length: 255 }),
+  customDescription: text("custom_description"),
+  backgroundColor: varchar("background_color", { length: 50 }),
+  textColor: varchar("text_color", { length: 50 }),
+  metadata: json("metadata"), // Additional section-specific settings
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
+});
+export type SectionSetting = typeof sectionSettings.$inferSelect;
+export type InsertSectionSetting = typeof sectionSettings.$inferInsert;
+
+/**
+ * Navigation Items - Dynamic navigation menu
+ */
+export const navigationItems = mysqlTable("navigation_items", {
+  id: int("id").primaryKey().autoincrement(),
+  label: varchar("label", { length: 100 }).notNull(),
+  href: varchar("href", { length: 500 }).notNull(),
+  displayOrder: int("display_order").default(0),
+  isVisible: boolean("is_visible").default(true),
+  icon: varchar("icon", { length: 100 }), // Icon name or emoji
+  target: varchar("target", { length: 20 }).default("_self"), // "_self" or "_blank"
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
+});
+export type NavigationItem = typeof navigationItems.$inferSelect;
+export type InsertNavigationItem = typeof navigationItems.$inferInsert;
+
+/**
+ * Typography Settings - Global font and text settings
+ */
+export const typographySettings = mysqlTable("typography_settings", {
+  id: int("id").primaryKey().autoincrement(),
+  headingFontFamily: varchar("heading_font_family", { length: 100 }).default("Sora"),
+  bodyFontFamily: varchar("body_font_family", { length: 100 }).default("Sora"),
+  headingFontSize: varchar("heading_font_size", { length: 50 }).default("3rem"),
+  subheadingFontSize: varchar("subheading_font_size", { length: 50 }).default("1.875rem"),
+  bodyFontSize: varchar("body_font_size", { length: 50 }).default("1rem"),
+  smallFontSize: varchar("small_font_size", { length: 50 }).default("0.875rem"),
+  headingFontWeight: varchar("heading_font_weight", { length: 50 }).default("700"),
+  bodyFontWeight: varchar("body_font_weight", { length: 50 }).default("400"),
+  lineHeight: varchar("line_height", { length: 50 }).default("1.6"),
+  letterSpacing: varchar("letter_spacing", { length: 50 }).default("0"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
+});
+export type TypographySetting = typeof typographySettings.$inferSelect;
+export type InsertTypographySetting = typeof typographySettings.$inferInsert;
+
+/**
+ * Color Palette - Custom color schemes
+ */
+export const colorPalettes = mysqlTable("color_palettes", {
+  id: int("id").primaryKey().autoincrement(),
+  name: varchar("name", { length: 100 }).notNull().unique(),
+  primaryColor: varchar("primary_color", { length: 50 }).notNull(),
+  accentColor: varchar("accent_color", { length: 50 }).notNull(),
+  backgroundColor: varchar("background_color", { length: 50 }).notNull(),
+  foregroundColor: varchar("foreground_color", { length: 50 }).notNull(),
+  cardBackgroundColor: varchar("card_background_color", { length: 50 }).notNull(),
+  borderColor: varchar("border_color", { length: 50 }).notNull(),
+  successColor: varchar("success_color", { length: 50 }).default("#10B981"),
+  warningColor: varchar("warning_color", { length: 50 }).default("#F59E0B"),
+  errorColor: varchar("error_color", { length: 50 }).default("#EF4444"),
+  isActive: boolean("is_active").default(false),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
+});
+export type ColorPalette = typeof colorPalettes.$inferSelect;
+export type InsertColorPalette = typeof colorPalettes.$inferInsert;
+
+/**
+ * Layout Templates - Different layout options for sections
+ */
+export const layoutTemplates = mysqlTable("layout_templates", {
+  id: int("id").primaryKey().autoincrement(),
+  name: varchar("name", { length: 100 }).notNull().unique(),
+  displayName: varchar("display_name", { length: 100 }).notNull(),
+  description: text("description"),
+  gridColumns: int("grid_columns").default(3),
+  cardStyle: varchar("card_style", { length: 50 }).default("elevated"), // "elevated", "outlined", "filled"
+  spacing: varchar("spacing", { length: 50 }).default("medium"), // "compact", "medium", "spacious"
+  alignment: varchar("alignment", { length: 50 }).default("center"), // "left", "center", "right"
+  metadata: json("metadata"), // Additional layout settings
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow().onUpdateNow(),
+});
+export type LayoutTemplate = typeof layoutTemplates.$inferSelect;
+export type InsertLayoutTemplate = typeof layoutTemplates.$inferInsert;

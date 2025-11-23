@@ -26,6 +26,16 @@ import {
   User,
   Target,
   Sparkles,
+  MessageCircle,
+  Layers,
+  Laptop,
+  Lightbulb,
+  Rocket,
+  TrendingUp,
+  DollarSign,
+  Smartphone,
+  Radio,
+  Network,
 } from "lucide-react";
 import { useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
@@ -232,7 +242,12 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="bg-card border border-border rounded-lg p-6 hover:border-accent transition-colors group"
                 >
-                  <div className="text-3xl mb-4">{option.iconType || "💼"}</div>
+                  <div className="text-accent mb-4">
+                    {option.title.toLowerCase().includes('whatsapp') && <MessageCircle className="w-8 h-8" />}
+                    {option.title.toLowerCase().includes('fiverr') && <Briefcase className="w-8 h-8" />}
+                    {option.title.toLowerCase().includes('upwork') && <Layers className="w-8 h-8" />}
+                    {!option.title.toLowerCase().includes('whatsapp') && !option.title.toLowerCase().includes('fiverr') && !option.title.toLowerCase().includes('upwork') && <Briefcase className="w-8 h-8" />}
+                  </div>
                   <h3 className="text-xl font-semibold group-hover:text-accent transition-colors">
                     {option.title}
                   </h3>
@@ -263,18 +278,21 @@ export default function Home() {
                   className="border-l-4 border-accent pl-6 pb-6"
                 >
                   <div className="flex items-start justify-between gap-4 mb-2">
-                    <div>
-                      <h3 className="text-2xl font-semibold">{exp.title}</h3>
-                      <p className="text-accent font-medium">{exp.company}</p>
+                    <div className="flex items-start gap-3 flex-1">
+                      <Laptop className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
+                      <div>
+                        <h3 className="text-2xl font-semibold">{exp.title}</h3>
+                        <p className="text-accent font-medium">{exp.company}</p>
+                      </div>
                     </div>
                   </div>
                   {exp.location && (
-                    <p className="text-sm text-muted-foreground">
-                      📍 {exp.location}
+                    <p className="text-sm text-muted-foreground ml-9">
+                      <MapPin className="w-4 h-4 inline mr-1" />{exp.location}
                     </p>
                   )}
                   {exp.description && (
-                    <p className="text-muted-foreground mt-2">
+                    <p className="text-muted-foreground mt-2 ml-9">
                       {exp.description}
                     </p>
                   )}
@@ -342,16 +360,22 @@ export default function Home() {
                   key={edu.id}
                   className="bg-background border border-border rounded-lg p-6"
                 >
-                  <h3 className="text-xl font-semibold">{edu.degree}</h3>
-                  <p className="text-accent">{edu.institution}</p>
-                  {edu.fieldOfStudy && (
-                    <p className="text-muted-foreground">{edu.fieldOfStudy}</p>
-                  )}
-                  {edu.endDate && (
-                    <p className="text-sm text-muted-foreground mt-2">
-                      Graduated: {new Date(edu.endDate).toLocaleDateString()}
-                    </p>
-                  )}
+                  <div className="flex items-start gap-3">
+                    <BookOpen className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <h3 className="text-xl font-semibold">{edu.degree}</h3>
+                      <p className="text-accent">{edu.institution}</p>
+                      {edu.fieldOfStudy && (
+                        <p className="text-muted-foreground">{edu.fieldOfStudy}</p>
+                      )}
+                      {edu.endDate && (
+                        <p className="text-sm text-muted-foreground mt-2">
+                          <Calendar className="w-4 h-4 inline mr-1" />
+                          Graduated: {new Date(edu.endDate).toLocaleDateString()}
+                        </p>
+                      )}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -373,13 +397,19 @@ export default function Home() {
                   key={cert.id}
                   className="bg-card border border-border rounded-lg p-6"
                 >
-                  <h3 className="text-lg font-semibold">{cert.title}</h3>
-                  <p className="text-accent text-sm">{cert.issuer}</p>
-                  {cert.issueDate && (
-                    <p className="text-xs text-muted-foreground mt-2">
-                      Issued: {new Date(cert.issueDate).toLocaleDateString()}
-                    </p>
-                  )}
+                  <div className="flex items-start gap-3">
+                    <Award className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold">{cert.title}</h3>
+                      <p className="text-accent text-sm">{cert.issuer}</p>
+                      {cert.issueDate && (
+                        <p className="text-xs text-muted-foreground mt-2">
+                          <Calendar className="w-3 h-3 inline mr-1" />
+                          Issued: {new Date(cert.issueDate).toLocaleDateString()}
+                        </p>
+                      )}
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -412,9 +442,12 @@ export default function Home() {
                     />
                   )}
                   <div className="p-6">
-                    <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">
-                      {project.title}
-                    </h3>
+                    <div className="flex items-start gap-2 mb-2">
+                      <Lightbulb className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                      <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">
+                        {project.title}
+                      </h3>
+                    </div>
                     {project.description && (
                       <p className="text-sm text-muted-foreground mt-2">
                         {project.description}
@@ -450,16 +483,20 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="bg-card border border-border rounded-lg p-6 hover:border-accent transition-colors group"
                 >
-                  <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">
-                    {blog.title}
-                  </h3>
+                  <div className="flex items-start gap-2 mb-2">
+                    <Radio className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                    <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">
+                      {blog.title}
+                    </h3>
+                  </div>
                   {blog.description && (
                     <p className="text-sm text-muted-foreground mt-2">
                       {blog.description}
                     </p>
                   )}
                   <p className="text-xs text-muted-foreground mt-4">
-                    📖 Read on {blog.title}
+                    <ExternalLink className="w-3 h-3 inline mr-1" />
+                    Read on {blog.title}
                   </p>
                 </a>
               ))}
@@ -485,12 +522,14 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="bg-background border border-border rounded-lg p-8 hover:border-accent transition-colors group text-center"
                 >
-                  {company.logoUrl && (
+                  {company.logoUrl ? (
                     <img
                       src={company.logoUrl}
                       alt={company.name}
                       className="w-24 h-24 mx-auto mb-4 object-contain"
                     />
+                  ) : (
+                    <Building2 className="w-12 h-12 mx-auto mb-4 text-accent" />
                   )}
                   <h3 className="text-xl font-semibold group-hover:text-accent transition-colors">
                     {company.name}
@@ -522,7 +561,10 @@ export default function Home() {
             </div>
             {Object.entries(channelsByCategory).map(([category, categoryChannels]) => (
               <div key={category} className="mb-12">
-                <h3 className="text-2xl font-semibold mb-6">{category}</h3>
+                <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
+                  <Smartphone className="w-6 h-6 text-accent" />
+                  {category}
+                </h3>
                 <div className="grid md:grid-cols-3 gap-4">
                   {categoryChannels.map((channel) => (
                     <a
@@ -532,9 +574,9 @@ export default function Home() {
                       rel="noopener noreferrer"
                       className="bg-card border border-border rounded-lg p-4 hover:border-accent transition-colors group"
                     >
-                      <div className="flex items-center gap-3">
-                        <span className="text-2xl">{channel.flagEmoji || "💬"}</span>
-                        <div>
+                      <div className="flex items-start gap-3">
+                        <MessageCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                        <div className="flex-1">
                           <h4 className="font-semibold group-hover:text-accent transition-colors">
                             {channel.title}
                           </h4>
@@ -571,9 +613,12 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="bg-background border border-border rounded-lg p-6 hover:border-accent transition-colors group"
                 >
-                  <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">
-                    {referral.title}
-                  </h3>
+                  <div className="flex items-start gap-3 mb-2">
+                    <DollarSign className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
+                    <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">
+                      {referral.title}
+                    </h3>
+                  </div>
                   {referral.description && (
                     <p className="text-muted-foreground mt-2">
                       {referral.description}
@@ -581,7 +626,8 @@ export default function Home() {
                   )}
                   {referral.benefit && (
                     <p className="text-sm text-accent font-semibold mt-4">
-                      💰 {referral.benefit}
+                      <TrendingUp className="w-4 h-4 inline mr-1" />
+                      {referral.benefit}
                     </p>
                   )}
                 </a>
@@ -600,18 +646,29 @@ export default function Home() {
               <h2 className="text-4xl font-bold text-center">Connect With Me</h2>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
-              {socialLinks.map((link) => (
+              {socialLinks.map((link) => {
+                const getSocialIcon = (title: string | undefined) => {
+                  if (!title) return <Globe className="w-5 h-5" />;
+                  const lowerTitle = title.toLowerCase();
+                  if (lowerTitle.includes('github')) return <Github className="w-5 h-5" />;
+                  if (lowerTitle.includes('linkedin')) return <Linkedin className="w-5 h-5" />;
+                  if (lowerTitle.includes('twitter')) return <Twitter className="w-5 h-5" />;
+                  if (lowerTitle.includes('mail') || lowerTitle.includes('email')) return <Mail className="w-5 h-5" />;
+                  return <Globe className="w-5 h-5" />;
+                };
+                return (
                 <a
                   key={link.id}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center bg-card border border-border rounded-full hover:border-accent hover:bg-accent/10 transition-colors"
-                  title={link.title}
+                  className="w-12 h-12 flex items-center justify-center bg-card border border-border rounded-full hover:border-accent hover:bg-accent/10 transition-colors text-accent"
+                  title={link.title || 'Social Link'}
                 >
-                  <span className="text-xl">{link.iconType || "🔗"}</span>
+                  {getSocialIcon(link.title)}
                 </a>
-              ))}
+              );
+              })}
             </div>
           </div>
         </section>

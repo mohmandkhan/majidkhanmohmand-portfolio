@@ -423,3 +423,15 @@ The portfolio landing page is fully functional and ready for deployment:
 - [x] Add channel type icons
 - [x] Add social media icons
 - [x] Enhance visual hierarchy with icons throughout
+
+
+## Icon & Text Contrast Improvements (URGENT)
+
+- [ ] Add proper icons to hire options (WhatsApp, Fiverr, Upwork)
+- [ ] Add company icons to experience items
+- [ ] Add degree icons to education items  
+- [ ] Add issuer logos to certifications
+- [ ] Add proper icons to channel categories
+- [ ] Fix text contrast - improve visibility of small text
+- [ ] Improve muted-foreground color for dark theme readability
+- [ ] Add icons to all content items (projects, blogs, referrals)

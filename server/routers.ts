@@ -1,6 +1,7 @@
 import { COOKIE_NAME } from "@shared/const";
 import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
+import { noCodeRouter } from "./routers/no-code";
 import { publicProcedure, router, protectedProcedure } from "./_core/trpc";
 import { z } from "zod";
 import { TRPCError } from "@trpc/server";
@@ -611,6 +612,9 @@ export const appRouter = router({
       .input(z.object({ limit: z.number().optional() }))
       .query(({ input }) => getActivityLogs(input.limit)),
   }),
+
+  // NO-CODE ADMIN SYSTEM
+  noCode: noCodeRouter,
 });
 
 export type AppRouter = typeof appRouter;

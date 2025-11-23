@@ -1,8 +1,36 @@
-import { useTheme } from "@/contexts/ThemeContext";
 import { trpc } from "@/lib/trpc";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import {
+  Menu,
+  X,
+  Sun,
+  Moon,
+  Code2,
+  Briefcase,
+  BookOpen,
+  Award,
+  Zap,
+  Globe,
+  MessageSquare,
+  Gift,
+  Share2,
+  Building2,
+  Users,
+  FileText,
+  ExternalLink,
+  Github,
+  Linkedin,
+  Twitter,
+  Mail,
+  MapPin,
+  Calendar,
+  User,
+  Target,
+  Sparkles,
+} from "lucide-react";
 import { useState } from "react";
+import { useTheme } from "@/contexts/ThemeContext";
 import ContactForm from "@/components/ContactForm";
+import HexagonalBackground from "@/components/HexagonalBackground";
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
@@ -128,6 +156,7 @@ export default function Home() {
       {/* Hero Section */}
       {hero && (
         <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+          <HexagonalBackground />
           <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/5 opacity-50" />
           <div className="relative z-10 text-center max-w-4xl mx-auto">
             <div className="animate-in fade-in duration-1000">
@@ -175,7 +204,10 @@ export default function Home() {
       {about && (
         <section className="py-20 px-4 bg-card/50">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-8">About Me</h2>
+            <div className="flex items-center gap-3 mb-8">
+              <User className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">About Me</h2>
+            </div>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {about.content}
             </p>
@@ -187,7 +219,10 @@ export default function Home() {
       {hireOptions.length > 0 && (
         <section id="hire" className="py-20 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12">Hire Me</h2>
+            <div className="flex items-center gap-3 mb-12">
+              <Target className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">Hire Me</h2>
+            </div>
             <div className="grid md:grid-cols-3 gap-6">
               {hireOptions.map((option) => (
                 <a
@@ -217,7 +252,10 @@ export default function Home() {
       {experiences.length > 0 && (
         <section className="py-20 px-4 bg-card/50">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12">Professional Experience</h2>
+            <div className="flex items-center gap-3 mb-12">
+              <Briefcase className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">Professional Experience</h2>
+            </div>
             <div className="space-y-8">
               {experiences.map((exp) => (
                 <div
@@ -264,7 +302,10 @@ export default function Home() {
       {Object.keys(skillsByCategory).length > 0 && (
         <section className="py-20 px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12">Technical Skills & Tools</h2>
+            <div className="flex items-center gap-3 mb-12">
+              <Code2 className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">Technical Skills & Tools</h2>
+            </div>
             <div className="grid md:grid-cols-2 gap-8">
               {Object.entries(skillsByCategory).map(([category, categorySkills]) => (
                 <div key={category}>
@@ -291,7 +332,10 @@ export default function Home() {
       {education.length > 0 && (
         <section className="py-20 px-4 bg-card/50">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12">📚 Education</h2>
+            <div className="flex items-center gap-3 mb-12">
+              <BookOpen className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">Education</h2>
+            </div>
             <div className="space-y-6">
               {education.map((edu) => (
                 <div
@@ -319,7 +363,10 @@ export default function Home() {
       {certifications.length > 0 && (
         <section className="py-20 px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12">🏆 Certifications</h2>
+            <div className="flex items-center gap-3 mb-12">
+              <Award className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">Certifications</h2>
+            </div>
             <div className="grid md:grid-cols-2 gap-6">
               {certifications.map((cert) => (
                 <div
@@ -344,7 +391,10 @@ export default function Home() {
       {projects.length > 0 && (
         <section id="projects" className="py-20 px-4 bg-card/50">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12">Featured Projects</h2>
+            <div className="flex items-center gap-3 mb-12">
+              <Sparkles className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">Featured Projects</h2>
+            </div>
             <div className="grid md:grid-cols-3 gap-6">
               {projects.map((project) => (
                 <a
@@ -387,7 +437,10 @@ export default function Home() {
       {blogs.length > 0 && (
         <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12">My Blogs</h2>
+            <div className="flex items-center gap-3 mb-12">
+              <FileText className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">My Blogs</h2>
+            </div>
             <div className="grid md:grid-cols-2 gap-6">
               {blogs.map((blog) => (
                 <a
@@ -419,7 +472,10 @@ export default function Home() {
       {companies.length > 0 && (
         <section className="py-20 px-4 bg-card/50">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12">Companies & Ventures</h2>
+            <div className="flex items-center gap-3 mb-12">
+              <Building2 className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">Companies & Ventures</h2>
+            </div>
             <div className="grid md:grid-cols-3 gap-6">
               {companies.map((company) => (
                 <a
@@ -460,7 +516,10 @@ export default function Home() {
       {Object.keys(channelsByCategory).length > 0 && (
         <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12">WhatsApp & Telegram Channels</h2>
+            <div className="flex items-center gap-3 mb-12">
+              <MessageSquare className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">WhatsApp & Telegram Channels</h2>
+            </div>
             {Object.entries(channelsByCategory).map(([category, categoryChannels]) => (
               <div key={category} className="mb-12">
                 <h3 className="text-2xl font-semibold mb-6">{category}</h3>
@@ -499,7 +558,10 @@ export default function Home() {
       {referrals.length > 0 && (
         <section className="py-20 px-4 bg-card/50">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12">Exclusive Referrals & Offers</h2>
+            <div className="flex items-center gap-3 mb-12">
+              <Gift className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">Exclusive Referrals & Offers</h2>
+            </div>
             <div className="grid md:grid-cols-2 gap-6">
               {referrals.map((referral) => (
                 <a
@@ -533,7 +595,10 @@ export default function Home() {
       {socialLinks.length > 0 && (
         <section id="connect" className="py-20 px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold mb-12 text-center">Connect With Me</h2>
+            <div className="flex items-center justify-center gap-3 mb-12">
+              <Share2 className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold text-center">Connect With Me</h2>
+            </div>
             <div className="flex flex-wrap justify-center gap-4">
               {socialLinks.map((link) => (
                 <a

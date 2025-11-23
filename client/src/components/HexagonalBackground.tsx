@@ -28,9 +28,9 @@ export default function HexagonalBackground() {
 
     const colors = ["#FFD700", "#C0C0C0", "#1a1a1a"];
 
-    // Create hexagons
-    const hexSize = 40;
-    const spacing = hexSize * 2.5;
+    // Create hexagons - much smaller
+    const hexSize = 15;
+    const spacing = hexSize * 3;
 
     for (let x = -spacing; x < canvas.width + spacing; x += spacing) {
       for (let y = -spacing; y < canvas.height + spacing; y += spacing) {
@@ -60,8 +60,8 @@ export default function HexagonalBackground() {
       ctx.rotate(rotation);
 
       ctx.strokeStyle = color;
-      ctx.lineWidth = 2;
-      ctx.globalAlpha = 0.6;
+      ctx.lineWidth = 1;
+      ctx.globalAlpha = 0.4;
 
       ctx.beginPath();
       for (let i = 0; i < 6; i++) {
@@ -78,8 +78,8 @@ export default function HexagonalBackground() {
     }
 
     function animate() {
-      // Clear canvas with dark background
-      ctx.fillStyle = "rgba(20, 20, 20, 0.1)";
+      // Clear canvas with dark background - more transparent
+      ctx.fillStyle = "rgba(20, 20, 20, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Update and draw hexagons
@@ -115,8 +115,8 @@ export default function HexagonalBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-screen pointer-events-none"
-      style={{ zIndex: 0, opacity: 0.8 }}
+      className="absolute top-0 left-0 w-full h-full pointer-events-none"
+      style={{ zIndex: 0, opacity: 0.6 }}
     />
   );
 }

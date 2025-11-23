@@ -26,7 +26,7 @@ export default function HexagonalBackground() {
       rotationSpeed: number;
     }> = [];
 
-    const colors = ["#FFD700", "#C0C0C0", "#1a1a1a"];
+    const colors = ["#C0C0C0", "#1a1a1a"];
 
     // Create hexagons - much smaller
     const hexSize = 15;

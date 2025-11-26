@@ -242,18 +242,12 @@ export default function Home() {
               
               {/* Right side - Profile image */}
               <div className="relative flex justify-center items-center animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-                {/* Glowing background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-cyan-400/10 to-transparent rounded-full blur-3xl" />
-                
-                {/* Image container */}
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-cyan-400/20 rounded-3xl blur-2xl" />
-                  <img
-                    src="/majid-profile.png"
-                    alt="Majid Khan Mohmand"
-                    className="relative w-full max-w-sm md:max-w-md lg:max-w-lg h-auto rounded-3xl shadow-2xl hover:shadow-yellow-400/50 transition-all duration-500 hover:scale-105"
-                  />
-                </div>
+                {/* Image container - clean without effects */}
+                <img
+                  src="/majid-profile.png"
+                  alt="Majid Khan Mohmand"
+                  className="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto rounded-3xl shadow-lg transition-all duration-300"
+                />
               </div>
             </div>
           </div>

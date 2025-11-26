@@ -543,4 +543,6 @@ The portfolio landing page is fully functional and ready for deployment:
 - [x] Verify dev server is running
 - [x] Test responsive design on all breakpoints
 - [x] Verify image displays correctly
-- [ ] Save checkpoint with profile image integration
+- [x] Remove yellow shadow and glow effects
+- [x] Clean up image styling
+- [ ] Save checkpoint with cleaned up image styling

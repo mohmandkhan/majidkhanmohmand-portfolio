@@ -133,18 +133,18 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-2xl font-bold">MKM</div>
           <div className="hidden md:flex gap-8 items-center">
-            <a href="#projects" className="hover:text-accent transition-colors">
+            <a href="#projects" className="hover:text-yellow-400 transition-colors">
               Projects
             </a>
-            <a href="#hire" className="hover:text-accent transition-colors">
+            <a href="#hire" className="hover:text-yellow-400 transition-colors">
               Hire
             </a>
-            <a href="#connect" className="hover:text-accent transition-colors">
+            <a href="#connect" className="hover:text-yellow-400 transition-colors">
               Connect
             </a>
             <button
               onClick={toggleTheme}
-              className="p-2 hover:bg-accent/10 rounded-lg transition-colors"
+              className="p-2 hover:bg-yellow-400/10 rounded-lg transition-colors"
             >
               {theme === "dark" ? (
                 <Sun className="w-5 h-5" />
@@ -167,55 +167,61 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-            {hero && (
-        <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden bg-background">
-          {/* Professional geometric background */}
+                  {hero && (
+        <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden bg-background hero-background">
+          {/* Decorative accent shapes - tennet.io inspired */}
           <div className="absolute inset-0 overflow-hidden">
-            {/* Top right accent shape */}
-            <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-            {/* Bottom left accent shape */}
-            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
-            {/* Diagonal lines */}
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-accent to-transparent" />
-              <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-accent to-transparent" />
-            </div>
+            {/* Top right yellow accent */}
+            <div className="absolute -top-32 -right-32 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl animate-float" />
+            {/* Bottom left cyan accent */}
+            <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-cyan-400/5 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}} />
+            {/* Small accent squares */}
+            <div className="absolute top-20 right-20 w-6 h-6 border-2 border-yellow-400/30" />
+            <div className="absolute bottom-32 left-20 w-4 h-4 bg-red-500/20" />
+            <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-cyan-400/40 rounded-full" />
           </div>
           
           <div className="relative z-10 text-center max-w-5xl mx-auto">
-            <div className="animate-in fade-in duration-1000 space-y-8">
-              {/* Main title with accent underline */}
+            <div className="space-y-8 animate-fade-in-up">
+              {/* Badge with accent colors */}
+              <div className="inline-block">
+                <div className="px-4 py-2 border border-yellow-400/30 rounded-full text-sm font-semibold text-yellow-400 bg-yellow-400/5">
+                  Welcome to my portfolio
+                </div>
+              </div>
+              
+              {/* Main title - split colors like tennet.io */}
               <div>
-                <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-tight">
-                  {hero.title}
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-tight">
+                  <span className="text-white">{hero.title}</span>
                 </h1>
-                <div className="h-1 w-24 bg-accent mx-auto" />
               </div>
               
               {/* Subtitle */}
               {hero.subtitle && (
-                <p className="text-2xl md:text-3xl font-semibold text-foreground/90 leading-tight">
+                <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed max-w-3xl mx-auto">
                   {hero.subtitle}
                 </p>
               )}
               
               {/* Description */}
               {hero.description && (
-                <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                   {hero.description}
                 </p>
               )}
               
-              {/* CTA Buttons with modern styling */}
-              <div className="flex gap-6 justify-center flex-wrap pt-8">
+              {/* CTA Buttons - tennet.io dashed border style */}
+              <div className="flex gap-4 justify-center flex-wrap pt-8">
                 {hero.ctaButton1Text && hero.ctaButton1Link && (
                   <a
                     href={hero.ctaButton1Link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-10 py-4 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105"
+                    className="px-8 py-3 bg-yellow-400 text-black rounded-full font-bold text-base hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2"
                   >
                     {hero.ctaButton1Text}
+                    <span>→</span>
                   </a>
                 )}
                 {hero.ctaButton2Text && hero.ctaButton2Link && (
@@ -223,7 +229,7 @@ export default function Home() {
                     href={hero.ctaButton2Link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-10 py-4 border-2 border-accent text-accent rounded-lg hover:bg-accent/10 transition-all duration-300 font-bold text-lg"
+                    className="px-8 py-3 border-2 border-dashed border-yellow-400 text-yellow-400 rounded-full font-bold text-base hover:bg-yellow-400/10 transition-all duration-300 hover:scale-105"
                   >
                     {hero.ctaButton2Text}
                   </a>
@@ -235,13 +241,14 @@ export default function Home() {
       )}
 
 
+
       {/* About Section */}
       {about && (
-        <section className="py-20 px-4 bg-card/50">
+        <section className="py-20 px-4 bg-card">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <User className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">About Me</h2>
+              <User className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">About Me</h2>
             </div>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {about.content}
@@ -255,8 +262,8 @@ export default function Home() {
         <section id="hire" className="py-20 px-4">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Target className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">Hire Me</h2>
+              <Target className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">Hire Me</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {hireOptions.map((option) => (
@@ -265,15 +272,15 @@ export default function Home() {
                   href={option.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-card border border-border rounded-lg p-6 hover:border-accent transition-colors group"
+                  className="bg-card border border-border rounded-lg p-6 hover:border-yellow-400 transition-colors group"
                 >
-                  <div className="text-accent mb-4">
+                  <div className="text-yellow-400 mb-4">
                     {option.title.toLowerCase().includes('whatsapp') && <MessageCircle className="w-8 h-8" />}
                     {option.title.toLowerCase().includes('fiverr') && <Briefcase className="w-8 h-8" />}
                     {option.title.toLowerCase().includes('upwork') && <Layers className="w-8 h-8" />}
                     {!option.title.toLowerCase().includes('whatsapp') && !option.title.toLowerCase().includes('fiverr') && !option.title.toLowerCase().includes('upwork') && <Briefcase className="w-8 h-8" />}
                   </div>
-                  <h3 className="text-xl font-semibold group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-semibold group-hover:text-yellow-400 transition-colors">
                     {option.title}
                   </h3>
                   {option.description && (
@@ -290,24 +297,24 @@ export default function Home() {
 
       {/* Experience Section */}
       {experiences.length > 0 && (
-        <section className="py-20 px-4 bg-card/50">
+        <section className="py-20 px-4 bg-card">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Briefcase className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">Professional Experience</h2>
+              <Briefcase className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">Professional Experience</h2>
             </div>
             <div className="space-y-8">
               {experiences.map((exp) => (
                 <div
                   key={exp.id}
-                  className="border-l-4 border-accent pl-6 pb-6"
+                  className="border-l-4 border-yellow-400 pl-6 pb-6"
                 >
                   <div className="flex items-start justify-between gap-4 mb-2">
                     <div className="flex items-start gap-3 flex-1">
-                      <Laptop className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
+                      <Laptop className="w-6 h-6 text-yellow-400 mt-1 flex-shrink-0" />
                       <div>
                         <h3 className="text-2xl font-semibold">{exp.title}</h3>
-                        <p className="text-accent font-medium">{exp.company}</p>
+                        <p className="text-yellow-400 font-medium">{exp.company}</p>
                       </div>
                     </div>
                   </div>
@@ -327,7 +334,7 @@ export default function Home() {
                         {parseTechnologies(exp.technologies).map((tech: any) => (
                           <span
                             key={tech}
-                            className="text-xs bg-accent/20 text-accent px-2 py-1 rounded"
+                            className="text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded"
                           >
                             {tech}
                           </span>
@@ -343,11 +350,11 @@ export default function Home() {
 
       {/* Skills Section */}
       {Object.keys(skillsByCategory).length > 0 && (
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 bg-background">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Code2 className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">Technical Skills & Tools</h2>
+              <Code2 className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">Technical Skills & Tools</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               {Object.entries(skillsByCategory).map(([category, categorySkills]) => (
@@ -357,7 +364,7 @@ export default function Home() {
                     {categorySkills.map((skill) => (
                       <span
                         key={skill.id}
-                        className="bg-card border border-border px-3 py-1 rounded-full text-sm hover:border-accent transition-colors"
+                        className="bg-card border border-border px-3 py-1 rounded-full text-sm hover:border-yellow-400 transition-colors"
                       >
                         {skill.icon && <span className="mr-1">{skill.icon}</span>}
                         {skill.name}
@@ -373,11 +380,11 @@ export default function Home() {
 
       {/* Education Section */}
       {education.length > 0 && (
-        <section className="py-20 px-4 bg-card/50">
+        <section className="py-20 px-4 bg-card">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <BookOpen className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">Education</h2>
+              <BookOpen className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">Education</h2>
             </div>
             <div className="space-y-6">
               {education.map((edu) => (
@@ -386,10 +393,10 @@ export default function Home() {
                   className="bg-background border border-border rounded-lg p-6"
                 >
                   <div className="flex items-start gap-3">
-                    <BookOpen className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
+                    <BookOpen className="w-6 h-6 text-yellow-400 mt-1 flex-shrink-0" />
                     <div className="flex-1">
                       <h3 className="text-xl font-semibold">{edu.degree}</h3>
-                      <p className="text-accent">{edu.institution}</p>
+                      <p className="text-yellow-400">{edu.institution}</p>
                       {edu.fieldOfStudy && (
                         <p className="text-muted-foreground">{edu.fieldOfStudy}</p>
                       )}
@@ -410,11 +417,11 @@ export default function Home() {
 
       {/* Certifications Section */}
       {certifications.length > 0 && (
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 bg-background">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Award className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">Certifications</h2>
+              <Award className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">Certifications</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {certifications.map((cert) => (
@@ -423,10 +430,10 @@ export default function Home() {
                   className="bg-card border border-border rounded-lg p-6"
                 >
                   <div className="flex items-start gap-3">
-                    <Award className="w-6 h-6 text-accent mt-1 flex-shrink-0" />
+                    <Award className="w-6 h-6 text-yellow-400 mt-1 flex-shrink-0" />
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold">{cert.title}</h3>
-                      <p className="text-accent text-sm">{cert.issuer}</p>
+                      <p className="text-yellow-400 text-sm">{cert.issuer}</p>
                       {cert.issueDate && (
                         <p className="text-xs text-muted-foreground mt-2">
                           <Calendar className="w-3 h-3 inline mr-1" />
@@ -447,8 +454,8 @@ export default function Home() {
         <section id="projects" className="py-20 px-4 bg-card/50">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Sparkles className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">Featured Projects</h2>
+              <Sparkles className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">Featured Projects</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {projects.map((project) => (
@@ -457,7 +464,7 @@ export default function Home() {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-background border border-border rounded-lg overflow-hidden hover:border-accent transition-colors group"
+                  className="bg-background border border-border rounded-lg overflow-hidden hover:border-yellow-400 transition-colors group"
                 >
                   {project.imageUrl && (
                     <img
@@ -468,8 +475,8 @@ export default function Home() {
                   )}
                   <div className="p-6">
                     <div className="flex items-start gap-2 mb-2">
-                      <Lightbulb className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                      <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">
+                      <Lightbulb className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                      <h3 className="text-lg font-semibold group-hover:text-yellow-400 transition-colors">
                         {project.title}
                       </h3>
                     </div>
@@ -479,7 +486,7 @@ export default function Home() {
                       </p>
                     )}
                     {project.category && (
-                      <span className="inline-block mt-4 text-xs bg-accent/20 text-accent px-2 py-1 rounded">
+                      <span className="inline-block mt-4 text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded">
                         {project.category}
                       </span>
                     )}
@@ -493,11 +500,11 @@ export default function Home() {
 
       {/* Blogs Section */}
       {blogs.length > 0 && (
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 bg-background">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <FileText className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">My Blogs</h2>
+              <FileText className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">My Blogs</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {blogs.map((blog) => (
@@ -506,11 +513,11 @@ export default function Home() {
                   href={blog.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-card border border-border rounded-lg p-6 hover:border-accent transition-colors group"
+                  className="bg-card border border-border rounded-lg p-6 hover:border-yellow-400 transition-colors group"
                 >
                   <div className="flex items-start gap-2 mb-2">
-                    <Radio className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                    <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">
+                    <Radio className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <h3 className="text-lg font-semibold group-hover:text-yellow-400 transition-colors">
                       {blog.title}
                     </h3>
                   </div>
@@ -532,11 +539,11 @@ export default function Home() {
 
       {/* Companies Section */}
       {companies.length > 0 && (
-        <section className="py-20 px-4 bg-card/50">
+        <section className="py-20 px-4 bg-card">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Building2 className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">Companies & Ventures</h2>
+              <Building2 className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">Companies & Ventures</h2>
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {companies.map((company) => (
@@ -545,7 +552,7 @@ export default function Home() {
                   href={company.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-background border border-border rounded-lg p-8 hover:border-accent transition-colors group text-center"
+                  className="bg-background border border-border rounded-lg p-8 hover:border-yellow-400 transition-colors group text-center"
                 >
                   {company.logoUrl ? (
                     <img
@@ -554,9 +561,9 @@ export default function Home() {
                       className="w-24 h-24 mx-auto mb-4 object-contain"
                     />
                   ) : (
-                    <Building2 className="w-12 h-12 mx-auto mb-4 text-accent" />
+                    <Building2 className="w-12 h-12 mx-auto mb-4 text-yellow-400" />
                   )}
-                  <h3 className="text-xl font-semibold group-hover:text-accent transition-colors">
+                  <h3 className="text-xl font-semibold group-hover:text-yellow-400 transition-colors">
                     {company.name}
                   </h3>
                   {company.role && (
@@ -578,16 +585,16 @@ export default function Home() {
 
       {/* WhatsApp & Telegram Channels */}
       {Object.keys(channelsByCategory).length > 0 && (
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 bg-background">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <MessageSquare className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">WhatsApp & Telegram Channels</h2>
+              <MessageSquare className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">WhatsApp & Telegram Channels</h2>
             </div>
             {Object.entries(channelsByCategory).map(([category, categoryChannels]) => (
               <div key={category} className="mb-12">
                 <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                  <Smartphone className="w-6 h-6 text-accent" />
+                  <Smartphone className="w-6 h-6 text-yellow-400" />
                   {category}
                 </h3>
                 <div className="grid md:grid-cols-3 gap-4">
@@ -597,12 +604,12 @@ export default function Home() {
                       href={channel.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-card border border-border rounded-lg p-4 hover:border-accent transition-colors group"
+                      className="bg-card border border-border rounded-lg p-4 hover:border-yellow-400 transition-colors group"
                     >
                       <div className="flex items-start gap-3">
-                        <MessageCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
+                        <MessageCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
                         <div className="flex-1">
-                          <h4 className="font-semibold group-hover:text-accent transition-colors">
+                          <h4 className="font-semibold group-hover:text-yellow-400 transition-colors">
                             {channel.title}
                           </h4>
                           {channel.description && (
@@ -623,11 +630,11 @@ export default function Home() {
 
       {/* Referrals Section */}
       {referrals.length > 0 && (
-        <section className="py-20 px-4 bg-card/50">
+        <section className="py-20 px-4 bg-card">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Gift className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">Exclusive Referrals & Offers</h2>
+              <Gift className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">Exclusive Referrals & Offers</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {referrals.map((referral) => (
@@ -636,11 +643,11 @@ export default function Home() {
                   href={referral.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-background border border-border rounded-lg p-6 hover:border-accent transition-colors group"
+                  className="bg-background border border-border rounded-lg p-6 hover:border-yellow-400 transition-colors group"
                 >
                   <div className="flex items-start gap-3 mb-2">
-                    <DollarSign className="w-6 h-6 text-accent mt-0.5 flex-shrink-0" />
-                    <h3 className="text-lg font-semibold group-hover:text-accent transition-colors">
+                    <DollarSign className="w-6 h-6 text-yellow-400 mt-0.5 flex-shrink-0" />
+                    <h3 className="text-lg font-semibold group-hover:text-yellow-400 transition-colors">
                       {referral.title}
                     </h3>
                   </div>
@@ -650,7 +657,7 @@ export default function Home() {
                     </p>
                   )}
                   {referral.benefit && (
-                    <p className="text-sm text-accent font-semibold mt-4">
+                    <p className="text-sm text-yellow-400 font-semibold mt-4">
                       <TrendingUp className="w-4 h-4 inline mr-1" />
                       {referral.benefit}
                     </p>
@@ -665,11 +672,11 @@ export default function Home() {
 
       {/* Fiverr Gigs Section */}
       {fiverrGigs.length > 0 && (
-        <section className="py-20 px-4 bg-card/50">
+        <section className="py-20 px-4 bg-card">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Briefcase className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">Fiverr Gigs</h2>
+              <Briefcase className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">Fiverr Gigs</h2>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {fiverrGigs.map((gig) => (
@@ -678,7 +685,7 @@ export default function Home() {
                   href={gig.gigUrl || "https://www.fiverr.com/majidkhan_moh"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-background border border-border rounded-lg overflow-hidden hover:border-accent transition-all group hover:shadow-lg"
+                  className="bg-background border border-border rounded-lg overflow-hidden hover:border-yellow-400 transition-all group hover:shadow-lg"
                 >
                   {gig.imageUrl && (
                     <div className="relative h-40 overflow-hidden bg-muted">
@@ -690,7 +697,7 @@ export default function Home() {
                     </div>
                   )}
                   <div className="p-6">
-                    <h3 className="text-lg font-semibold mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-yellow-400 transition-colors line-clamp-2">
                       {gig.title}
                     </h3>
                     {gig.description && (
@@ -701,7 +708,7 @@ export default function Home() {
                     <div className="flex items-center justify-between mb-4">
                       {gig.rating && (
                         <div className="flex items-center gap-1">
-                          <span className="text-accent">★</span>
+                          <span className="text-yellow-400">★</span>
                           <span className="font-semibold">{gig.rating}</span>
                           {gig.reviewCount && (
                             <span className="text-xs text-muted-foreground">({gig.reviewCount})</span>
@@ -710,7 +717,7 @@ export default function Home() {
                       )}
                     </div>
                     {(gig.priceFrom || gig.priceTo) && (
-                      <div className="text-lg font-bold text-accent">
+                      <div className="text-lg font-bold text-yellow-400">
                         From {gig.currency} {gig.priceFrom || gig.priceTo}
                       </div>
                     )}
@@ -724,17 +731,17 @@ export default function Home() {
 
       {/* Fiverr Reviews Section */}
       {fiverrReviews.length > 0 && (
-        <section className="py-20 px-4">
+        <section className="py-20 px-4 bg-background">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <MessageSquare className="w-8 h-8 text-accent" />
-              <h2 className="text-4xl font-bold">Client Reviews</h2>
+              <MessageSquare className="w-8 h-8 text-yellow-400" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">Client Reviews</h2>
             </div>
             <div className="grid md:grid-cols-2 gap-6">
               {fiverrReviews.map((review) => (
                 <div
                   key={review.id}
-                  className="bg-card border border-border rounded-lg p-6 hover:border-accent transition-colors"
+                  className="bg-card border border-border rounded-lg p-6 hover:border-yellow-400 transition-colors"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div>
@@ -747,7 +754,7 @@ export default function Home() {
                       {[...Array(5)].map((_, i) => (
                         <span
                           key={i}
-                          className={i < parseInt(review.rating || "5") ? "text-accent" : "text-muted"}
+                          className={i < parseInt(review.rating || "5") ? "text-yellow-400" : "text-muted"}
                         >
                           ★
                         </span>
@@ -789,7 +796,7 @@ export default function Home() {
         <section id="connect" className="py-20 px-4">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center justify-center gap-3 mb-12">
-              <Share2 className="w-8 h-8 text-accent" />
+              <Share2 className="w-8 h-8 text-yellow-400" />
               <h2 className="text-4xl font-bold text-center">Connect With Me</h2>
             </div>
             <div className="flex flex-wrap justify-center gap-4">
@@ -809,7 +816,7 @@ export default function Home() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 flex items-center justify-center bg-card border border-border rounded-full hover:border-accent hover:bg-accent/10 transition-colors text-accent"
+                  className="w-12 h-12 flex items-center justify-center bg-card border border-border rounded-full hover:border-yellow-400 hover:bg-yellow-400/10 transition-colors text-yellow-400"
                   title={link.title || 'Social Link'}
                 >
                   {getSocialIcon(link.title)}

@@ -681,19 +681,13 @@ export async function createFiverrGig(data: any) {
 export async function getFiverrGigs(limit = 50, offset = 0) {
   const db = await getDb();
   if (!db) return [];
-  return await db.query.fiverrGigs.findMany({
-    limit,
-    offset,
-    orderBy: (gigs: any) => asc(gigs.order),
-  });
+  return db.select().from(fiverrGigs).orderBy(asc(fiverrGigs.order)).limit(limit).offset(offset);
 }
 
 export async function getFiverrGigById(id: number) {
   const db = await getDb();
   if (!db) return null;
-  return await db.query.fiverrGigs.findFirst({
-    where: (gigs: any) => eq(gigs.id, id),
-  });
+  return db.select().from(fiverrGigs).where(eq(fiverrGigs.id, id)).then(rows => rows[0] || null);
 }
 
 export async function updateFiverrGig(id: number, data: any) {
@@ -723,19 +717,13 @@ export async function createFiverrReview(data: any) {
 export async function getFiverrReviews(limit = 50, offset = 0) {
   const db = await getDb();
   if (!db) return [];
-  return await db.query.fiverrReviews.findMany({
-    limit,
-    offset,
-    orderBy: (reviews: any) => asc(reviews.order),
-  });
+  return db.select().from(fiverrReviews).orderBy(asc(fiverrReviews.order)).limit(limit).offset(offset);
 }
 
 export async function getFiverrReviewById(id: number) {
   const db = await getDb();
   if (!db) return null;
-  return await db.query.fiverrReviews.findFirst({
-    where: (reviews: any) => eq(reviews.id, id),
-  });
+  return db.select().from(fiverrReviews).where(eq(fiverrReviews.id, id)).then(rows => rows[0] || null);
 }
 
 export async function updateFiverrReview(id: number, data: any) {

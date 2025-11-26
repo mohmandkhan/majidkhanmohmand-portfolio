@@ -167,7 +167,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-                  {hero && (
+                        {hero && (
         <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden bg-background hero-background">
           {/* Decorative accent shapes - tennet.io inspired */}
           <div className="absolute inset-0 overflow-hidden">
@@ -181,59 +181,79 @@ export default function Home() {
             <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-cyan-400/40 rounded-full" />
           </div>
           
-          <div className="relative z-10 text-center max-w-5xl mx-auto">
-            <div className="space-y-8 animate-fade-in-up">
-              {/* Badge with accent colors */}
-              <div className="inline-block">
-                <div className="px-4 py-2 border border-yellow-400/30 rounded-full text-sm font-semibold text-yellow-400 bg-yellow-400/5">
-                  Welcome to my portfolio
+          <div className="relative z-10 w-full">
+            {/* Main container with grid layout */}
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center px-4">
+              {/* Left side - Text content */}
+              <div className="space-y-8 animate-fade-in-up">
+                {/* Badge */}
+                <div className="inline-block">
+                  <div className="px-4 py-2 border border-yellow-400/30 rounded-full text-sm font-semibold text-yellow-400 bg-yellow-400/5">
+                    Welcome to my portfolio
+                  </div>
+                </div>
+                
+                {/* Main title */}
+                <div>
+                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-tight">
+                    <span className="text-white">{hero.title}</span>
+                  </h1>
+                </div>
+                
+                {/* Subtitle */}
+                {hero.subtitle && (
+                  <p className="text-lg md:text-xl text-foreground/80 leading-relaxed">
+                    {hero.subtitle}
+                  </p>
+                )}
+                
+                {/* Description */}
+                {hero.description && (
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                    {hero.description}
+                  </p>
+                )}
+                
+                {/* CTA Buttons */}
+                <div className="flex gap-4 flex-wrap pt-4">
+                  {hero.ctaButton1Text && hero.ctaButton1Link && (
+                    <a
+                      href={hero.ctaButton1Link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-8 py-3 bg-yellow-400 text-black rounded-full font-bold text-base hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2"
+                    >
+                      {hero.ctaButton1Text}
+                      <span>→</span>
+                    </a>
+                  )}
+                  {hero.ctaButton2Text && hero.ctaButton2Link && (
+                    <a
+                      href={hero.ctaButton2Link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-8 py-3 border-2 border-dashed border-yellow-400 text-yellow-400 rounded-full font-bold text-base hover:bg-yellow-400/10 transition-all duration-300 hover:scale-105"
+                    >
+                      {hero.ctaButton2Text}
+                    </a>
+                  )}
                 </div>
               </div>
               
-              {/* Main title - split colors like tennet.io */}
-              <div>
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-tight">
-                  <span className="text-white">{hero.title}</span>
-                </h1>
-              </div>
-              
-              {/* Subtitle */}
-              {hero.subtitle && (
-                <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed max-w-3xl mx-auto">
-                  {hero.subtitle}
-                </p>
-              )}
-              
-              {/* Description */}
-              {hero.description && (
-                <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  {hero.description}
-                </p>
-              )}
-              
-              {/* CTA Buttons - tennet.io dashed border style */}
-              <div className="flex gap-4 justify-center flex-wrap pt-8">
-                {hero.ctaButton1Text && hero.ctaButton1Link && (
-                  <a
-                    href={hero.ctaButton1Link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-8 py-3 bg-yellow-400 text-black rounded-full font-bold text-base hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2"
-                  >
-                    {hero.ctaButton1Text}
-                    <span>→</span>
-                  </a>
-                )}
-                {hero.ctaButton2Text && hero.ctaButton2Link && (
-                  <a
-                    href={hero.ctaButton2Link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-8 py-3 border-2 border-dashed border-yellow-400 text-yellow-400 rounded-full font-bold text-base hover:bg-yellow-400/10 transition-all duration-300 hover:scale-105"
-                  >
-                    {hero.ctaButton2Text}
-                  </a>
-                )}
+              {/* Right side - Profile image */}
+              <div className="relative flex justify-center items-center animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                {/* Glowing background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 via-cyan-400/10 to-transparent rounded-full blur-3xl" />
+                
+                {/* Image container */}
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/30 to-cyan-400/20 rounded-3xl blur-2xl" />
+                  <img
+                    src="/majid-profile.png"
+                    alt="Majid Khan Mohmand"
+                    className="relative w-full max-w-sm md:max-w-md lg:max-w-lg h-auto rounded-3xl shadow-2xl hover:shadow-yellow-400/50 transition-all duration-500 hover:scale-105"
+                  />
+                </div>
               </div>
             </div>
           </div>

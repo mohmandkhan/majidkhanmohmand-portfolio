@@ -40,7 +40,6 @@ import {
 import { useState } from "react";
 import { useTheme } from "@/contexts/ThemeContext";
 import ContactForm from "@/components/ContactForm";
-import HexagonalBackground from "@/components/HexagonalBackground";
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
@@ -60,6 +59,8 @@ export default function Home() {
   const referralsQuery = trpc.cms.getReferrals.useQuery();
   const socialLinksQuery = trpc.cms.getSocialLinks.useQuery();
   const hireOptionsQuery = trpc.cms.getHireOptions.useQuery();
+  const fiverrGigsQuery = trpc.cms.getFiverrGigs.useQuery();
+  const fiverrReviewsQuery = trpc.cms.getFiverrReviews.useQuery();
 
   const isLoading =
     heroQuery.isLoading ||
@@ -91,6 +92,8 @@ export default function Home() {
   const referrals = referralsQuery.data || [];
   const socialLinks = socialLinksQuery.data || [];
   const hireOptions = hireOptionsQuery.data || [];
+  const fiverrGigs = fiverrGigsQuery.data || [];
+  const fiverrReviews = fiverrReviewsQuery.data || [];
 
   // Group skills by category
   const skillsByCategory: Record<string, typeof skills> = {};
@@ -164,32 +167,53 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      {hero && (
-        <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
-          <HexagonalBackground />
-          <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/5 opacity-50" />
-          <div className="relative z-10 text-center max-w-4xl mx-auto">
-            <div className="animate-in fade-in duration-1000">
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                {hero.title}
-              </h1>
+            {hero && (
+        <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden bg-background">
+          {/* Professional geometric background */}
+          <div className="absolute inset-0 overflow-hidden">
+            {/* Top right accent shape */}
+            <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+            {/* Bottom left accent shape */}
+            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+            {/* Diagonal lines */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-accent to-transparent" />
+              <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-accent to-transparent" />
+            </div>
+          </div>
+          
+          <div className="relative z-10 text-center max-w-5xl mx-auto">
+            <div className="animate-in fade-in duration-1000 space-y-8">
+              {/* Main title with accent underline */}
+              <div>
+                <h1 className="text-6xl md:text-8xl font-bold mb-4 tracking-tight">
+                  {hero.title}
+                </h1>
+                <div className="h-1 w-24 bg-accent mx-auto" />
+              </div>
+              
+              {/* Subtitle */}
               {hero.subtitle && (
-                <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+                <p className="text-2xl md:text-3xl font-semibold text-foreground/90 leading-tight">
                   {hero.subtitle}
                 </p>
               )}
+              
+              {/* Description */}
               {hero.description && (
-                <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
+                <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
                   {hero.description}
                 </p>
               )}
-              <div className="flex gap-4 justify-center flex-wrap">
+              
+              {/* CTA Buttons with modern styling */}
+              <div className="flex gap-6 justify-center flex-wrap pt-8">
                 {hero.ctaButton1Text && hero.ctaButton1Link && (
                   <a
                     href={hero.ctaButton1Link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-8 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors font-semibold"
+                    className="px-10 py-4 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-all duration-300 font-bold text-lg shadow-lg hover:shadow-xl hover:scale-105"
                   >
                     {hero.ctaButton1Text}
                   </a>
@@ -199,7 +223,7 @@ export default function Home() {
                     href={hero.ctaButton2Link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-8 py-3 border border-border rounded-lg hover:bg-card transition-colors font-semibold"
+                    className="px-10 py-4 border-2 border-accent text-accent rounded-lg hover:bg-accent/10 transition-all duration-300 font-bold text-lg"
                   >
                     {hero.ctaButton2Text}
                   </a>
@@ -209,6 +233,7 @@ export default function Home() {
           </div>
         </section>
       )}
+
 
       {/* About Section */}
       {about && (
@@ -636,6 +661,128 @@ export default function Home() {
           </div>
         </section>
       )}
+
+
+      {/* Fiverr Gigs Section */}
+      {fiverrGigs.length > 0 && (
+        <section className="py-20 px-4 bg-card/50">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center gap-3 mb-12">
+              <Briefcase className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">Fiverr Gigs</h2>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {fiverrGigs.map((gig) => (
+                <a
+                  key={gig.id}
+                  href={gig.gigUrl || "https://www.fiverr.com/majidkhan_moh"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-background border border-border rounded-lg overflow-hidden hover:border-accent transition-all group hover:shadow-lg"
+                >
+                  {gig.imageUrl && (
+                    <div className="relative h-40 overflow-hidden bg-muted">
+                      <img
+                        src={gig.imageUrl}
+                        alt={gig.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                      {gig.title}
+                    </h3>
+                    {gig.description && (
+                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                        {gig.description}
+                      </p>
+                    )}
+                    <div className="flex items-center justify-between mb-4">
+                      {gig.rating && (
+                        <div className="flex items-center gap-1">
+                          <span className="text-accent">★</span>
+                          <span className="font-semibold">{gig.rating}</span>
+                          {gig.reviewCount && (
+                            <span className="text-xs text-muted-foreground">({gig.reviewCount})</span>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                    {(gig.priceFrom || gig.priceTo) && (
+                      <div className="text-lg font-bold text-accent">
+                        From {gig.currency} {gig.priceFrom || gig.priceTo}
+                      </div>
+                    )}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Fiverr Reviews Section */}
+      {fiverrReviews.length > 0 && (
+        <section className="py-20 px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="flex items-center gap-3 mb-12">
+              <MessageSquare className="w-8 h-8 text-accent" />
+              <h2 className="text-4xl font-bold">Client Reviews</h2>
+            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              {fiverrReviews.map((review) => (
+                <div
+                  key={review.id}
+                  className="bg-card border border-border rounded-lg p-6 hover:border-accent transition-colors"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="font-semibold text-lg">{review.reviewerName}</h3>
+                      {review.reviewerCountry && (
+                        <p className="text-sm text-muted-foreground">{review.reviewerCountry}</p>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <span
+                          key={i}
+                          className={i < parseInt(review.rating || "5") ? "text-accent" : "text-muted"}
+                        >
+                          ★
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  {review.comment && (
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      "{review.comment}"
+                    </p>
+                  )}
+                  <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
+                    {review.gigTitle && (
+                      <span className="bg-muted px-2 py-1 rounded">
+                        {review.gigTitle}
+                      </span>
+                    )}
+                    {review.priceRange && (
+                      <span className="bg-muted px-2 py-1 rounded">
+                        {review.priceRange}
+                      </span>
+                    )}
+                    {review.duration && (
+                      <span className="bg-muted px-2 py-1 rounded">
+                        {review.duration}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
 
       {/* Social Links Section */}
       {socialLinks.length > 0 && (

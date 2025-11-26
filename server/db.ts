@@ -1,6 +1,6 @@
-import { eq } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users } from "../drizzle/schema";
+import { eq, desc, asc } from "drizzle-orm";
+import { InsertUser, users, fiverrGigs, fiverrReviews, mediaLibrary } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -666,4 +666,89 @@ export async function deleteMediaFile(id: number) {
   if (!db) throw new Error('Database not available');
   return await db.delete(mediaLibrary)
     .where(eq(mediaLibrary.id, id));
+}
+
+
+// ============================================================================
+// FIVERR GIGS HELPERS
+// ============================================================================
+export async function createFiverrGig(data: any) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  return await db.insert(fiverrGigs).values(data);
+}
+
+export async function getFiverrGigs(limit = 50, offset = 0) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.query.fiverrGigs.findMany({
+    limit,
+    offset,
+    orderBy: (gigs: any) => asc(gigs.order),
+  });
+}
+
+export async function getFiverrGigById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+  return await db.query.fiverrGigs.findFirst({
+    where: (gigs: any) => eq(gigs.id, id),
+  });
+}
+
+export async function updateFiverrGig(id: number, data: any) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  return await db.update(fiverrGigs)
+    .set(data)
+    .where(eq(fiverrGigs.id, id));
+}
+
+export async function deleteFiverrGig(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  return await db.delete(fiverrGigs)
+    .where(eq(fiverrGigs.id, id));
+}
+
+// ============================================================================
+// FIVERR REVIEWS HELPERS
+// ============================================================================
+export async function createFiverrReview(data: any) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  return await db.insert(fiverrReviews).values(data);
+}
+
+export async function getFiverrReviews(limit = 50, offset = 0) {
+  const db = await getDb();
+  if (!db) return [];
+  return await db.query.fiverrReviews.findMany({
+    limit,
+    offset,
+    orderBy: (reviews: any) => asc(reviews.order),
+  });
+}
+
+export async function getFiverrReviewById(id: number) {
+  const db = await getDb();
+  if (!db) return null;
+  return await db.query.fiverrReviews.findFirst({
+    where: (reviews: any) => eq(reviews.id, id),
+  });
+}
+
+export async function updateFiverrReview(id: number, data: any) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  return await db.update(fiverrReviews)
+    .set(data)
+    .where(eq(fiverrReviews.id, id));
+}
+
+export async function deleteFiverrReview(id: number) {
+  const db = await getDb();
+  if (!db) throw new Error('Database not available');
+  return await db.delete(fiverrReviews)
+    .where(eq(fiverrReviews.id, id));
 }

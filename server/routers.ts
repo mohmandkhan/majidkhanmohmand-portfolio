@@ -71,6 +71,16 @@ import {
   updateAboutSection,
   getActivityLogs,
   createActivityLog,
+  getFiverrGigs,
+  getFiverrGigById,
+  createFiverrGig,
+  updateFiverrGig,
+  deleteFiverrGig,
+  getFiverrReviews,
+  getFiverrReviewById,
+  createFiverrReview,
+  updateFiverrReview,
+  deleteFiverrReview,
 } from "./db";
 
 // ============================================================================
@@ -440,6 +450,12 @@ export const appRouter = router({
     // Hire Options
     getHireOptions: publicProcedure.query(() => getHireOptions()),
     
+    // Fiverr Gigs
+    getFiverrGigs: publicProcedure.query(() => getFiverrGigs()),
+    
+    // Fiverr Reviews
+    getFiverrReviews: publicProcedure.query(() => getFiverrReviews()),
+    
     // Site Settings
     getSiteSettings: publicProcedure.query(() => getSiteSettings()),
   }),
@@ -611,6 +627,32 @@ export const appRouter = router({
     getActivityLogs: adminProcedure
       .input(z.object({ limit: z.number().optional() }))
       .query(({ input }) => getActivityLogs(input.limit)),
+    // FIVERR GIGS
+    createFiverrGig: adminProcedure
+      .input(z.object({ title: z.string(), description: z.string().optional(), imageUrl: z.string().optional(), priceFrom: z.string().optional(), priceTo: z.string().optional(), currency: z.string().optional(), rating: z.string().optional(), reviewCount: z.number().optional(), gigUrl: z.string().optional(), category: z.string().optional(), tags: z.array(z.string()).optional(), order: z.number().optional(), isActive: z.boolean().optional() }))
+      .mutation(({ input }) => createFiverrGig(input)),
+    
+    updateFiverrGig: adminProcedure
+      .input(z.object({ id: z.number(), data: z.object({ title: z.string().optional(), description: z.string().optional(), imageUrl: z.string().optional(), priceFrom: z.string().optional(), priceTo: z.string().optional(), currency: z.string().optional(), rating: z.string().optional(), reviewCount: z.number().optional(), gigUrl: z.string().optional(), category: z.string().optional(), tags: z.array(z.string()).optional(), order: z.number().optional(), isActive: z.boolean().optional() }) }))
+      .mutation(({ input }) => updateFiverrGig(input.id, input.data)),
+    
+    deleteFiverrGig: adminProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(({ input }) => deleteFiverrGig(input.id)),
+    
+    // FIVERR REVIEWS
+    createFiverrReview: adminProcedure
+      .input(z.object({ reviewerName: z.string(), reviewerCountry: z.string().optional(), reviewerCountryCode: z.string().optional(), rating: z.string(), comment: z.string().optional(), gigTitle: z.string().optional(), priceRange: z.string().optional(), duration: z.string().optional(), reviewDate: z.date().optional(), order: z.number().optional(), isActive: z.boolean().optional() }))
+      .mutation(({ input }) => createFiverrReview(input)),
+    
+    updateFiverrReview: adminProcedure
+      .input(z.object({ id: z.number(), data: z.object({ reviewerName: z.string().optional(), reviewerCountry: z.string().optional(), reviewerCountryCode: z.string().optional(), rating: z.string().optional(), comment: z.string().optional(), gigTitle: z.string().optional(), priceRange: z.string().optional(), duration: z.string().optional(), reviewDate: z.date().optional(), order: z.number().optional(), isActive: z.boolean().optional() }) }))
+      .mutation(({ input }) => updateFiverrReview(input.id, input.data)),
+    
+    deleteFiverrReview: adminProcedure
+      .input(z.object({ id: z.number() }))
+      .mutation(({ input }) => deleteFiverrReview(input.id)),
+
   }),
 
   // NO-CODE ADMIN SYSTEM
@@ -618,3 +660,5 @@ export const appRouter = router({
 });
 
 export type AppRouter = typeof appRouter;
+
+// Temporary placeholder - will add Fiverr routers here

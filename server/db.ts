@@ -1,12 +1,22 @@
 import { drizzle } from "drizzle-orm/mysql2";
 import { eq, desc, asc } from "drizzle-orm";
-import { InsertUser, users, fiverrGigs, fiverrReviews, mediaLibrary } from "../drizzle/schema";
-import { ENV } from './_core/env';
+import {
+  InsertUser,
+  users,
+  fiverrGigs,
+  fiverrReviews,
+  mediaLibrary,
+} from "../drizzle/schema";
+import { ENV } from "./_core/env";
 
 let _db: ReturnType<typeof drizzle> | null = null;
 
 // Lazily create the drizzle instance so local tooling can run without a DB.
 export async function getDb() {
+  console.log(
+    "[Database] Connecting... URL present:",
+    !!process.env.DATABASE_URL
+  );
   if (!_db && process.env.DATABASE_URL) {
     try {
       _db = drizzle(process.env.DATABASE_URL);
@@ -56,8 +66,8 @@ export async function upsertUser(user: InsertUser): Promise<void> {
       values.role = user.role;
       updateSet.role = user.role;
     } else if (user.openId === ENV.ownerOpenId) {
-      values.role = 'admin';
-      updateSet.role = 'admin';
+      values.role = "admin";
+      updateSet.role = "admin";
     }
 
     if (!values.lastSignedIn) {
@@ -84,7 +94,11 @@ export async function getUserByOpenId(openId: string) {
     return undefined;
   }
 
-  const result = await db.select().from(users).where(eq(users.openId, openId)).limit(1);
+  const result = await db
+    .select()
+    .from(users)
+    .where(eq(users.openId, openId))
+    .limit(1);
 
   return result.length > 0 ? result[0] : undefined;
 }
@@ -138,7 +152,11 @@ export async function getProjects() {
 export async function getProjectById(id: number) {
   const db = await getDb();
   if (!db) return null;
-  const result = await db.select().from(projects).where(eq(projects.id, id)).limit(1);
+  const result = await db
+    .select()
+    .from(projects)
+    .where(eq(projects.id, id))
+    .limit(1);
   return result[0] || null;
 }
 
@@ -174,7 +192,11 @@ export async function getExperiences() {
 export async function getExperienceById(id: number) {
   const db = await getDb();
   if (!db) return null;
-  const result = await db.select().from(experiences).where(eq(experiences.id, id)).limit(1);
+  const result = await db
+    .select()
+    .from(experiences)
+    .where(eq(experiences.id, id))
+    .limit(1);
   return result[0] || null;
 }
 
@@ -184,7 +206,10 @@ export async function createExperience(data: InsertExperience) {
   return db.insert(experiences).values(data);
 }
 
-export async function updateExperience(id: number, data: Partial<InsertExperience>) {
+export async function updateExperience(
+  id: number,
+  data: Partial<InsertExperience>
+) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   return db.update(experiences).set(data).where(eq(experiences.id, id));
@@ -203,13 +228,20 @@ export async function deleteExperience(id: number) {
 export async function getSkills() {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(skills).orderBy(asc(skills.category), asc(skills.order));
+  return db
+    .select()
+    .from(skills)
+    .orderBy(asc(skills.category), asc(skills.order));
 }
 
 export async function getSkillsByCategory(category: string) {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(skills).where(eq(skills.category, category)).orderBy(asc(skills.order));
+  return db
+    .select()
+    .from(skills)
+    .where(eq(skills.category, category))
+    .orderBy(asc(skills.order));
 }
 
 export async function createSkill(data: InsertSkill) {
@@ -246,7 +278,10 @@ export async function createCertification(data: InsertCertification) {
   return db.insert(certifications).values(data);
 }
 
-export async function updateCertification(id: number, data: Partial<InsertCertification>) {
+export async function updateCertification(
+  id: number,
+  data: Partial<InsertCertification>
+) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   return db.update(certifications).set(data).where(eq(certifications.id, id));
@@ -274,7 +309,10 @@ export async function createEducation(data: InsertEducation) {
   return db.insert(education).values(data);
 }
 
-export async function updateEducation(id: number, data: Partial<InsertEducation>) {
+export async function updateEducation(
+  id: number,
+  data: Partial<InsertEducation>
+) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   return db.update(education).set(data).where(eq(education.id, id));
@@ -349,13 +387,20 @@ export async function deleteCompany(id: number) {
 export async function getChannels() {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(channels).orderBy(asc(channels.category), asc(channels.order));
+  return db
+    .select()
+    .from(channels)
+    .orderBy(asc(channels.category), asc(channels.order));
 }
 
 export async function getChannelsByCategory(category: string) {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(channels).where(eq(channels.category, category)).orderBy(asc(channels.order));
+  return db
+    .select()
+    .from(channels)
+    .where(eq(channels.category, category))
+    .orderBy(asc(channels.order));
 }
 
 export async function createChannel(data: InsertChannel) {
@@ -383,7 +428,11 @@ export async function deleteChannel(id: number) {
 export async function getReferrals() {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(referrals).where(eq(referrals.isActive, true)).orderBy(asc(referrals.order));
+  return db
+    .select()
+    .from(referrals)
+    .where(eq(referrals.isActive, true))
+    .orderBy(asc(referrals.order));
 }
 
 export async function createReferral(data: InsertReferral) {
@@ -392,7 +441,10 @@ export async function createReferral(data: InsertReferral) {
   return db.insert(referrals).values(data);
 }
 
-export async function updateReferral(id: number, data: Partial<InsertReferral>) {
+export async function updateReferral(
+  id: number,
+  data: Partial<InsertReferral>
+) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   return db.update(referrals).set(data).where(eq(referrals.id, id));
@@ -411,7 +463,11 @@ export async function deleteReferral(id: number) {
 export async function getSocialLinks() {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(socialLinks).where(eq(socialLinks.isVisible, true)).orderBy(asc(socialLinks.order));
+  return db
+    .select()
+    .from(socialLinks)
+    .where(eq(socialLinks.isVisible, true))
+    .orderBy(asc(socialLinks.order));
 }
 
 export async function createSocialLink(data: InsertSocialLink) {
@@ -420,7 +476,10 @@ export async function createSocialLink(data: InsertSocialLink) {
   return db.insert(socialLinks).values(data);
 }
 
-export async function updateSocialLink(id: number, data: Partial<InsertSocialLink>) {
+export async function updateSocialLink(
+  id: number,
+  data: Partial<InsertSocialLink>
+) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   return db.update(socialLinks).set(data).where(eq(socialLinks.id, id));
@@ -439,7 +498,11 @@ export async function deleteSocialLink(id: number) {
 export async function getHireOptions() {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(hireOptions).where(eq(hireOptions.isActive, true)).orderBy(asc(hireOptions.order));
+  return db
+    .select()
+    .from(hireOptions)
+    .where(eq(hireOptions.isActive, true))
+    .orderBy(asc(hireOptions.order));
 }
 
 export async function createHireOption(data: InsertHireOption) {
@@ -448,7 +511,10 @@ export async function createHireOption(data: InsertHireOption) {
   return db.insert(hireOptions).values(data);
 }
 
-export async function updateHireOption(id: number, data: Partial<InsertHireOption>) {
+export async function updateHireOption(
+  id: number,
+  data: Partial<InsertHireOption>
+) {
   const db = await getDb();
   if (!db) throw new Error("Database not available");
   return db.update(hireOptions).set(data).where(eq(hireOptions.id, id));
@@ -476,7 +542,10 @@ export async function updateSiteSettings(data: Partial<InsertSiteSettings>) {
   if (!db) throw new Error("Database not available");
   const existing = await getSiteSettings();
   if (existing) {
-    return db.update(siteSettings).set(data).where(eq(siteSettings.id, existing.id));
+    return db
+      .update(siteSettings)
+      .set(data)
+      .where(eq(siteSettings.id, existing.id));
   } else {
     return db.insert(siteSettings).values(data as InsertSiteSettings);
   }
@@ -498,7 +567,10 @@ export async function updateHeroSection(data: Partial<InsertHeroSection>) {
   if (!db) throw new Error("Database not available");
   const existing = await getHeroSection();
   if (existing) {
-    return db.update(heroSection).set(data).where(eq(heroSection.id, existing.id));
+    return db
+      .update(heroSection)
+      .set(data)
+      .where(eq(heroSection.id, existing.id));
   } else {
     return db.insert(heroSection).values(data as InsertHeroSection);
   }
@@ -516,7 +588,10 @@ export async function updateAboutSection(data: Partial<InsertAboutSection>) {
   if (!db) throw new Error("Database not available");
   const existing = await getAboutSection();
   if (existing) {
-    return db.update(aboutSection).set(data).where(eq(aboutSection.id, existing.id));
+    return db
+      .update(aboutSection)
+      .set(data)
+      .where(eq(aboutSection.id, existing.id));
   } else {
     return db.insert(aboutSection).values(data as InsertAboutSection);
   }
@@ -535,20 +610,31 @@ export async function createActivityLog(data: InsertActivityLog) {
 export async function getActivityLogs(limit: number = 50) {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(activityLogs).orderBy(desc(activityLogs.createdAt)).limit(limit);
+  return db
+    .select()
+    .from(activityLogs)
+    .orderBy(desc(activityLogs.createdAt))
+    .limit(limit);
 }
 
 // ============================================================================
 // CONTACT FORM HELPERS
 // ============================================================================
 
-import { contactSubmissions, analyticsEvents, mediaLibrary, InsertContactSubmission, InsertAnalyticsEvent, InsertMediaFile } from '../drizzle/schema';
-import { eq, desc, gte } from 'drizzle-orm';
-import { TRPCError } from '@trpc/server';
+import {
+  contactSubmissions,
+  analyticsEvents,
+  mediaLibrary,
+  InsertContactSubmission,
+  InsertAnalyticsEvent,
+  InsertMediaFile,
+} from "../drizzle/schema";
+import { eq, desc, gte } from "drizzle-orm";
+import { TRPCError } from "@trpc/server";
 
 export async function createContactSubmission(data: InsertContactSubmission) {
   const db = await getDb();
-  if (!db) throw new Error('Database not available');
+  if (!db) throw new Error("Database not available");
   return await db.insert(contactSubmissions).values(data);
 }
 
@@ -572,24 +658,27 @@ export async function getContactSubmissionById(id: number) {
 
 export async function markContactAsRead(id: number) {
   const db = await getDb();
-  if (!db) throw new Error('Database not available');
-  return await db.update(contactSubmissions)
+  if (!db) throw new Error("Database not available");
+  return await db
+    .update(contactSubmissions)
     .set({ isRead: true })
     .where(eq(contactSubmissions.id, id));
 }
 
 export async function replyToContact(id: number, replyMessage: string) {
   const db = await getDb();
-  if (!db) throw new Error('Database not available');
-  return await db.update(contactSubmissions)
+  if (!db) throw new Error("Database not available");
+  return await db
+    .update(contactSubmissions)
     .set({ isReplied: true, replyMessage })
     .where(eq(contactSubmissions.id, id));
 }
 
 export async function deleteContactSubmission(id: number) {
   const db = await getDb();
-  if (!db) throw new Error('Database not available');
-  return await db.delete(contactSubmissions)
+  if (!db) throw new Error("Database not available");
+  return await db
+    .delete(contactSubmissions)
     .where(eq(contactSubmissions.id, id));
 }
 
@@ -605,20 +694,27 @@ export async function trackAnalyticsEvent(data: InsertAnalyticsEvent) {
 
 export async function getAnalyticsStats(days = 30) {
   const db = await getDb();
-  if (!db) return { totalEvents: 0, pageViews: 0, clicks: 0, formSubmissions: 0, uniqueSessions: 0 };
-  
+  if (!db)
+    return {
+      totalEvents: 0,
+      pageViews: 0,
+      clicks: 0,
+      formSubmissions: 0,
+      uniqueSessions: 0,
+    };
+
   const startDate = new Date();
   startDate.setDate(startDate.getDate() - days);
-  
+
   const events = await db.query.analyticsEvents.findMany({
     where: (events, { gte }) => gte(events.createdAt, startDate),
   });
 
   return {
     totalEvents: events.length,
-    pageViews: events.filter(e => e.eventType === 'page_view').length,
-    clicks: events.filter(e => e.eventType === 'click').length,
-    formSubmissions: events.filter(e => e.eventType === 'form_submit').length,
+    pageViews: events.filter(e => e.eventType === "page_view").length,
+    clicks: events.filter(e => e.eventType === "click").length,
+    formSubmissions: events.filter(e => e.eventType === "form_submit").length,
     uniqueSessions: new Set(events.map(e => e.sessionId)).size,
   };
 }
@@ -639,7 +735,7 @@ export async function getAnalyticsEvents(limit = 100, offset = 0) {
 
 export async function createMediaFile(data: InsertMediaFile) {
   const db = await getDb();
-  if (!db) throw new Error('Database not available');
+  if (!db) throw new Error("Database not available");
   return await db.insert(mediaLibrary).values(data);
 }
 
@@ -663,46 +759,50 @@ export async function getMediaFileById(id: number) {
 
 export async function deleteMediaFile(id: number) {
   const db = await getDb();
-  if (!db) throw new Error('Database not available');
-  return await db.delete(mediaLibrary)
-    .where(eq(mediaLibrary.id, id));
+  if (!db) throw new Error("Database not available");
+  return await db.delete(mediaLibrary).where(eq(mediaLibrary.id, id));
 }
-
 
 // ============================================================================
 // FIVERR GIGS HELPERS
 // ============================================================================
 export async function createFiverrGig(data: any) {
   const db = await getDb();
-  if (!db) throw new Error('Database not available');
+  if (!db) throw new Error("Database not available");
   return await db.insert(fiverrGigs).values(data);
 }
 
 export async function getFiverrGigs(limit = 50, offset = 0) {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(fiverrGigs).orderBy(asc(fiverrGigs.order)).limit(limit).offset(offset);
+  return db
+    .select()
+    .from(fiverrGigs)
+    .orderBy(asc(fiverrGigs.order))
+    .limit(limit)
+    .offset(offset);
 }
 
 export async function getFiverrGigById(id: number) {
   const db = await getDb();
   if (!db) return null;
-  return db.select().from(fiverrGigs).where(eq(fiverrGigs.id, id)).then(rows => rows[0] || null);
+  return db
+    .select()
+    .from(fiverrGigs)
+    .where(eq(fiverrGigs.id, id))
+    .then(rows => rows[0] || null);
 }
 
 export async function updateFiverrGig(id: number, data: any) {
   const db = await getDb();
-  if (!db) throw new Error('Database not available');
-  return await db.update(fiverrGigs)
-    .set(data)
-    .where(eq(fiverrGigs.id, id));
+  if (!db) throw new Error("Database not available");
+  return await db.update(fiverrGigs).set(data).where(eq(fiverrGigs.id, id));
 }
 
 export async function deleteFiverrGig(id: number) {
   const db = await getDb();
-  if (!db) throw new Error('Database not available');
-  return await db.delete(fiverrGigs)
-    .where(eq(fiverrGigs.id, id));
+  if (!db) throw new Error("Database not available");
+  return await db.delete(fiverrGigs).where(eq(fiverrGigs.id, id));
 }
 
 // ============================================================================
@@ -710,33 +810,42 @@ export async function deleteFiverrGig(id: number) {
 // ============================================================================
 export async function createFiverrReview(data: any) {
   const db = await getDb();
-  if (!db) throw new Error('Database not available');
+  if (!db) throw new Error("Database not available");
   return await db.insert(fiverrReviews).values(data);
 }
 
 export async function getFiverrReviews(limit = 50, offset = 0) {
   const db = await getDb();
   if (!db) return [];
-  return db.select().from(fiverrReviews).orderBy(asc(fiverrReviews.order)).limit(limit).offset(offset);
+  return db
+    .select()
+    .from(fiverrReviews)
+    .orderBy(asc(fiverrReviews.order))
+    .limit(limit)
+    .offset(offset);
 }
 
 export async function getFiverrReviewById(id: number) {
   const db = await getDb();
   if (!db) return null;
-  return db.select().from(fiverrReviews).where(eq(fiverrReviews.id, id)).then(rows => rows[0] || null);
+  return db
+    .select()
+    .from(fiverrReviews)
+    .where(eq(fiverrReviews.id, id))
+    .then(rows => rows[0] || null);
 }
 
 export async function updateFiverrReview(id: number, data: any) {
   const db = await getDb();
-  if (!db) throw new Error('Database not available');
-  return await db.update(fiverrReviews)
+  if (!db) throw new Error("Database not available");
+  return await db
+    .update(fiverrReviews)
     .set(data)
     .where(eq(fiverrReviews.id, id));
 }
 
 export async function deleteFiverrReview(id: number) {
   const db = await getDb();
-  if (!db) throw new Error('Database not available');
-  return await db.delete(fiverrReviews)
-    .where(eq(fiverrReviews.id, id));
+  if (!db) throw new Error("Database not available");
+  return await db.delete(fiverrReviews).where(eq(fiverrReviews.id, id));
 }

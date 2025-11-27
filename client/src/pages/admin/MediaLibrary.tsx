@@ -1,43 +1,52 @@
-import { useState } from 'react';
-import { trpc } from '@/lib/trpc';
-import { Image as ImageIcon, Trash2, Copy, Download } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { toast } from 'sonner';
-import MediaUpload from '@/components/MediaUpload';
+import { useState } from "react";
+import { trpc } from "@/lib/trpc";
+import { Image as ImageIcon, Trash2, Copy, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+import MediaUpload from "@/components/MediaUpload";
+import AdminLayout from "@/components/admin/AdminLayout";
 
 export function MediaLibrary() {
   const [showUpload, setShowUpload] = useState(false);
-  
-  const { data: mediaFiles, isLoading, refetch } = trpc.media.list.useQuery({
+
+  const {
+    data: mediaFiles,
+    isLoading,
+    refetch,
+  } = trpc.media.list.useQuery({
     limit: 50,
     offset: 0,
   });
-  
+
   const deleteMediaMutation = trpc.media.delete.useMutation();
 
   const handleDelete = async (id: number) => {
-    if (!confirm('Are you sure you want to delete this file?')) return;
-    
+    if (!confirm("Are you sure you want to delete this file?")) return;
+
     try {
       await deleteMediaMutation.mutateAsync(id);
-      toast.success('File deleted successfully');
+      toast.success("File deleted successfully");
       refetch();
     } catch (error) {
-      toast.error('Failed to delete file');
+      toast.error("Failed to delete file");
     }
   };
 
   const handleCopyUrl = (url: string) => {
     navigator.clipboard.writeText(url);
-    toast.success('URL copied to clipboard');
+    toast.success("URL copied to clipboard");
   };
 
   if (isLoading) {
-    return <div className="p-8 text-center">Loading media library...</div>;
+    return (
+      <AdminLayout>
+        <div className="p-8 text-center">Loading media library...</div>
+      </AdminLayout>
+    );
   }
 
   return (
-    <div className="p-8">
+    <AdminLayout>
       <div className="flex items-center gap-3 mb-8">
         <ImageIcon size={32} className="text-accent" />
         <h1 className="text-3xl font-bold">Media Library</h1>
@@ -48,10 +57,7 @@ export function MediaLibrary() {
         <div className="mb-8 p-6 bg-card border border-border rounded-lg">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-bold">Upload New Media</h2>
-            <Button
-              variant="ghost"
-              onClick={() => setShowUpload(false)}
-            >
+            <Button variant="ghost" onClick={() => setShowUpload(false)}>
               ✕
             </Button>
           </div>
@@ -97,7 +103,9 @@ export function MediaLibrary() {
               {/* Info */}
               <div className="p-4 space-y-3">
                 <div>
-                  <p className="font-semibold text-sm truncate">{file.filename}</p>
+                  <p className="font-semibold text-sm truncate">
+                    {file.filename}
+                  </p>
                   <p className="text-xs text-muted-foreground">
                     {(file.fileSize / 1024).toFixed(2)} KB
                   </p>
@@ -119,7 +127,12 @@ export function MediaLibrary() {
                     asChild
                     className="flex-1"
                   >
-                    <a href={file.s3Url} download target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={file.s3Url}
+                      download
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <Download size={14} />
                     </a>
                   </Button>
@@ -148,6 +161,6 @@ export function MediaLibrary() {
           </Button>
         </div>
       )}
-    </div>
+    </AdminLayout>
   );
 }

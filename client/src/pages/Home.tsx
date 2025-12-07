@@ -1,99 +1,54 @@
-import { trpc } from "@/lib/trpc";
+// import { trpc } from "@/lib/trpc";
+import { portfolioData } from "@/data/portfolioData";
 import {
-  Menu,
-  X,
-  Sun,
-  Moon,
   Code2,
   Briefcase,
   BookOpen,
   Award,
-  Zap,
-  Globe,
-  MessageSquare,
   Gift,
-  Share2,
   Building2,
-  Users,
   FileText,
   ExternalLink,
-  Github,
-  Linkedin,
-  Twitter,
-  Mail,
-  MapPin,
-  Calendar,
-  User,
-  Target,
-  Sparkles,
+  MessageSquare,
+  Smartphone,
   MessageCircle,
   Layers,
   Laptop,
-  Lightbulb,
-  Rocket,
   TrendingUp,
   DollarSign,
-  Smartphone,
-  Radio,
-  Network,
+  User,
+  Target,
 } from "lucide-react";
-import { useState } from "react";
-import { useTheme } from "@/contexts/ThemeContext";
-import ContactForm from "@/components/ContactForm";
+import TemplateBackground from "@/components/layout/TemplateBackground";
+import TemplateNavbar from "@/components/layout/TemplateNavbar";
+import TemplateHero from "@/components/home/TemplateHero";
+import TemplateProjects from "@/components/home/TemplateProjects";
+import TemplateServices from "@/components/home/TemplateServices";
+import TemplateTestimonials from "@/components/home/TemplateTestimonials";
+import TemplatePricing from "@/components/home/TemplatePricing";
+import TemplateContact from "@/components/home/TemplateContact";
+import TemplateFooter from "@/components/layout/TemplateFooter";
+import BackToTop from "@/components/layout/BackToTop";
 
 export default function Home() {
-  const { theme, toggleTheme } = useTheme();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // Use local data for reliability
+  const hero = portfolioData.hero;
+  const about = portfolioData.about;
+  const projects = portfolioData.projects;
+  const experiences = portfolioData.experiences;
+  const skills = portfolioData.skills;
+  const education = portfolioData.education;
+  const socialLinks = portfolioData.socialLinks;
+  const hireOptions = portfolioData.hireOptions;
+  const certifications = portfolioData.certifications;
+  const blogs = portfolioData.blogs;
+  const companies = portfolioData.companies;
+  const channels = portfolioData.channels;
+  const referrals = portfolioData.referrals;
 
-  // Fetch all CMS data
-  const heroQuery = trpc.cms.getHero.useQuery();
-  const aboutQuery = trpc.cms.getAbout.useQuery();
-  const projectsQuery = trpc.cms.getProjects.useQuery();
-  const experiencesQuery = trpc.cms.getExperiences.useQuery();
-  const skillsQuery = trpc.cms.getSkills.useQuery();
-  const certificationsQuery = trpc.cms.getCertifications.useQuery();
-  const educationQuery = trpc.cms.getEducation.useQuery();
-  const blogsQuery = trpc.cms.getBlogs.useQuery();
-  const companiesQuery = trpc.cms.getCompanies.useQuery();
-  const channelsQuery = trpc.cms.getChannels.useQuery();
-  const referralsQuery = trpc.cms.getReferrals.useQuery();
-  const socialLinksQuery = trpc.cms.getSocialLinks.useQuery();
-  const hireOptionsQuery = trpc.cms.getHireOptions.useQuery();
-  const fiverrGigsQuery = trpc.cms.getFiverrGigs.useQuery();
-  const fiverrReviewsQuery = trpc.cms.getFiverrReviews.useQuery();
-
-  const isLoading =
-    heroQuery.isLoading ||
-    aboutQuery.isLoading ||
-    projectsQuery.isLoading ||
-    experiencesQuery.isLoading;
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <div className="text-center">
-          <div className="animate-spin text-4xl mb-4">⟳</div>
-          <p className="text-muted-foreground">Loading your portfolio...</p>
-        </div>
-      </div>
-    );
-  }
-
-  const hero = heroQuery.data;
-  const about = aboutQuery.data;
-  const projects = projectsQuery.data || [];
-  const experiences = experiencesQuery.data || [];
-  const skills = skillsQuery.data || [];
-  const certifications = certificationsQuery.data || [];
-  const education = educationQuery.data || [];
-  const blogs = blogsQuery.data || [];
-  const companies = companiesQuery.data || [];
-  const channels = channelsQuery.data || [];
-  const referrals = referralsQuery.data || [];
-  const socialLinks = socialLinksQuery.data || [];
-  const hireOptions = hireOptionsQuery.data || [];
-  const fiverrGigs = fiverrGigsQuery.data || [];
-  const fiverrReviews = fiverrReviewsQuery.data || [];
+  // Empty arrays for now as they are dynamically fetched usually
+  const fiverrGigs: any[] = [];
+  const fiverrReviews: any[] = [];
 
   // Group skills by category
   const skillsByCategory: Record<string, typeof skills> = {};
@@ -127,156 +82,28 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold">MKM</div>
-          <div className="hidden md:flex gap-8 items-center">
-            <a
-              href="#projects"
-              className="hover:text-yellow-400 transition-colors"
-            >
-              Projects
-            </a>
-            <a href="#hire" className="hover:text-yellow-400 transition-colors">
-              Hire
-            </a>
-            <a
-              href="#connect"
-              className="hover:text-yellow-400 transition-colors"
-            >
-              Connect
-            </a>
-            <button
-              onClick={toggleTheme}
-              className="p-2 hover:bg-yellow-400/10 rounded-lg transition-colors"
-            >
-              {theme === "dark" ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
-            </button>
-          </div>
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden"
-          >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
-        </div>
-      </nav>
+    <div className="wrapper text-white font-sans">
+      <TemplateBackground />
+      <TemplateNavbar />
 
-      {/* Hero Section */}
-      {hero && (
-        <section className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden bg-background hero-background">
-          {/* Decorative accent shapes - tennet.io inspired */}
-          <div className="absolute inset-0 overflow-hidden">
-            {/* Top right yellow accent */}
-            <div className="absolute -top-32 -right-32 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl animate-float" />
-            {/* Bottom left accent (Monochrome) */}
-            <div
-              className="absolute -bottom-32 -left-32 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-float"
-              style={{ animationDelay: "2s" }}
-            />
-            {/* Small accent squares */}
-            <div className="absolute top-20 right-20 w-6 h-6 border-2 border-yellow-400/30" />
-            <div className="absolute bottom-32 left-20 w-4 h-4 bg-white/10" />
-            <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-white/20 rounded-full" />
-          </div>
+      {/* Template Sections */}
+      <TemplateHero data={hero || {}} />
+      <TemplateProjects projects={projects} />
+      <TemplateServices />
 
-          <div className="relative z-10 w-full">
-            {/* Main container with grid layout */}
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center px-4">
-              {/* Left side - Text content */}
-              <div className="space-y-8 animate-fade-in-up">
-                {/* Badge */}
-                <div className="inline-block">
-                  <div className="px-4 py-2 border border-yellow-400/30 rounded-full text-sm font-semibold text-yellow-400 bg-yellow-400/5">
-                    Welcome to my portfolio
-                  </div>
-                </div>
-
-                {/* Main title */}
-                <div>
-                  <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-tight">
-                    <span className="text-white">{hero.title}</span>
-                  </h1>
-                </div>
-
-                {/* Subtitle */}
-                {hero.subtitle && (
-                  <p className="text-lg md:text-xl text-foreground/80 leading-relaxed">
-                    {hero.subtitle}
-                  </p>
-                )}
-
-                {/* Description */}
-                {hero.description && (
-                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                    {hero.description}
-                  </p>
-                )}
-
-                {/* CTA Buttons */}
-                <div className="flex gap-4 flex-wrap pt-4">
-                  {hero.ctaButton1Text && hero.ctaButton1Link && (
-                    <a
-                      href={hero.ctaButton1Link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-8 py-3 bg-yellow-400 text-black rounded-full font-bold text-base hover:bg-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2"
-                    >
-                      {hero.ctaButton1Text}
-                      <span>→</span>
-                    </a>
-                  )}
-                  {hero.ctaButton2Text && hero.ctaButton2Link && (
-                    <a
-                      href={hero.ctaButton2Link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-8 py-3 border-2 border-dashed border-yellow-400 text-yellow-400 rounded-full font-bold text-base hover:bg-yellow-400/10 transition-all duration-300 hover:scale-105"
-                    >
-                      {hero.ctaButton2Text}
-                    </a>
-                  )}
-                </div>
-              </div>
-
-              {/* Right side - Profile image */}
-              <div
-                className="relative flex justify-center items-center animate-fade-in-up"
-                style={{ animationDelay: "0.2s" }}
-              >
-                {/* Image container - clean without effects */}
-                <img
-                  src="/majid-profile.png"
-                  alt="Majid Khan Mohmand"
-                  className="w-full max-w-sm md:max-w-md lg:max-w-lg h-auto rounded-3xl shadow-lg transition-all duration-300"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Existing Content Integrated into Template Layout */}
 
       {/* About Section */}
       {about && (
-        <section className="py-20 px-4 bg-card">
-          <div className="max-w-4xl mx-auto">
+        <section className="py-20 px-4 relative z-10" id="about">
+          <div className="max-w-4xl mx-auto bg-zinc-900/60 border border-white/10 rounded-3xl p-8 backdrop-blur-sm animate-fade-slide-in">
             <div className="flex items-center gap-3 mb-8">
-              <User className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <User className="w-8 h-8 text-white" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-manrope">
                 About Me
               </h2>
             </div>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="text-lg text-zinc-300 leading-relaxed font-sans">
               {about.content}
             </p>
           </div>
@@ -285,11 +112,11 @@ export default function Home() {
 
       {/* Hire Me Section */}
       {hireOptions.length > 0 && (
-        <section id="hire" className="py-20 px-4">
+        <section id="hire" className="py-20 px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Target className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <Target className="w-8 h-8 text-white" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-manrope">
                 Hire Me
               </h2>
             </div>
@@ -300,9 +127,9 @@ export default function Home() {
                   href={option.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-card border border-border rounded-lg p-6 hover:border-yellow-400 transition-colors group"
+                  className="bg-zinc-900/40 border border-white/10 rounded-2xl p-6 hover:bg-zinc-900/60 transition-colors group backdrop-blur-sm"
                 >
-                  <div className="text-yellow-400 mb-4">
+                  <div className="text-white mb-4">
                     {option.title.toLowerCase().includes("whatsapp") && (
                       <MessageCircle className="w-8 h-8" />
                     )}
@@ -318,11 +145,11 @@ export default function Home() {
                         <Briefcase className="w-8 h-8" />
                       )}
                   </div>
-                  <h3 className="text-xl font-semibold group-hover:text-yellow-400 transition-colors">
+                  <h3 className="text-xl font-semibold text-white group-hover:text-zinc-200 transition-colors font-manrope">
                     {option.title}
                   </h3>
                   {option.description && (
-                    <p className="text-sm text-muted-foreground mt-2">
+                    <p className="text-sm text-zinc-400 mt-2 font-sans">
                       {option.description}
                     </p>
                   )}
@@ -335,11 +162,11 @@ export default function Home() {
 
       {/* Experience Section */}
       {experiences.length > 0 && (
-        <section className="py-20 px-4 bg-card">
+        <section className="py-20 px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Briefcase className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <Briefcase className="w-8 h-8 text-white" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-manrope">
                 Professional Experience
               </h2>
             </div>
@@ -347,38 +174,39 @@ export default function Home() {
               {experiences.map(exp => (
                 <div
                   key={exp.id}
-                  className="border-l-4 border-yellow-400 pl-6 pb-6"
+                  className="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 backdrop-blur-sm"
                 >
                   <div className="flex items-start justify-between gap-4 mb-2">
                     <div className="flex items-start gap-3 flex-1">
-                      <Laptop className="w-6 h-6 text-yellow-400 mt-1 flex-shrink-0" />
+                      <Laptop className="w-6 h-6 text-white mt-1 flex-shrink-0" />
                       <div>
-                        <h3 className="text-2xl font-semibold">{exp.title}</h3>
-                        <p className="text-yellow-400 font-medium">
+                        <h3 className="text-2xl font-semibold font-manrope">
+                          {exp.title}
+                        </h3>
+                        <p className="text-zinc-300 font-medium font-sans">
                           {exp.company}
                         </p>
                       </div>
                     </div>
                   </div>
                   {exp.location && (
-                    <p className="text-sm text-muted-foreground ml-9">
-                      <MapPin className="w-4 h-4 inline mr-1" />
+                    <p className="text-sm text-zinc-500 ml-9 font-sans">
                       {exp.location}
                     </p>
                   )}
                   {exp.description && (
-                    <p className="text-muted-foreground mt-2 ml-9">
+                    <p className="text-zinc-400 mt-2 ml-9 font-sans leading-relaxed">
                       {exp.description}
                     </p>
                   )}
                   {exp.technologies &&
                     parseTechnologies(exp.technologies).length > 0 && (
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        {parseTechnologies(exp.technologies).map(
-                          (tech: any) => (
+                      <div className="flex flex-wrap gap-2 mt-4 ml-9">
+                        {(parseTechnologies(exp.technologies) as string[]).map(
+                          tech => (
                             <span
                               key={String(tech)}
-                              className="text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded"
+                              className="text-xs bg-white/10 text-zinc-200 border border-white/10 px-2 py-1 rounded-full font-sans"
                             >
                               {String(tech)}
                             </span>
@@ -395,24 +223,29 @@ export default function Home() {
 
       {/* Skills Section */}
       {Object.keys(skillsByCategory).length > 0 && (
-        <section className="py-20 px-4 bg-background">
+        <section className="py-20 px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Code2 className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <Code2 className="w-8 h-8 text-white" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-manrope">
                 Technical Skills & Tools
               </h2>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
               {Object.entries(skillsByCategory).map(
                 ([category, categorySkills]) => (
-                  <div key={category}>
-                    <h3 className="text-lg font-semibold mb-4">{category}</h3>
+                  <div
+                    key={category}
+                    className="bg-zinc-900/40 border border-white/10 rounded-3xl p-6 backdrop-blur-sm"
+                  >
+                    <h3 className="text-lg font-semibold mb-4 font-manrope text-zinc-200">
+                      {category}
+                    </h3>
                     <div className="flex flex-wrap gap-2">
                       {categorySkills.map(skill => (
                         <span
                           key={skill.id}
-                          className="bg-card border border-border px-3 py-1 rounded-full text-sm hover:border-yellow-400 transition-colors"
+                          className="bg-zinc-900/60 border border-white/10 px-3 py-1 rounded-full text-sm hover:bg-white/10 transition-colors font-sans text-zinc-300"
                         >
                           {skill.icon && (
                             <span className="mr-1">{skill.icon}</span>
@@ -431,11 +264,11 @@ export default function Home() {
 
       {/* Education Section */}
       {education.length > 0 && (
-        <section className="py-20 px-4 bg-card">
+        <section className="py-20 px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <BookOpen className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <BookOpen className="w-8 h-8 text-white" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-manrope">
                 Education
               </h2>
             </div>
@@ -443,21 +276,24 @@ export default function Home() {
               {education.map(edu => (
                 <div
                   key={edu.id}
-                  className="bg-background border border-border rounded-lg p-6"
+                  className="bg-zinc-900/40 border border-white/10 rounded-2xl p-6 backdrop-blur-sm"
                 >
                   <div className="flex items-start gap-3">
-                    <BookOpen className="w-6 h-6 text-yellow-400 mt-1 flex-shrink-0" />
+                    <BookOpen className="w-6 h-6 text-white mt-1 flex-shrink-0" />
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold">{edu.degree}</h3>
-                      <p className="text-yellow-400">{edu.institution}</p>
+                      <h3 className="text-xl font-semibold font-manrope">
+                        {edu.degree}
+                      </h3>
+                      <p className="text-zinc-300 font-sans">
+                        {edu.institution}
+                      </p>
                       {edu.fieldOfStudy && (
-                        <p className="text-muted-foreground">
+                        <p className="text-zinc-400 font-sans">
                           {edu.fieldOfStudy}
                         </p>
                       )}
                       {edu.endDate && (
-                        <p className="text-sm text-muted-foreground mt-2">
-                          <Calendar className="w-4 h-4 inline mr-1" />
+                        <p className="text-sm text-zinc-500 mt-2 font-sans">
                           Graduated:{" "}
                           {new Date(edu.endDate).toLocaleDateString()}
                         </p>
@@ -473,11 +309,11 @@ export default function Home() {
 
       {/* Certifications Section */}
       {certifications.length > 0 && (
-        <section className="py-20 px-4 bg-background">
+        <section className="py-20 px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Award className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <Award className="w-8 h-8 text-white" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-manrope">
                 Certifications
               </h2>
             </div>
@@ -485,16 +321,19 @@ export default function Home() {
               {certifications.map(cert => (
                 <div
                   key={cert.id}
-                  className="bg-card border border-border rounded-lg p-6"
+                  className="bg-zinc-900/40 border border-white/10 rounded-2xl p-6 backdrop-blur-sm"
                 >
                   <div className="flex items-start gap-3">
-                    <Award className="w-6 h-6 text-yellow-400 mt-1 flex-shrink-0" />
+                    <Award className="w-6 h-6 text-white mt-1 flex-shrink-0" />
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold">{cert.title}</h3>
-                      <p className="text-yellow-400 text-sm">{cert.issuer}</p>
+                      <h3 className="text-lg font-semibold font-manrope">
+                        {cert.title}
+                      </h3>
+                      <p className="text-zinc-300 text-sm font-sans">
+                        {cert.issuer}
+                      </p>
                       {cert.issueDate && (
-                        <p className="text-xs text-muted-foreground mt-2">
-                          <Calendar className="w-3 h-3 inline mr-1" />
+                        <p className="text-xs text-zinc-500 mt-2 font-sans">
                           Issued:{" "}
                           {new Date(cert.issueDate).toLocaleDateString()}
                         </p>
@@ -508,64 +347,13 @@ export default function Home() {
         </section>
       )}
 
-      {/* Projects Section */}
-      {projects.length > 0 && (
-        <section id="projects" className="py-20 px-4 bg-card/50">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-12">
-              <Sparkles className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
-                Featured Projects
-              </h2>
-            </div>
-            <div className="grid md:grid-cols-3 gap-6">
-              {projects.map(project => (
-                <a
-                  key={project.id}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-background border border-border rounded-lg overflow-hidden hover:border-yellow-400 transition-colors group"
-                >
-                  {project.imageUrl && (
-                    <img
-                      src={project.imageUrl}
-                      alt={project.title}
-                      className="w-full h-40 object-cover group-hover:opacity-75 transition-opacity"
-                    />
-                  )}
-                  <div className="p-6">
-                    <div className="flex items-start gap-2 mb-2">
-                      <Lightbulb className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
-                      <h3 className="text-lg font-semibold group-hover:text-yellow-400 transition-colors">
-                        {project.title}
-                      </h3>
-                    </div>
-                    {project.description && (
-                      <p className="text-sm text-muted-foreground mt-2">
-                        {project.description}
-                      </p>
-                    )}
-                    {project.category && (
-                      <span className="inline-block mt-4 text-xs bg-yellow-400/20 text-yellow-400 px-2 py-1 rounded">
-                        {project.category}
-                      </span>
-                    )}
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Blogs Section */}
       {blogs.length > 0 && (
-        <section className="py-20 px-4 bg-background">
+        <section className="py-20 px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <FileText className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <FileText className="w-8 h-8 text-white" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-manrope">
                 My Blogs
               </h2>
             </div>
@@ -576,20 +364,19 @@ export default function Home() {
                   href={blog.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-card border border-border rounded-lg p-6 hover:border-yellow-400 transition-colors group"
+                  className="bg-zinc-900/40 border border-white/10 rounded-2xl p-6 hover:bg-zinc-900/60 transition-colors group backdrop-blur-sm"
                 >
                   <div className="flex items-start gap-2 mb-2">
-                    <Radio className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
-                    <h3 className="text-lg font-semibold group-hover:text-yellow-400 transition-colors">
+                    <h3 className="text-lg font-semibold group-hover:text-white transition-colors font-manrope text-zinc-200">
                       {blog.title}
                     </h3>
                   </div>
                   {blog.description && (
-                    <p className="text-sm text-muted-foreground mt-2">
+                    <p className="text-sm text-zinc-400 mt-2 font-sans">
                       {blog.description}
                     </p>
                   )}
-                  <p className="text-xs text-muted-foreground mt-4">
+                  <p className="text-xs text-zinc-500 mt-4 flex items-center font-sans">
                     <ExternalLink className="w-3 h-3 inline mr-1" />
                     Read on {blog.title}
                   </p>
@@ -602,11 +389,11 @@ export default function Home() {
 
       {/* Companies Section */}
       {companies.length > 0 && (
-        <section className="py-20 px-4 bg-card">
+        <section className="py-20 px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Building2 className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <Building2 className="w-8 h-8 text-white" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-manrope">
                 Companies & Ventures
               </h2>
             </div>
@@ -617,27 +404,27 @@ export default function Home() {
                   href={company.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-background border border-border rounded-lg p-8 hover:border-yellow-400 transition-colors group text-center"
+                  className="bg-zinc-900/40 border border-white/10 rounded-3xl p-8 hover:bg-zinc-900/60 transition-colors group text-center backdrop-blur-sm"
                 >
                   {company.logoUrl ? (
                     <img
                       src={company.logoUrl}
                       alt={company.name}
-                      className="w-24 h-24 mx-auto mb-4 object-contain"
+                      className="w-24 h-24 mx-auto mb-4 object-contain filter grayscale group-hover:grayscale-0 transition-all"
                     />
                   ) : (
-                    <Building2 className="w-12 h-12 mx-auto mb-4 text-yellow-400" />
+                    <Building2 className="w-12 h-12 mx-auto mb-4 text-zinc-500 group-hover:text-white transition-colors" />
                   )}
-                  <h3 className="text-xl font-semibold group-hover:text-yellow-400 transition-colors">
+                  <h3 className="text-xl font-semibold group-hover:text-white transition-colors font-manrope text-zinc-200">
                     {company.name}
                   </h3>
                   {company.role && (
-                    <p className="text-sm text-muted-foreground mt-2">
+                    <p className="text-sm text-zinc-400 mt-2 font-sans">
                       {company.role}
                     </p>
                   )}
                   {company.description && (
-                    <p className="text-xs text-muted-foreground mt-4">
+                    <p className="text-xs text-zinc-500 mt-4 font-sans">
                       {company.description}
                     </p>
                   )}
@@ -650,19 +437,19 @@ export default function Home() {
 
       {/* WhatsApp & Telegram Channels */}
       {Object.keys(channelsByCategory).length > 0 && (
-        <section className="py-20 px-4 bg-background">
+        <section className="py-20 px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <MessageSquare className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <MessageSquare className="w-8 h-8 text-white" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-manrope">
                 WhatsApp & Telegram Channels
               </h2>
             </div>
             {Object.entries(channelsByCategory).map(
               ([category, categoryChannels]) => (
                 <div key={category} className="mb-12">
-                  <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
-                    <Smartphone className="w-6 h-6 text-yellow-400" />
+                  <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2 font-manrope text-zinc-200">
+                    <Smartphone className="w-6 h-6 text-zinc-400" />
                     {category}
                   </h3>
                   <div className="grid md:grid-cols-3 gap-4">
@@ -672,16 +459,16 @@ export default function Home() {
                         href={channel.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="bg-card border border-border rounded-lg p-4 hover:border-yellow-400 transition-colors group"
+                        className="bg-zinc-900/40 border border-white/10 rounded-2xl p-4 hover:bg-zinc-900/60 transition-colors group backdrop-blur-sm"
                       >
                         <div className="flex items-start gap-3">
-                          <MessageCircle className="w-5 h-5 text-yellow-400 mt-0.5 flex-shrink-0" />
+                          <MessageCircle className="w-5 h-5 text-zinc-400 mt-0.5 flex-shrink-0 group-hover:text-white" />
                           <div className="flex-1">
-                            <h4 className="font-semibold group-hover:text-yellow-400 transition-colors">
+                            <h4 className="font-semibold group-hover:text-white transition-colors font-sans text-zinc-300">
                               {channel.title}
                             </h4>
                             {channel.description && (
-                              <p className="text-xs text-muted-foreground">
+                              <p className="text-xs text-zinc-500 font-sans">
                                 {channel.description}
                               </p>
                             )}
@@ -699,11 +486,11 @@ export default function Home() {
 
       {/* Referrals Section */}
       {referrals.length > 0 && (
-        <section className="py-20 px-4 bg-card">
+        <section className="py-20 px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Gift className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <Gift className="w-8 h-8 text-white" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-manrope">
                 Exclusive Referrals & Offers
               </h2>
             </div>
@@ -714,21 +501,21 @@ export default function Home() {
                   href={referral.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-background border border-border rounded-lg p-6 hover:border-yellow-400 transition-colors group"
+                  className="bg-zinc-900/40 border border-white/10 rounded-2xl p-6 hover:bg-zinc-900/60 transition-colors group backdrop-blur-sm"
                 >
                   <div className="flex items-start gap-3 mb-2">
-                    <DollarSign className="w-6 h-6 text-yellow-400 mt-0.5 flex-shrink-0" />
-                    <h3 className="text-lg font-semibold group-hover:text-yellow-400 transition-colors">
+                    <DollarSign className="w-6 h-6 text-zinc-400 mt-0.5 flex-shrink-0 group-hover:text-white" />
+                    <h3 className="text-lg font-semibold group-hover:text-white transition-colors font-manrope text-zinc-200">
                       {referral.title}
                     </h3>
                   </div>
                   {referral.description && (
-                    <p className="text-muted-foreground mt-2">
+                    <p className="text-zinc-400 mt-2 font-sans">
                       {referral.description}
                     </p>
                   )}
                   {referral.benefit && (
-                    <p className="text-sm text-yellow-400 font-semibold mt-4">
+                    <p className="text-sm text-zinc-300 font-semibold mt-4 flex items-center font-sans">
                       <TrendingUp className="w-4 h-4 inline mr-1" />
                       {referral.benefit}
                     </p>
@@ -742,11 +529,11 @@ export default function Home() {
 
       {/* Fiverr Gigs Section */}
       {fiverrGigs.length > 0 && (
-        <section className="py-20 px-4 bg-card">
+        <section className="py-20 px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             <div className="flex items-center gap-3 mb-12">
-              <Briefcase className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+              <Briefcase className="w-8 h-8 text-white" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-manrope">
                 Fiverr Gigs
               </h2>
             </div>
@@ -757,10 +544,10 @@ export default function Home() {
                   href={gig.gigUrl || "https://www.fiverr.com/majidkhan_moh"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-background border border-border rounded-lg overflow-hidden hover:border-yellow-400 transition-all group hover:shadow-lg"
+                  className="bg-zinc-900/40 border border-white/10 rounded-3xl overflow-hidden hover:border-white/30 transition-all group hover:shadow-lg backdrop-blur-sm"
                 >
                   {gig.imageUrl && (
-                    <div className="relative h-40 overflow-hidden bg-muted">
+                    <div className="relative h-48 overflow-hidden bg-zinc-800">
                       <img
                         src={gig.imageUrl}
                         alt={gig.title}
@@ -769,21 +556,23 @@ export default function Home() {
                     </div>
                   )}
                   <div className="p-6">
-                    <h3 className="text-lg font-semibold mb-2 group-hover:text-yellow-400 transition-colors line-clamp-2">
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-white transition-colors line-clamp-2 font-manrope text-zinc-200">
                       {gig.title}
                     </h3>
                     {gig.description && (
-                      <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                      <p className="text-sm text-zinc-400 mb-4 line-clamp-2 font-sans">
                         {gig.description}
                       </p>
                     )}
                     <div className="flex items-center justify-between mb-4">
                       {gig.rating && (
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center gap-1 font-sans text-sm">
                           <span className="text-yellow-400">★</span>
-                          <span className="font-semibold">{gig.rating}</span>
+                          <span className="font-semibold text-white">
+                            {gig.rating}
+                          </span>
                           {gig.reviewCount && (
-                            <span className="text-xs text-muted-foreground">
+                            <span className="text-zinc-500">
                               ({gig.reviewCount})
                             </span>
                           )}
@@ -791,7 +580,7 @@ export default function Home() {
                       )}
                     </div>
                     {(gig.priceFrom || gig.priceTo) && (
-                      <div className="text-lg font-bold text-yellow-400">
+                      <div className="text-lg font-bold text-white font-manrope">
                         From {gig.currency} {gig.priceFrom || gig.priceTo}
                       </div>
                     )}
@@ -804,129 +593,16 @@ export default function Home() {
       )}
 
       {/* Fiverr Reviews Section */}
-      {fiverrReviews.length > 0 && (
-        <section className="py-20 px-4 bg-background">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-12">
-              <MessageSquare className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
-                Client Reviews
-              </h2>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              {fiverrReviews.map(review => (
-                <div
-                  key={review.id}
-                  className="bg-card border border-border rounded-lg p-6 hover:border-yellow-400 transition-colors"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div>
-                      <h3 className="font-semibold text-lg">
-                        {review.reviewerName}
-                      </h3>
-                      {review.reviewerCountry && (
-                        <p className="text-sm text-muted-foreground">
-                          {review.reviewerCountry}
-                        </p>
-                      )}
-                    </div>
-                    <div className="flex items-center gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <span
-                          key={i}
-                          className={
-                            i < parseInt(review.rating || "5")
-                              ? "text-yellow-400"
-                              : "text-muted"
-                          }
-                        >
-                          ★
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                  {review.comment && (
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
-                      "{review.comment}"
-                    </p>
-                  )}
-                  <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
-                    {review.gigTitle && (
-                      <span className="bg-muted px-2 py-1 rounded">
-                        {review.gigTitle}
-                      </span>
-                    )}
-                    {review.priceRange && (
-                      <span className="bg-muted px-2 py-1 rounded">
-                        {review.priceRange}
-                      </span>
-                    )}
-                    {review.duration && (
-                      <span className="bg-muted px-2 py-1 rounded">
-                        {review.duration}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      <TemplateTestimonials reviews={fiverrReviews} />
 
-      {/* Social Links Section */}
-      {socialLinks.length > 0 && (
-        <section id="connect" className="py-20 px-4">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center justify-center gap-3 mb-12">
-              <Share2 className="w-8 h-8 text-yellow-400" />
-              <h2 className="text-4xl font-bold text-center">
-                Connect With Me
-              </h2>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              {socialLinks.map(link => {
-                const getSocialIcon = (platform: string | undefined) => {
-                  if (!platform) return <Globe className="w-5 h-5" />;
-                  const lowerPlatform = platform.toLowerCase();
-                  if (lowerPlatform.includes("github"))
-                    return <Github className="w-5 h-5" />;
-                  if (lowerPlatform.includes("linkedin"))
-                    return <Linkedin className="w-5 h-5" />;
-                  if (lowerPlatform.includes("twitter"))
-                    return <Twitter className="w-5 h-5" />;
-                  if (
-                    lowerPlatform.includes("mail") ||
-                    lowerPlatform.includes("email")
-                  )
-                    return <Mail className="w-5 h-5" />;
-                  return <Globe className="w-5 h-5" />;
-                };
-                return (
-                  <a
-                    key={link.id}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-12 h-12 flex items-center justify-center bg-card border border-border rounded-full hover:border-yellow-400 hover:bg-yellow-400/10 transition-colors text-yellow-400"
-                    title={link.platform || "Social Link"}
-                  >
-                    {getSocialIcon(link.platform)}
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Pricing Section */}
+      <TemplatePricing />
 
-      {/* Contact Form */}
-      <ContactForm />
+      {/* Contact Section */}
+      <TemplateContact socialLinks={socialLinks} />
 
-      {/* Footer */}
-      <footer className="py-8 px-4 border-t border-border text-center text-muted-foreground">
-        <p>© 2025 Majid Khan Mohmand. All rights reserved.</p>
-      </footer>
+      <TemplateFooter />
+      <BackToTop />
     </div>
   );
 }

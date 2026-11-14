@@ -259,6 +259,11 @@ def main():
     for r in items:
         p = os.path.join(SHOTS, r["slug"] + ".webp")
         r["shot"] = f"/shots/{r['slug']}.webp" if os.path.exists(p) and r["slug"] not in NO_SHOT else None
+        if r["shot"]:   # a JPEG twin for link previews: not every network's crawler takes WebP
+            jpg = os.path.join(SHOTS, "og", r["slug"] + ".jpg")
+            if not os.path.exists(jpg) or os.path.getmtime(jpg) < os.path.getmtime(p):
+                os.makedirs(os.path.dirname(jpg), exist_ok=True)
+                Image.open(p).convert("RGB").save(jpg, "JPEG", quality=82, optimize=True, progressive=True)
         ph = os.path.join(PHONES, r["slug"] + ".webp")
         r["phone"] = f"/shots/phone/{r['slug']}.webp" if r["shot"] and os.path.exists(ph) else None
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

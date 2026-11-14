@@ -18,11 +18,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!p) return {};
   const title = `${p.name}: ${p.summary.replace(/\.$/, '')}`.slice(0, 90);
   const description = (p.description || p.summary).slice(0, 300);
+  // the home page's screenshot as a JPEG (public/shots/og, scripts/compile_products.py), or the site's own card
+  const og = p.shot ? { url: `/shots/og/${p.slug}.jpg`, width: 1200, height: 750 } : { url: '/og.png', width: 1200, height: 630 };
   return {
     title, description,
     alternates: { canonical: `/work/${p.slug}/` },
-    openGraph: { type: 'article', title: `${p.name} — ${person.name}`, description, ...(p.shot ? { images: [{ url: p.shot, width: 1200, height: 750 }] } : {}) },
-    twitter: { card: 'summary_large_image', title: `${p.name} — ${person.name}`, description, ...(p.shot ? { images: [p.shot] } : {}) },
+    openGraph: { type: 'article', title: `${p.name} — ${person.name}`, description, images: [og] },
+    twitter: { card: 'summary_large_image', title: `${p.name} — ${person.name}`, description, images: [og.url] },
   };
 }
 

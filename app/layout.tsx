@@ -20,9 +20,11 @@ export const metadata: Metadata = {
   keywords: ['Majid Khan Mohmand', 'StoresWiki', 'Code Engineers', 'CabsCloud', 'AutoGineer', 'Market Studio', 'ChannelForge', 'ReelForge',
     'full-stack engineer', 'cloud architect', 'AI agents', 'LLM oversight', 'Claude Code', 'Next.js', 'AWS', 'Google Cloud', 'Italy'],
   alternates: { canonical: '/' },
+  // a static PNG with its extension: social crawlers get image/png without a redirect (the generated route had neither)
   openGraph: { type: 'profile', url: SITE, siteName: person.name, title: `${person.name}: an estate of AI products, mapped`, description,
+    images: [{ url: '/og.png', width: 1200, height: 630, alt: `${person.name}: the estate, mapped` }],
     firstName: 'Majid', lastName: 'Khan Mohmand', locale: 'en_GB' },
-  twitter: { card: 'summary_large_image', creator: '@majidkhanmohman', title: `${person.name}: an estate of AI products, mapped`, description },
+  twitter: { card: 'summary_large_image', creator: '@majidkhanmohman', title: `${person.name}: an estate of AI products, mapped`, description, images: ['/og.png'] },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } },
   icons: { icon: '/icon.svg' },
   other: { 'theme-color': '#0b1322' },

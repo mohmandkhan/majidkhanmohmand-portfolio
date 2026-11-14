@@ -2,7 +2,7 @@
   "name": "majidkhanmohmand",
   "private": true,
   "version": "2.0.0",
-  "description": "majidkhanmohmand.com — the atlas of everything Majid Khan Mohmand builds and runs",
+  "description": "majidkhanmohmand.com \u2014 the atlas of everything Majid Khan Mohmand builds and runs",
   "scripts": {
     "products": "/tmp/book-venv/bin/python -I scripts/compile_products.py",
     "dev": "next dev -p 3260",
@@ -12,16 +12,17 @@
   "dependencies": {
     "@fontsource-variable/instrument-sans": "^5.3.0",
     "@fontsource/instrument-serif": "^5.3.0",
-    "next": "15.5.27",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
-  },
-  "devDependencies": {
     "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.2",
     "@types/react-dom": "^19.0.2",
+    "next": "15.5.29",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.2"
+  },
+  "overrides": {
+    "postcss": "^8.5.23"
   }
 }

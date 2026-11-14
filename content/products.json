@@ -1,0 +1,1653 @@
+[
+ {
+  "slug": "agentforge",
+  "name": "AgentForge",
+  "host": "agentforge.cabscloud.com",
+  "url": "https://agentforge.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "built",
+  "category": "AI agents & automation",
+  "summary": "A master agent that builds agents, on a self-hosted Dify engine with a custom orchestration API (research and development).",
+  "description": "A master agent that builds agents, on a self-hosted Dify engine with a custom orchestration API (research and development).",
+  "steps": [],
+  "benefits": [],
+  "stack": [
+   "Dify",
+   "Orchestration API"
+  ],
+  "launcher": null,
+  "shot": "/shots/agentforge.webp",
+  "phone": "/shots/phone/agentforge.webp"
+ },
+ {
+  "slug": "autogineer",
+  "name": "AutoGineer",
+  "host": "autogineer.com",
+  "url": "https://autogineer.com/",
+  "brand": "AutoGineer",
+  "kind": "built",
+  "category": "AI agents & automation",
+  "summary": "AI automation marketplace: hire verified experts.",
+  "description": "An AI-automation marketplace: identity-verified experts, Stripe Connect escrow and 10,757 n8n workflow templates. Next.js 15 and React 19, Socket.IO, 730 tests; a React Native (Expo) app live on Google Play.",
+  "steps": [
+   "Find a template or an expert",
+   "Agree the scope",
+   "Fund escrow securely",
+   "Deliver & review"
+  ],
+  "benefits": [
+   "Order a fixed-scope service, request a custom offer, or post a job and compare proposals.",
+   "Work only with identity-verified, application-reviewed experts.",
+   "Fund projects into escrow and release payment only when you approve the work."
+  ],
+  "stack": [
+   "Next.js 15",
+   "React 19",
+   "Socket.IO",
+   "Stripe Connect",
+   "React Native (Expo)"
+  ],
+  "launcher": {
+   "group": "AI Tools",
+   "emoji": "🤝",
+   "color": "#eab308"
+  },
+  "shot": "/shots/autogineer.webp",
+  "phone": "/shots/phone/autogineer.webp"
+ },
+ {
+  "slug": "autogineer-cloud",
+  "name": "Autogineer Cloud",
+  "host": "cloud.autogineer.com",
+  "url": "https://cloud.autogineer.com/",
+  "brand": "AutoGineer",
+  "kind": "built",
+  "category": "Cloud & hosting",
+  "summary": "Instant VPS hosting, deploy in seconds.",
+  "description": "VPS hosting: pick a plan and a one-click app (WordPress, n8n, Supabase and more) and it is live in seconds. Automated provisioning, Stripe subscriptions and a reseller programme, with paying customers.",
+  "steps": [
+   "Pick a plan & app",
+   "Set your password",
+   "Watch it go live",
+   "Then run it"
+  ],
+  "benefits": [
+   "Managed WordPress — WordPress with the surrounding setup done for you.",
+   "Managed n8n — n8n with its webhook-facing configuration settled up front.",
+   "Managed Nextcloud — Nextcloud with its trusted domains and storage configured.",
+   "Managed PostgreSQL — PostgreSQL with credentials, access and scheduled dumps arranged."
+  ],
+  "stack": [
+   "Provisioning automation",
+   "Stripe Billing",
+   "Proxmox",
+   "Docker"
+  ],
+  "launcher": {
+   "group": "Productivity",
+   "emoji": "⚡",
+   "color": "#673de6"
+  },
+  "shot": "/shots/autogineer-cloud.webp",
+  "phone": "/shots/phone/autogineer-cloud.webp"
+ },
+ {
+  "slug": "autonomous-video-studios-the-dossier",
+  "name": "Autonomous Video Studios — the dossier",
+  "host": "dossier.storeswiki.com",
+  "url": "https://dossier.storeswiki.com",
+  "brand": "StoresWiki",
+  "kind": "built",
+  "category": "Media & publishing",
+  "summary": "The book of our autonomous video studios, with live charts.",
+  "description": "The book of the two autonomous video systems — the original programme and ChannelForge: design, operations, results and economics, every figure measured; a web edition with every chart live, and the PDF.",
+  "steps": [],
+  "benefits": [],
+  "stack": [
+   "Next.js",
+   "ReportLab",
+   "Interactive SVG charts"
+  ],
+  "launcher": {
+   "group": "Media",
+   "emoji": "📘",
+   "color": "#b8410f"
+  },
+  "shot": "/shots/autonomous-video-studios-the-dossier.webp",
+  "phone": "/shots/phone/autonomous-video-studios-the-dossier.webp"
+ },
+ {
+  "slug": "avatartunes",
+  "name": "AvatarTunes",
+  "host": "tunes.cabscloud.com",
+  "url": "https://tunes.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "built",
+  "category": "Content & video",
+  "summary": "AI avatar videos & voiceovers.",
+  "description": "A topic or a song becomes a scripted, voiced, lip-synced AI avatar video; moved from Vercel and Railway to self-hosted Coolify.",
+  "steps": [
+   "Describe your topic",
+   "Review the script",
+   "Pick voice & avatar",
+   "Generate & publish"
+  ],
+  "benefits": [
+   "AI writes a structured script from your topic",
+   "Natural voiceover in dozens of languages",
+   "Realistic talking avatar with accurate lip-sync",
+   "Edit every line before you render"
+  ],
+  "stack": [
+   "Avatar video",
+   "Voice synthesis",
+   "Coolify"
+  ],
+  "launcher": {
+   "group": "AI Tools",
+   "emoji": "🎬",
+   "color": "#a78bfa"
+  },
+  "shot": "/shots/avatartunes.webp",
+  "phone": "/shots/phone/avatartunes.webp"
+ },
+ {
+  "slug": "channelforge",
+  "name": "ChannelForge",
+  "host": "forge.storeswiki.com",
+  "url": "https://forge.storeswiki.com",
+  "brand": "StoresWiki",
+  "kind": "built",
+  "category": "Content & video",
+  "summary": "Faceless channels that run themselves.",
+  "description": "Faceless channels that run themselves: ChannelForge researches the niche, builds the brand, animates original episodes on cloud GPUs and publishes them on schedule to YouTube, Facebook, Instagram, TikTok, X, Threads, LinkedIn and Bluesky, with a quality critic on every video.",
+  "steps": [],
+  "benefits": [],
+  "stack": [
+   "Next.js",
+   "Python",
+   "Cloud GPUs",
+   "Claude on Bedrock",
+   "Cloud SQL"
+  ],
+  "launcher": {
+   "group": "AI Tools",
+   "emoji": "📡",
+   "color": "#ea580c"
+  },
+  "shot": "/shots/channelforge.webp",
+  "phone": "/shots/phone/channelforge.webp"
+ },
+ {
+  "slug": "claude-command-center",
+  "name": "Claude Command Center",
+  "host": "claude.cabscloud.com",
+  "url": "https://claude.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "built",
+  "category": "AI agents & automation",
+  "summary": "AI operations & marketing command center.",
+  "description": "An AI command center for SEO, blogs and ads, on an LLM gateway that runs Claude Code headless on AWS Bedrock with a 109-skill library and named sub-agents, metered by per-model credits under daily token caps; Gemini added through an Anthropic-to-Gemini translating proxy.",
+  "steps": [
+   "Add your site — Drop in a URL. Group sites into projects for clients or brands.",
+   "Run a command — Pick any SEO, Blog or Ads command.",
+   "Fix & monitor — Apply the fixes, schedule re-audits, and watch your score climb on the dashboard."
+  ],
+  "benefits": [
+   "SERP-informed outlines",
+   "Editorial calendars",
+   "Publish-ready drafts",
+   "Brand DNA extraction"
+  ],
+  "stack": [
+   "Claude Code",
+   "AWS Bedrock",
+   "Gemini",
+   "Next.js"
+  ],
+  "launcher": {
+   "group": "AI Tools",
+   "emoji": "🧠",
+   "color": "#7c5cff"
+  },
+  "shot": "/shots/claude-command-center.webp",
+  "phone": "/shots/phone/claude-command-center.webp"
+ },
+ {
+  "slug": "content-engine",
+  "name": "Content Engine",
+  "host": "contengine.pro",
+  "url": "https://contengine.pro/",
+  "brand": "CabsCloud",
+  "kind": "built",
+  "category": "Content & video",
+  "summary": "AI content generation at scale.",
+  "description": "AI content automation that queries several models at once, scores recommendations by cross-model agreement and checks claims against sources before publishing; web and React Native apps, moved from Railway to self-hosted Coolify.",
+  "steps": [
+   "Internal Links Analysis",
+   "Business Analysis",
+   "EEAT Sources",
+   "Topic Creation",
+   "Content Generation"
+  ],
+  "benefits": [
+   "Multi-Model Research — Query multiple AI models simultaneously and cross-reference findings for accuracy.",
+   "Consensus Scoring — Score content recommendations by agreement level across AI sources and search data.",
+   "Source Verification — Automatically verify claims against authoritative databases and publications.",
+   "Content Accuracy Check — Validate factual claims, statistics, and references before publishing."
+  ],
+  "stack": [
+   "Multi-model LLMs",
+   "React Native",
+   "Coolify"
+  ],
+  "launcher": {
+   "group": "AI Tools",
+   "emoji": "✍️",
+   "color": "#10b981"
+  },
+  "shot": "/shots/content-engine.webp",
+  "phone": "/shots/phone/content-engine.webp"
+ },
+ {
+  "slug": "leadgen",
+  "name": "LeadGen",
+  "host": "lead.cabscloud.com",
+  "url": "https://lead.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "built",
+  "category": "Marketing & SEO",
+  "summary": "AI-powered lead generation & outreach.",
+  "description": "Lead-generation SaaS: find local businesses, audit their sites (40+ checks), write the AI pitch and track outreach (decoupled front end and back end, moved from Railway).",
+  "steps": [
+   "Search a niche — Pick an industry and a city.",
+   "Audit & analyze — Run a website audit to reveal 40+ issues and turn them into talking points and a branded report.",
+   "Pitch & close — Generate an AI pitch, launch a tracked sequence, and move the deal through your pipeline."
+  ],
+  "benefits": [
+   "Live Google Places data",
+   "One-click save to your pipeline",
+   "Performance, SEO, mobile & security checks",
+   "Severity scoring with clear recommendations"
+  ],
+  "stack": [
+   "React",
+   "Node.js",
+   "AI pitch writing"
+  ],
+  "launcher": {
+   "group": "Marketing & SEO",
+   "emoji": "🎯",
+   "color": "#6366f1"
+  },
+  "shot": "/shots/leadgen.webp",
+  "phone": "/shots/phone/leadgen.webp"
+ },
+ {
+  "slug": "organized-chaos",
+  "name": "Organized Chaos",
+  "host": "oc.cabscloud.com",
+  "url": "https://oc.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "built",
+  "category": "Productivity & business",
+  "summary": "Turn scattered notes into structured action.",
+  "description": "Upload PDF, DOCX or PPTX and AI builds a searchable documentation portal (React front end, Node API, MinIO object storage).",
+  "steps": [
+   "Upload Documents",
+   "AI Processes & Transforms",
+   "Customize Your Portal",
+   "Publish & Share"
+  ],
+  "benefits": [
+   "Smart Document Upload",
+   "AI-Powered Processing",
+   "Portal Generation",
+   "Collaborative MDX Editor"
+  ],
+  "stack": [
+   "React",
+   "Node.js",
+   "MinIO"
+  ],
+  "launcher": {
+   "group": "Productivity",
+   "emoji": "🗂️",
+   "color": "#f59e0b"
+  },
+  "shot": "/shots/organized-chaos.webp",
+  "phone": "/shots/phone/organized-chaos.webp"
+ },
+ {
+  "slug": "paperclip-agent-control-plane",
+  "name": "Paperclip agent control plane",
+  "host": "agents.storeswiki.com",
+  "url": "https://agents.storeswiki.com/",
+  "brand": "StoresWiki",
+  "kind": "built",
+  "category": "Developer & internal platforms",
+  "summary": "A self-hosted agent control plane with 118 configured agents and 199 skills.",
+  "description": "A self-hosted agent control plane with 118 configured agents and 199 skills. Its Telegram concierge went from 33–146 s to 9.5–16.3 s a reply and from $0.39 to about $0.015 a message once the time and the money were measured.",
+  "steps": [],
+  "benefits": [],
+  "stack": [
+   "Paperclip",
+   "Claude",
+   "Haiku 4.5",
+   "Telegram"
+  ],
+  "launcher": null,
+  "shot": "/shots/paperclip-agent-control-plane.webp",
+  "phone": null
+ },
+ {
+  "slug": "reelforge",
+  "name": "ReelForge",
+  "host": "reelforge.cabscloud.com",
+  "url": "https://reelforge.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "built",
+  "category": "Content & video",
+  "summary": "UGC & faceless short-form video, generated.",
+  "description": "A brief becomes a readable shot plan, then a finished vertical video with sound, captions and logo; 32 styles plus a GPU Generative Engine with a self-hosted open-weight talking-avatar model on an H100.",
+  "steps": [
+   "Say what it is",
+   "Pick a look",
+   "Check the price",
+   "Publish it"
+  ],
+  "benefits": [
+   "Shot planning first. The brief becomes a shot plan you can read before anything is rendered, so you can see what it intends to make.",
+   "Your actual product. Upload product images and they appear in the video, rather than a stock stand-in that looks like someone else’s catalogue.",
+   "One presenter throughout. The same face and voice across every shot in a video, and across videos in the same programme."
+  ],
+  "stack": [
+   "GPU rendering",
+   "LongCat-Video-Avatar",
+   "n8n"
+  ],
+  "launcher": {
+   "group": "AI Tools",
+   "emoji": "🎬",
+   "color": "#f5a524"
+  },
+  "shot": "/shots/reelforge.webp",
+  "phone": "/shots/phone/reelforge.webp"
+ },
+ {
+  "slug": "storeswiki-channels",
+  "name": "StoresWiki Channels",
+  "host": "channels.storeswiki.com",
+  "url": "https://channels.storeswiki.com/",
+  "brand": "StoresWiki",
+  "kind": "built",
+  "category": "Media & publishing",
+  "summary": "Every channel in the network on YouTube, Facebook and Instagram, ranked.",
+  "description": "Every channel of the network on YouTube, Facebook and Instagram, ranked by followers and views and counted every hour — fed by the original programme, ChannelForge and the Unpacked Commentary Engine, an n8n + GPU engine producing avatar commentary, explainer and news episodes in 11 formats.",
+  "steps": [],
+  "benefits": [],
+  "stack": [
+   "Next.js",
+   "Hourly feed",
+   "n8n",
+   "GPUs"
+  ],
+  "launcher": {
+   "group": "Media",
+   "emoji": "📺",
+   "color": "#FF0000"
+  },
+  "shot": "/shots/storeswiki-channels.webp",
+  "phone": "/shots/phone/storeswiki-channels.webp"
+ },
+ {
+  "slug": "support-and-tickets",
+  "name": "Support & tickets",
+  "host": "tickets.cabscloud.com",
+  "url": "https://tickets.cabscloud.com",
+  "brand": "CabsCloud",
+  "kind": "built",
+  "category": "Developer & internal platforms",
+  "summary": "Centralized ticketing for every product, with HMAC-signed portal links and one shared support launcher on all the sites.",
+  "description": "Centralized ticketing for every product, with HMAC-signed portal links and one shared support launcher on all the sites.",
+  "steps": [],
+  "benefits": [],
+  "stack": [
+   "HMAC signing",
+   "Node.js"
+  ],
+  "launcher": null,
+  "shot": "/shots/support-and-tickets.webp",
+  "phone": "/shots/phone/support-and-tickets.webp"
+ },
+ {
+  "slug": "tennet-io",
+  "name": "Tennet.io",
+  "host": "tennet.io",
+  "url": "https://tennet.io",
+  "brand": "StoresWiki",
+  "kind": "built",
+  "category": "AI agents & automation",
+  "summary": "AI-powered collaborative development teams",
+  "description": "AI-powered collaborative development teams: AI agents plan and build apps together, designed for people to steer them mid-run. Node and TypeScript, React, Python (CrewAI, LiteLLM) and an HMAC-signed event bus. Its 703 passing tests mocked the very components they tested; the agent loop was restored and acceptance moved to real-browser journeys — about 5,500 automated tests across five services now.",
+  "steps": [],
+  "benefits": [],
+  "stack": [
+   "TypeScript",
+   "Node.js",
+   "React",
+   "Python",
+   "CrewAI",
+   "LiteLLM"
+  ],
+  "launcher": null,
+  "shot": "/shots/tennet-io.webp",
+  "phone": "/shots/phone/tennet-io.webp"
+ },
+ {
+  "slug": "youtube-pro",
+  "name": "YouTube Pro",
+  "host": "youtubepro.cabscloud.com",
+  "url": "https://youtubepro.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "built",
+  "category": "Content & video",
+  "summary": "Grow your channel with AI tooling.",
+  "description": "A YouTube research, idea, script and thumbnail toolkit (NestJS and Next.js) with built-in metrics and self-monitoring; 15 defects were planted in its monitoring tests to test the tests.",
+  "steps": [
+   "Research & Analyze — Enter any YouTube topic or niche.",
+   "Generate Content — Create compelling scripts, video ideas, and thumbnails with AI assistance.",
+   "Publish & Grow — Export your content and publish with confidence."
+  ],
+  "benefits": [
+   "YouTube Research",
+   "Content Ideas",
+   "Script Writer",
+   "Pro Script Studio"
+  ],
+  "stack": [
+   "NestJS",
+   "Next.js",
+   "YouTube Data API"
+  ],
+  "launcher": {
+   "group": "AI Tools",
+   "emoji": "▶️",
+   "color": "#ef4444"
+  },
+  "shot": "/shots/youtube-pro.webp",
+  "phone": "/shots/phone/youtube-pro.webp"
+ },
+ {
+  "slug": "66audit",
+  "name": "66Audit",
+  "host": "66audit.pro",
+  "url": "https://66audit.pro/",
+  "brand": "Code Engineers",
+  "kind": "operated",
+  "category": "Marketing & SEO",
+  "summary": "AI SEO site audit & monitoring.",
+  "description": "Get your webpages audited professionally and improve your SEO in minutes.",
+  "steps": [
+   "Paste your URL. Single page, bulk, sitemap or raw HTML.",
+   "Run the audit. Get effective insights in seconds.",
+   "Fix issues & improve. Get actionable tips to improve your SEO."
+  ],
+  "benefits": [
+   "Audit any type of webpage",
+   "Auditing history",
+   "Advanced analysis of SEO",
+   "40 SEO tests"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "Marketing & SEO",
+   "emoji": "🔍",
+   "color": "#0ea5e9"
+  },
+  "shot": "/shots/66audit.webp",
+  "phone": "/shots/phone/66audit.webp"
+ },
+ {
+  "slug": "agentlabs",
+  "name": "AgentLabs",
+  "host": "agentlabs.cabscloud.com",
+  "url": "https://agentlabs.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "AI voice-agent & call automation.",
+  "description": "Create human-like AI voice agents that handle outbound and inbound calls, book meetings and qualify leads 24/7. No code.",
+  "steps": [],
+  "benefits": [
+   "Instantly train AI Agents with your data",
+   "Deploy quickly using no-code platform",
+   "Automate customer interactions",
+   "Automate Lead Qualification and Follow-ups"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "AI Tools",
+   "emoji": "📞",
+   "color": "#8b5cf6"
+  },
+  "shot": "/shots/agentlabs.webp",
+  "phone": "/shots/phone/agentlabs.webp"
+ },
+ {
+  "slug": "ai-tools-finder",
+  "name": "AI Tools Finder",
+  "host": "aitools.cabscloud.com",
+  "url": "https://aitools.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "Browse a curated, searchable directory of AI tools for writing, images, video, code and productivity — with reviews, categories and pricing.",
+  "description": "Browse a curated, searchable directory of AI tools for writing, images, video, code and productivity — with reviews, categories and pricing.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/ai-tools-finder.webp",
+  "phone": "/shots/phone/ai-tools-finder.webp"
+ },
+ {
+  "slug": "appforge",
+  "name": "AppForge",
+  "host": "appforge.cabscloud.com",
+  "url": "https://appforge.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "Turn any website into a native mobile app.",
+  "description": "Convert any website into a native mobile app with AppForge",
+  "steps": [
+   "Enter Your Website URL — Simply paste your website URL.",
+   "AI Configures Everything — The AI assistant sets up navigation, colors, icons, and settings based on your website.",
+   "Build Your App — One-click build generates your native app file.",
+   "Publish to App Stores — Get signed app files ready for Google Play and App Store submission."
+  ],
+  "benefits": [
+   "Look great on any device",
+   "Design with pre-built components",
+   "Apply themes and layouts",
+   "AI-Powered Builder"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "Productivity",
+   "emoji": "📱",
+   "color": "#06b6d4"
+  },
+  "shot": "/shots/appforge.webp",
+  "phone": "/shots/phone/appforge.webp"
+ },
+ {
+  "slug": "atoz-seo-tools",
+  "name": "AtoZ SEO Tools",
+  "host": "seo.codeengineers.net",
+  "url": "https://seo.codeengineers.net/",
+  "brand": "Code Engineers",
+  "kind": "operated",
+  "category": "Marketing & SEO",
+  "summary": "Free all-in-one SEO tools suite.",
+  "description": "A free suite of SEO tools — keyword research, backlink and plagiarism checkers, meta tag analysis, domain authority and more. Optimize in minutes.",
+  "steps": [],
+  "benefits": [
+   "Robots.txt Generator",
+   "Domain Authority Checker",
+   "XML Sitemap Generator"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "Marketing & SEO",
+   "emoji": "🧰",
+   "color": "#7c3aed"
+  },
+  "shot": "/shots/atoz-seo-tools.webp",
+  "phone": "/shots/phone/atoz-seo-tools.webp"
+ },
+ {
+  "slug": "autogineer-ai",
+  "name": "AutoGineer AI",
+  "host": "ai.autogineer.com",
+  "url": "https://ai.autogineer.com/",
+  "brand": "AutoGineer",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "135+ AI tools: chat, content, code & voice.",
+  "description": "Access 121+ AI tools including chatbots, content generators, code assistants, image creators, and autonomous AI agents. Powered by advanced AI models.",
+  "steps": [],
+  "benefits": [
+   "Social Media Automation",
+   "SEO Content Engine",
+   "Email Campaigns",
+   "Ad Copy Generator"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "AI Tools",
+   "emoji": "🛠️",
+   "color": "#2563eb"
+  },
+  "shot": "/shots/autogineer-ai.webp",
+  "phone": "/shots/phone/autogineer-ai.webp"
+ },
+ {
+  "slug": "autogineer-whatsapp",
+  "name": "AutoGineer WhatsApp",
+  "host": "whatsapp.autogineer.com",
+  "url": "https://whatsapp.autogineer.com/",
+  "brand": "AutoGineer",
+  "kind": "operated",
+  "category": "Messaging, CRM & social",
+  "summary": "WhatsApp CRM, campaigns & team inbox.",
+  "description": "Bulk campaigns, chatbot automation and a shared team inbox on the official WhatsApp Business API. Start with a free account.",
+  "steps": [
+   "Join to Platform",
+   "Explore our Feature",
+   "Add or Import Your Contacts",
+   "Send Message or Create Campaign"
+  ],
+  "benefits": [
+   "Smart Contact Management",
+   "Template Manager",
+   "Manage Campaign",
+   "Chatbot Builder"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "Marketing & SEO",
+   "emoji": "📲",
+   "color": "#FFD700"
+  },
+  "shot": "/shots/autogineer-whatsapp.webp",
+  "phone": "/shots/phone/autogineer-whatsapp.webp"
+ },
+ {
+  "slug": "betterlearn",
+  "name": "BetterLearn",
+  "host": "betterlearn.cabscloud.com",
+  "url": "https://betterlearn.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Learning",
+  "summary": "AI-powered learning & study tools.",
+  "description": "100+ AI tools that help educators plan faster, support student learning, and give schools visibility — with safety guardrails built in.",
+  "steps": [
+   "Sign Up & Get Started",
+   "Choose Your Tools",
+   "Generate Content",
+   "Deploy & Share"
+  ],
+  "benefits": [
+   "Educator productivity",
+   "Student learning support",
+   "School visibility",
+   "Nova (AI assistant)"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "Productivity",
+   "emoji": "📚",
+   "color": "#22c55e"
+  },
+  "shot": "/shots/betterlearn.webp",
+  "phone": "/shots/phone/betterlearn.webp"
+ },
+ {
+  "slug": "claude-ads-academy",
+  "name": "Claude Ads Academy",
+  "host": "claudeads.cabscloud.com",
+  "url": "https://claudeads.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "Running ads on Google, Meta, TikTok or LinkedIn is easy to start and easy to waste money on.",
+  "description": "Running ads on Google, Meta, TikTok or LinkedIn is easy to start and easy to waste money on. Claude Ads turns Claude Code into a paid-advertising specialist that audits your ad accounts across every major platform (250+ checks), scores them, and builds optimized campaigns and creative. This academy teaches you from scratch — no media-buying background needed.",
+  "steps": [
+   "The audit pipeline",
+   "1 · Connect data You connect each platform's data access (or…",
+   "2 · Detect platforms Identifies which platforms you actually…",
+   "3 · Audit in parallel 6 audit agents (budget, compliance…",
+   "4 · Score Each platform gets a 0–100 score + A–F grade with…"
+  ],
+  "benefits": [
+   "1 · Connect data You connect each platform's data access (or run planning/creative with none).",
+   "2 · Detect platforms Identifies which platforms you actually run (Google, Meta, LinkedIn, TikTok, Microsoft…",
+   "3 · Audit in parallel 6 audit agents (budget, compliance, creative, google, meta, tracking) run 250+ checks…",
+   "4 · Score Each platform gets a 0–100 score + A–F grade with critical/high issue counts."
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/claude-ads-academy.webp",
+  "phone": "/shots/phone/claude-ads-academy.webp"
+ },
+ {
+  "slug": "claude-blog-academy",
+  "name": "Claude Blog Academy",
+  "host": "claudeblog.cabscloud.com",
+  "url": "https://claudeblog.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "A blog brings free visitors who become customers — but posts that actually rank take research, structure, SEO and editing.",
+  "description": "A blog brings free visitors who become customers — but posts that actually rank take research, structure, SEO and editing. Claude Blog turns Claude Code into a content team that plans, writes, scores and optimizes posts that rank on Google and get cited by AI. This academy teaches you from scratch — no writing or tech skills required.",
+  "steps": [
+   "The audit pipeline",
+   "1 · Load brand & voice Reads BRAND.md / VOICE.md so the draft…",
+   "3 · Outline SERP-informed H2/H3 hierarchy with per-section…",
+   "4 · Draft blog-writer writes answer-first content with…",
+   "5 · SEO + schema blog-seo validates on-page SEO; JSON-LD…"
+  ],
+  "benefits": [
+   "1 · Load brand & voice Reads BRAND.md / VOICE.md so the draft sounds like you, not generic AI.",
+   "3 · Outline SERP-informed H2/H3 hierarchy with per-section word counts and content-gap analysis.",
+   "4 · Draft blog-writer writes answer-first content with sourced stats, citation capsules and a Key-Takeaways box.",
+   "5 · SEO + schema blog-seo validates on-page SEO; JSON-LD schema (BlogPosting, FAQ, etc.) is generated."
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/claude-blog-academy.webp",
+  "phone": "/shots/phone/claude-blog-academy.webp"
+ },
+ {
+  "slug": "claude-seo-academy",
+  "name": "Claude SEO Academy",
+  "host": "claudeseo.cabscloud.com",
+  "url": "https://claudeseo.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "Search Engine Optimization makes your website show up when people search Google.",
+  "description": "Search Engine Optimization makes your website show up when people search Google. Claude SEO is a free, open-source tool that turns Claude Code into an automated SEO team — it audits your site, scores it, and hands you a plain-English action plan. This academy teaches you to use it from zero, no technical background needed.",
+  "steps": [
+   "The audit pipeline",
+   "1 · Render Captures the homepage's raw HTML, the…",
+   "2 · Detect business type Reads homepage signals to classify…",
+   "3 · Crawl Follows internal links up to 500 pages, respects…",
+   "5 · Score Aggregates every specialist's findings into a…"
+  ],
+  "benefits": [
+   "1 · Render Captures the homepage's raw HTML, the JavaScript-rendered HTML, extracted text and SPA status (so it…",
+   "2 · Detect business type Reads homepage signals to classify the site (local-service, e-commerce, SaaS, blog, …)…",
+   "3 · Crawl Follows internal links up to 500 pages, respects robots.txt, 5 concurrent requests with a polite…",
+   "5 · Score Aggregates every specialist's findings into a single 0–100 SEO Health Score with per-area sub-scores."
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/claude-seo-academy.webp",
+  "phone": "/shots/phone/claude-seo-academy.webp"
+ },
+ {
+  "slug": "dallham-ai",
+  "name": "DALLHAM AI",
+  "host": "dallham.com",
+  "url": "https://dallham.com/",
+  "brand": "Market Studio",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "Unlock the power of AI content generation with our guide to OpenAI, Claude, Gemini.",
+  "description": "Unlock the power of AI content generation with our guide to OpenAI, Claude, Gemini. Discover how to leverage AI tools on DaVinci AI to create anything you prefer.",
+  "steps": [
+   "Select a writing tool",
+   "Tell us what to write about",
+   "Generate AI content"
+  ],
+  "benefits": [
+   "AI Chat Bots",
+   "AI Contents",
+   "AI Images",
+   "AI Voiceovers"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/dallham-ai.webp",
+  "phone": "/shots/phone/dallham-ai.webp"
+ },
+ {
+  "slug": "davinci-studio",
+  "name": "DaVinci Studio",
+  "host": "davincistudio.io",
+  "url": "https://davincistudio.io/",
+  "brand": "Market Studio",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "Unlock the power of AI content generation with our guide to OpenAI, Gemini.",
+  "description": "Unlock the power of AI content generation with our guide to OpenAI, Gemini. Discover how to leverage AI tools on DaVinci AI to create anything you prefer.",
+  "steps": [
+   "Select a writing tool",
+   "Tell us what to write about",
+   "Generate AI content"
+  ],
+  "benefits": [
+   "AI Chat Bots",
+   "AI Contents",
+   "AI Images",
+   "AI Voiceovers"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/davinci-studio.webp",
+  "phone": "/shots/phone/davinci-studio.webp"
+ },
+ {
+  "slug": "erpgo-saas",
+  "name": "ERPGo SaaS",
+  "host": "erpgo.cabscloud.com",
+  "url": "https://erpgo.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Productivity & business",
+  "summary": "Streamline your entire business lifecycle, from finance to operations, with ERPGo SaaS.",
+  "description": "Streamline your entire business lifecycle, from finance to operations, with ERPGo SaaS. One platform, infinite possibilities.",
+  "steps": [],
+  "benefits": [
+   "ERP System",
+   "Accounting System",
+   "CRM System",
+   "POS System"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/erpgo-saas.webp",
+  "phone": "/shots/phone/erpgo-saas.webp"
+ },
+ {
+  "slug": "intellicall-ai",
+  "name": "IntelliCall AI",
+  "host": "intellicall.cabscloud.com",
+  "url": "https://intellicall.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "AI voice-calling agents & telephony.",
+  "description": "IntelliCallAI is an AI voice calling platform: human-like agents answer and place calls around the clock, qualify leads in real time, book appointments, and send WhatsApp reminders — with campaigns, call recordings, transcripts, and CRM integrations.",
+  "steps": [],
+  "benefits": [
+   "Classic pipeline: Deepgram STT + OpenRouter LLM + ElevenLabs voices.",
+   "Deepgram Voice Agent: one socket, sub-second responses, managed LLM.",
+   "Sarvam AI: native Indian languages — Hindi, Tamil, Telugu, Bengali, Kannada, Marathi and more, on a single Sarvam key.",
+   "Preview any voice before you launch, and switch engines without rebuilding your agent."
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "AI Tools",
+   "emoji": "☎️",
+   "color": "#3b82f6"
+  },
+  "shot": "/shots/intellicall-ai.webp",
+  "phone": "/shots/phone/intellicall-ai.webp"
+ },
+ {
+  "slug": "investstocks",
+  "name": "InvestStocks",
+  "host": "investstocks.cabscloud.com",
+  "url": "https://investstocks.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Productivity & business",
+  "summary": "AI-powered market intelligence platform that turns real-time data, sentiment, and analysis into confident investing decisions.",
+  "description": "AI-powered market intelligence platform that turns real-time data, sentiment, and analysis into confident investing decisions.",
+  "steps": [
+   "Track — Track markets and assets in real time with our advanced dashboard and watchlists.",
+   "Analyze — Analyze using AI, charts, screeners, and sentiment to find opportunities.",
+   "Act — Act with confidence using validated insights and clear signals."
+  ],
+  "benefits": [
+   "AI Chat & Insights",
+   "Paper Trading",
+   "Stocks & Crypto",
+   "Real-Time Data"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/investstocks.webp",
+  "phone": "/shots/phone/investstocks.webp"
+ },
+ {
+  "slug": "krikkit",
+  "name": "Krikkit",
+  "host": "krikkit.cabscloud.com",
+  "url": "https://krikkit.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "Describe a site, get a real one.",
+  "description": "AI that generates a working site from a prompt — editable, previewable and exportable.",
+  "steps": [
+   "Write the brief",
+   "Review the canvas",
+   "Edit the files",
+   "Publish when ready"
+  ],
+  "benefits": [
+   "Brief access — Every project keeps the prompt, files, and preview together so the next turn has context.",
+   "Canvas updates — The preview refreshes as files land. No export step to see what changed.",
+   "File memory — Markup stays in the tree. Come back later and pick up the same pages.",
+   "Publish controls — Preview, domain, and GitHub import sit behind the same workspace permissions."
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "AI Tools",
+   "emoji": "🏗️",
+   "color": "#d946ef"
+  },
+  "shot": "/shots/krikkit.webp",
+  "phone": "/shots/phone/krikkit.webp"
+ },
+ {
+  "slug": "luminaseo",
+  "name": "LuminaSEO",
+  "host": "luminaseo.cabscloud.com",
+  "url": "https://luminaseo.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Marketing & SEO",
+  "summary": "A WordPress plugin that keeps the technical half of SEO — metadata and structured data — correct continuously.",
+  "description": "Technical SEO that maintains itself LuminaSEO is a WordPress plugin that keeps the technical half of SEO correct continuously — metadata, structured data…",
+  "steps": [],
+  "benefits": [
+   "Metadata that stays in sync",
+   "Structured data you are told about",
+   "Runs on your server"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/luminaseo.webp",
+  "phone": "/shots/phone/luminaseo.webp"
+ },
+ {
+  "slug": "monster-tools",
+  "name": "Monster Tools",
+  "host": "monstertools.cabscloud.com",
+  "url": "https://monstertools.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Marketing & SEO",
+  "summary": "An all-in-one platform of 150+ online utilities — SEO analysis, text and image tools, converters and developer helpers.",
+  "description": "Monster Tools is an all-in-one platform of 150+ online utilities — SEO analysis, text and image tools, converters and developer helpers. Fast to use, free to start, no install required.",
+  "steps": [],
+  "benefits": [
+   "Text Analysis Tools",
+   "Online PDF Tools",
+   "Keywords Tools",
+   "Website Tracking Tools"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/monster-tools.webp",
+  "phone": "/shots/phone/monster-tools.webp"
+ },
+ {
+  "slug": "mydzine",
+  "name": "MyDzine",
+  "host": "mydzine.cabscloud.com",
+  "url": "https://mydzine.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "Generate AI avatars that perfectly capture your unique style.",
+  "description": "Generate AI avatars that perfectly capture your unique style. Write a prompt and let our Dreambooth and Stable diffusion technology do the rest.",
+  "steps": [
+   "Sign Up & Create Account — Get started with free credits or subscription.",
+   "Choose a Tool — Select from generation, editing, or enhancement tools.",
+   "Generate or Edit — Create, edit, and export high-quality visuals instantly."
+  ],
+  "benefits": [
+   "Image-to-Prompt Generator",
+   "Remove Object from Image",
+   "Add Object into Image",
+   "AI Character Generator"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/mydzine.webp",
+  "phone": "/shots/phone/mydzine.webp"
+ },
+ {
+  "slug": "nexai",
+  "name": "NexAI",
+  "host": "nexai.cabscloud.com",
+  "url": "https://nexai.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "AI content, chat, image, code & voice suite.",
+  "description": "Generate text, images, chat, code, audio and video from one AI dashboard. Simple credit-based plans.",
+  "steps": [],
+  "benefits": [
+   "Universal AI MCP Widget",
+   "Personal MCP Server",
+   "AI Image Generator",
+   "AI Audio Generator"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "AI Tools",
+   "emoji": "🪄",
+   "color": "#14b8a6"
+  },
+  "shot": "/shots/nexai.webp",
+  "phone": "/shots/phone/nexai.webp"
+ },
+ {
+  "slug": "openclaw-control",
+  "name": "OpenClaw Control",
+  "host": "claw.storeswiki.com",
+  "url": "https://claw.storeswiki.com/",
+  "brand": "StoresWiki",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "The Gateway at claw.storeswiki.com is reachable, but it needs a matching token or password before this browser can connect.",
+  "description": "The Gateway at claw.storeswiki.com is reachable, but it needs a matching token or password before this browser can connect.",
+  "steps": [],
+  "benefits": [
+   "Paste the token from openclaw gateway auth-token --show into Gateway secret.",
+   "If no token is configured, run openclaw doctor --generate-gateway-token on the gateway host.",
+   "Click Connect again after updating the Gateway secret.",
+   "If startup fails, OpenClaw will retry the current app bundle automatically."
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/openclaw-control.webp",
+  "phone": "/shots/phone/openclaw-control.webp"
+ },
+ {
+  "slug": "opencut",
+  "name": "OpenCut",
+  "host": "opencut.cabscloud.com",
+  "url": "https://opencut.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Content & video",
+  "summary": "A simple but powerful video editor that gets the job done.",
+  "description": "A simple but powerful video editor that gets the job done. In your browser.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/opencut.webp",
+  "phone": "/shots/phone/opencut.webp"
+ },
+ {
+  "slug": "orkify",
+  "name": "Orkify",
+  "host": "mgt.cabscloud.com",
+  "url": "https://mgt.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Productivity & business",
+  "summary": "Plan sprints, track issues, build workflows and automate process — with AI.",
+  "description": "Plan sprints, track issues, build workflows and automate process — with AI.",
+  "steps": [],
+  "benefits": [
+   "Visual Automation Studio",
+   "Context-Aware AI Assistant",
+   "Executive-Ready Shared Views",
+   "Sprint Performance Intelligence"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/orkify.webp",
+  "phone": "/shots/phone/orkify.webp"
+ },
+ {
+  "slug": "pitchbar",
+  "name": "Pitchbar",
+  "host": "pitchbar.cabscloud.com",
+  "url": "https://pitchbar.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Messaging, CRM & social",
+  "summary": "AI sales chat for high-intent pages.",
+  "description": "Turn every high-intent page into a sales conversation. The Pitchbar chat widget answers from your real content, captures leads, and hands off to humans on demand. Self-hostable, multi-tenant, white-labelable.",
+  "steps": [
+   "Paste your content — Add URLs, docs, or copy.",
+   "Configure & customize — Set triggers, tone, CTAs, and routing in minutes.",
+   "Go live & optimize — Embed with one line of code and start improving conversations."
+  ],
+  "benefits": [
+   "Product pages",
+   "Docs & help pages",
+   "Behavior triggers",
+   "Streaming answers"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "Marketing & SEO",
+   "emoji": "🗣️",
+   "color": "#fb7185"
+  },
+  "shot": "/shots/pitchbar.webp",
+  "phone": "/shots/phone/pitchbar.webp"
+ },
+ {
+  "slug": "rankai",
+  "name": "RankAI",
+  "host": "rankai.thetechabc.com",
+  "url": "https://rankai.thetechabc.com/",
+  "brand": "Media",
+  "kind": "operated",
+  "category": "Marketing & SEO",
+  "summary": "AI writing and SEO content optimization: keyword-rich articles, blogs and website content in seconds.",
+  "description": "RankAI is an advanced AI-powered writing and SEO content optimization platform that helps you create high-quality, keyword-rich articles, blogs, and website content in seconds.",
+  "steps": [
+   "Enter Your Keyword/Topic",
+   "Choose tone & content type",
+   "Generate SEO Content",
+   "Edit & Publish"
+  ],
+  "benefits": [
+   "AI-Powered Content Generation",
+   "Multi-Tone Writing Styles",
+   "Meta & SEO Optimization",
+   "Image-Aware Content Creation"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/rankai.webp",
+  "phone": "/shots/phone/rankai.webp"
+ },
+ {
+  "slug": "snapreels",
+  "name": "SnapReels",
+  "host": "reels.storeswiki.com",
+  "url": "https://reels.storeswiki.com/",
+  "brand": "StoresWiki",
+  "kind": "operated",
+  "category": "Content & video",
+  "summary": "A short-form vertical drama platform",
+  "description": "A short-form vertical drama platform: bite-sized episodes of romance, thriller, revenge and fantasy series on a phone, unlocked with coins, picked up where you left off on any device.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": null,
+  "phone": null
+ },
+ {
+  "slug": "stackposts-pro",
+  "name": "StackPosts Pro",
+  "host": "stackposts.pro",
+  "url": "https://stackposts.pro/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Messaging, CRM & social",
+  "summary": "Plan, create, and publish faster with AI, media tools, scheduling, and team workflow in one place.",
+  "description": "Plan, create, and publish faster with AI, media tools, scheduling, and team workflow in one place.",
+  "steps": [
+   "Collect inputs",
+   "Generate and refine",
+   "Schedule and publish",
+   "Track and iterate"
+  ],
+  "benefits": [
+   "Create, refine, and prep content faster.",
+   "Scheduling and automation",
+   "Assets and team control",
+   "Insights after publish"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/stackposts-pro.webp",
+  "phone": "/shots/phone/stackposts-pro.webp"
+ },
+ {
+  "slug": "storeswiki-grocery",
+  "name": "StoresWiki Grocery",
+  "host": "app-grocery.storeswiki.com",
+  "url": "https://app-grocery.storeswiki.com",
+  "brand": "StoresWiki",
+  "kind": "operated",
+  "category": "Commerce",
+  "summary": "Grocery ordering and delivery in the StoresWiki commerce ecosystem.",
+  "description": "Grocery ordering and delivery in the StoresWiki commerce ecosystem.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": null,
+  "phone": null
+ },
+ {
+  "slug": "storeswiki-journal",
+  "name": "StoresWiki Journal",
+  "host": "dle.cabscloud.com",
+  "url": "https://dle.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Productivity & business",
+  "summary": "Reporting and reference material on running an online store",
+  "description": "StoresWiki Journal — reporting and reference material on running an online store: platforms, payments, logistics, and the operational detail nobody writes down.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/storeswiki-journal.webp",
+  "phone": "/shots/phone/storeswiki-journal.webp"
+ },
+ {
+  "slug": "storeswiki-mart",
+  "name": "StoresWiki Mart",
+  "host": "mart.storeswiki.com",
+  "url": "https://mart.storeswiki.com",
+  "brand": "StoresWiki",
+  "kind": "operated",
+  "category": "Commerce",
+  "summary": "A multi-vendor super-app",
+  "description": "A multi-vendor super-app: the storefront of the StoresWiki commerce ecosystem.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": null,
+  "phone": null
+ },
+ {
+  "slug": "storeswiki-restaurant",
+  "name": "StoresWiki Restaurant",
+  "host": "app-restaurant.storeswiki.com",
+  "url": "https://app-restaurant.storeswiki.com",
+  "brand": "StoresWiki",
+  "kind": "operated",
+  "category": "Commerce",
+  "summary": "Restaurant ordering in the StoresWiki commerce ecosystem.",
+  "description": "Restaurant ordering in the StoresWiki commerce ecosystem.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": null,
+  "phone": null
+ },
+ {
+  "slug": "storeswiki-services",
+  "name": "StoresWiki Services",
+  "host": "services.storeswiki.com",
+  "url": "https://services.storeswiki.com",
+  "brand": "StoresWiki",
+  "kind": "operated",
+  "category": "Commerce",
+  "summary": "A services marketplace in the StoresWiki commerce ecosystem.",
+  "description": "A services marketplace in the StoresWiki commerce ecosystem.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": null,
+  "phone": null
+ },
+ {
+  "slug": "storeswiki-shop",
+  "name": "StoresWiki Shop",
+  "host": "shop.storeswiki.com",
+  "url": "https://shop.storeswiki.com",
+  "brand": "StoresWiki",
+  "kind": "operated",
+  "category": "Commerce",
+  "summary": "An online shop in the StoresWiki commerce ecosystem.",
+  "description": "An online shop in the StoresWiki commerce ecosystem.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/storeswiki-shop.webp",
+  "phone": "/shots/phone/storeswiki-shop.webp"
+ },
+ {
+  "slug": "storeswiki-store",
+  "name": "StoresWiki Store",
+  "host": "app-store.storeswiki.com",
+  "url": "https://app-store.storeswiki.com",
+  "brand": "StoresWiki",
+  "kind": "operated",
+  "category": "Commerce",
+  "summary": "A store app of the StoresWiki commerce ecosystem.",
+  "description": "A store app of the StoresWiki commerce ecosystem.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": null,
+  "phone": null
+ },
+ {
+  "slug": "superstore",
+  "name": "Superstore",
+  "host": "superstore.cabscloud.com",
+  "url": "https://superstore.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Commerce",
+  "summary": "Shop a curated range of quality products at Superstore — fair prices, secure checkout and reliable delivery.",
+  "description": "Shop a curated range of quality products at Superstore — fair prices, secure checkout and reliable delivery. Everyday essentials and standout finds, all in one place.",
+  "steps": [],
+  "benefits": [
+   "Tofu & Meat Alternatives",
+   "Fruits & Vegetables",
+   "Premium Ingredients"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/superstore.webp",
+  "phone": "/shots/phone/superstore.webp"
+ },
+ {
+  "slug": "the-tech-abc-whatsapp",
+  "name": "The Tech ABC WhatsApp",
+  "host": "whatsapp.thetechabc.com",
+  "url": "https://whatsapp.thetechabc.com/",
+  "brand": "Media",
+  "kind": "operated",
+  "category": "Messaging, CRM & social",
+  "summary": "WhatsApp Cloud API marketing SaaS.",
+  "description": "The Tech ABC WhatsApp is a multi-tenant WhatsApp and Telegram marketing SaaS - bulk campaigns, chatbots, a visual flow builder and API access.",
+  "steps": [],
+  "benefits": [
+   "Efficient Mass Communication",
+   "Personalized Messaging",
+   "Cost-Effective Marketing",
+   "Seamless Customer Relationship Management"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "Marketing & SEO",
+   "emoji": "💬",
+   "color": "#16a34a"
+  },
+  "shot": "/shots/the-tech-abc-whatsapp.webp",
+  "phone": "/shots/phone/the-tech-abc-whatsapp.webp"
+ },
+ {
+  "slug": "toolboxai",
+  "name": "ToolBoxAI",
+  "host": "tools.tennet.io",
+  "url": "https://tools.tennet.io/",
+  "brand": "StoresWiki",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "Unlock enterprise-grade AI solutions to automate workflows, enhance productivity, and stay ahead of the competition — all in one platform.",
+  "description": "Unlock enterprise-grade AI solutions to automate workflows, enhance productivity, and stay ahead of the competition — all in one platform.",
+  "steps": [],
+  "benefits": [
+   "AI Tool Explorer",
+   "Insights & Performance",
+   "Risk & Compliance Check",
+   "Easy Integration"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/toolboxai.webp",
+  "phone": "/shots/phone/toolboxai.webp"
+ },
+ {
+  "slug": "viserad",
+  "name": "ViserAd",
+  "host": "viserad.codeengineers.net",
+  "url": "https://viserad.codeengineers.net/",
+  "brand": "Code Engineers",
+  "kind": "operated",
+  "category": "Content & video",
+  "summary": "An AI-powered SaaS platform for creating marketing content, including ad banners, ad videos.",
+  "description": "ViserAd is an AI-powered SaaS platform for creating marketing content, including ad banners, ad videos. Generate high-quality, engaging ads in seconds to boost your brand’s visibility and conversions.",
+  "steps": [
+   "Upload Product Image — Just drag and drop your product photo from your store or gallery.",
+   "Choose Your Output — Choose your mockup or banner style with professional model placement.",
+   "Get Your Visual Instantly — Your professional-quality content will be ready to download and use across all platforms."
+  ],
+  "benefits": [
+   "AI Engine",
+   "User-Friendly Interface",
+   "High-Quality Generation",
+   "Voice & Music"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/viserad.webp",
+  "phone": "/shots/phone/viserad.webp"
+ },
+ {
+  "slug": "visershort",
+  "name": "ViserShort",
+  "host": "visershot.codeengineers.net",
+  "url": "https://visershot.codeengineers.net/",
+  "brand": "Code Engineers",
+  "kind": "operated",
+  "category": "Content & video",
+  "summary": "AI-Powered Video Short Maker & Automatic Post Scheduling SAAS Platform for Facebook, Instagram, YouTube, and TikTok.",
+  "description": "ViserShort - AI-Powered Video Short Maker & Automatic Post Scheduling SAAS Platform for Facebook, Instagram, YouTube, and TikTok. Create, trim, and schedule shorts with ease.",
+  "steps": [
+   "Import Video",
+   "Trim & Preview",
+   "Add Subtitles",
+   "Download Clip"
+  ],
+  "benefits": [
+   "Optimized for Short-Form Creators",
+   "Accurate Subtitle Syncing",
+   "Customizable Subtitles",
+   "Precise Trimming"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/visershort.webp",
+  "phone": "/shots/phone/visershort.webp"
+ },
+ {
+  "slug": "webby",
+  "name": "Webby",
+  "host": "webby.codeengineers.net",
+  "url": "https://webby.codeengineers.net/",
+  "brand": "Code Engineers",
+  "kind": "operated",
+  "category": "AI agents & automation",
+  "summary": "AI website builder & hosting.",
+  "description": "From idea to deployment, we've got you covered with powerful features designed for modern development.",
+  "steps": [],
+  "benefits": [
+   "AI-Powered Development",
+   "Real-time Preview",
+   "Built-in Code Editor",
+   "Export & Deploy"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "Productivity",
+   "emoji": "🌐",
+   "color": "#f97316"
+  },
+  "shot": "/shots/webby.webp",
+  "phone": "/shots/phone/webby.webp"
+ },
+ {
+  "slug": "whatsaas",
+  "name": "WhatSaaS",
+  "host": "whatsaas.cabscloud.com",
+  "url": "https://whatsaas.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Messaging, CRM & social",
+  "summary": "WhatsApp business automation platform.",
+  "description": "Centralize chats, build automation flows, and scale your business with our all-in-one CRM and AI platform. No coding required.",
+  "steps": [],
+  "benefits": [
+   "Visual Flow Builder",
+   "AI Agents",
+   "Centralized Inbox",
+   "Multi-Device Support"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "Marketing & SEO",
+   "emoji": "🤖",
+   "color": "#0d9488"
+  },
+  "shot": "/shots/whatsaas.webp",
+  "phone": "/shots/phone/whatsaas.webp"
+ },
+ {
+  "slug": "whatscrm",
+  "name": "whatsCRM",
+  "host": "whatscrm.cabscloud.com",
+  "url": "https://whatscrm.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Messaging, CRM & social",
+  "summary": "WhatsApp, Instagram & Telegram marketing.",
+  "description": "WhatsCRM is an all-in-one cloud-based platform for WhatsApp, Instagram, and Telegram marketing and automation.",
+  "steps": [],
+  "benefits": [
+   "Connect WhatsApp Your Way",
+   "Automation Flows & Chatbots",
+   "Campaigns & Broadcasting",
+   "AI WhatsApp Calling"
+  ],
+  "stack": [],
+  "launcher": {
+   "group": "Marketing & SEO",
+   "emoji": "📨",
+   "color": "#25D366"
+  },
+  "shot": "/shots/whatscrm.webp",
+  "phone": "/shots/phone/whatscrm.webp"
+ },
+ {
+  "slug": "workdo-dash",
+  "name": "WorkDo Dash",
+  "host": "workdo.cabscloud.com",
+  "url": "https://workdo.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Productivity & business",
+  "summary": "All-in-one business management: projects, accounting, HRM, CRM, POS and products on one platform.",
+  "description": "The complete all-in-one business management solution that combines Project Management, Accounting, HRM, CRM, POS, and Product Management into a single powerful platform. Streamline operations, boost productivity, and grow your business with our integrated suite of tools.",
+  "steps": [],
+  "benefits": [
+   "Project Management",
+   "Accounting",
+   "Product & Service"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/workdo-dash.webp",
+  "phone": "/shots/phone/workdo-dash.webp"
+ },
+ {
+  "slug": "zender",
+  "name": "Zender",
+  "host": "zender.cabscloud.com",
+  "url": "https://zender.cabscloud.com/",
+  "brand": "CabsCloud",
+  "kind": "operated",
+  "category": "Messaging, CRM & social",
+  "summary": "Utilize your network provider's unlimited sms plan, cheap and cost-effective solution for marketing, bulk sms and projects in your country.",
+  "description": "Utilize your network provider's unlimited sms plan, cheap and cost-effective solution for marketing, bulk sms and projects in your country. Use WhatsApp for an even larger audience reach, our platform provides the complete tools to help you get started.",
+  "steps": [],
+  "benefits": [
+   "Shortcodes for composing your messages with predefined data.",
+   "Spintax for randomizing set of words to battle spamming issues.",
+   "Translator for targeting audience based on their languages.",
+   "Schedule your sms and whatsapp chats at any date you want."
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/zender.webp",
+  "phone": "/shots/phone/zender.webp"
+ },
+ {
+  "slug": "inq-daily",
+  "name": "INQ Daily",
+  "host": "inqdaily.com",
+  "url": "https://inqdaily.com/",
+  "brand": "Media",
+  "kind": "media",
+  "category": "Media & publishing",
+  "summary": "To-the-point news and analysis on artificial intelligence, technology, world affairs, health and business - clear reporting, no padding.",
+  "description": "To-the-point news and analysis on artificial intelligence, technology, world affairs, health and business - clear reporting, no padding.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/inq-daily.webp",
+  "phone": "/shots/phone/inq-daily.webp"
+ },
+ {
+  "slug": "syncverge-tech",
+  "name": "Syncverge Tech",
+  "host": "syncverge.tech",
+  "url": "https://syncverge.tech/",
+  "brand": "Media",
+  "kind": "media",
+  "category": "Media & publishing",
+  "summary": "Practical guides to running production workloads on a VPS",
+  "description": "Practical guides to running production workloads on a VPS: migrating to an edge cloud platform, persistent storage, and VPS versus containers.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/syncverge-tech.webp",
+  "phone": "/shots/phone/syncverge-tech.webp"
+ },
+ {
+  "slug": "the-tech-abc",
+  "name": "The Tech ABC",
+  "host": "thetechabc.com",
+  "url": "https://thetechabc.com/",
+  "brand": "Media",
+  "kind": "media",
+  "category": "Media & publishing",
+  "summary": "Technology news, AI breakthroughs, smartphone reviews and gaming insights, with expert analysis of the trends shaping the industry.",
+  "description": "Technology news, AI breakthroughs, smartphone reviews and gaming insights, with expert analysis of the trends shaping the industry.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/the-tech-abc.webp",
+  "phone": "/shots/phone/the-tech-abc.webp"
+ },
+ {
+  "slug": "true-or-game",
+  "name": "True or Game",
+  "host": "trueorgame.com",
+  "url": "https://trueorgame.com/",
+  "brand": "Media",
+  "kind": "media",
+  "category": "Media & publishing",
+  "summary": "Video game news, leaks and rumours, in-depth reviews and comparison guides - Nintendo Switch 2, GTA VI, Call of Duty and The Game Awards.",
+  "description": "Video game news, leaks and rumours, in-depth reviews and comparison guides - Nintendo Switch 2, GTA VI, Call of Duty and The Game Awards.",
+  "steps": [],
+  "benefits": [],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/true-or-game.webp",
+  "phone": "/shots/phone/true-or-game.webp"
+ },
+ {
+  "slug": "market-studio",
+  "name": "Market Studio",
+  "host": "marketstudio.ai",
+  "url": "https://marketstudio.ai/",
+  "brand": "Market Studio",
+  "kind": "venture",
+  "category": "Productivity & business",
+  "summary": "A product studio that turns ideas into launched software — SaaS platforms, AI tools, commerce systems and the brands around them.",
+  "description": "Market Studio is a product studio that turns ideas into launched software — SaaS platforms, AI tools, commerce systems and the brands around them. One studio, from blank page to paying customers.",
+  "steps": [
+   "Discover",
+   "Design",
+   "Build",
+   "Launch & Scale"
+  ],
+  "benefits": [
+   "Product Design",
+   "Engineering",
+   "AI & Automation",
+   "Growth & Brand"
+  ],
+  "stack": [],
+  "launcher": null,
+  "shot": "/shots/market-studio.webp",
+  "phone": "/shots/phone/market-studio.webp"
+ }
+]

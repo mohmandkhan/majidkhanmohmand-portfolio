@@ -1,0 +1,620 @@
+{
+ "generated": "2026-11-14T21:25:01Z",
+ "totals": {
+  "channels": 27,
+  "making": 91,
+  "audience": 59915,
+  "views": 4892685,
+  "by_platform": {
+   "youtube": {
+    "channels": 27,
+    "followers": 10527,
+    "views": 1435297
+   },
+   "facebook": {
+    "channels": 16,
+    "followers": 47108,
+    "views": 1570066
+   },
+   "instagram": {
+    "channels": 16,
+    "followers": 2280,
+    "views": 1887322
+   }
+  }
+ },
+ "channels": [
+  {
+   "id": "forge:unbolted",
+   "name": "Majid Khan Mohmand",
+   "system": "channelforge",
+   "project": "ChannelForge",
+   "audience": 41620,
+   "views": 388273,
+   "avatar": "img/avatar-UCxQ4MUX0ieiilbmOHz3hgkQ-3a03c845.webp",
+   "platforms": {
+    "facebook": {
+     "followers": 37514,
+     "views": 9606,
+     "url": "https://www.facebook.com/112227535165266"
+    },
+    "instagram": {
+     "followers": 576,
+     "views": 31432,
+     "url": "https://www.instagram.com/majidkhanmohmand/"
+    },
+    "youtube": {
+     "followers": 3530,
+     "views": 347235,
+     "url": "https://www.youtube.com/@majidmohmand"
+    }
+   }
+  },
+  {
+   "id": "orig:ocean",
+   "name": "Into The Deep",
+   "system": "original",
+   "project": "Project 2",
+   "audience": 9131,
+   "views": 1323907,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 184,
+     "views": 87804,
+     "url": "https://www.youtube.com/@deependables"
+    },
+    "facebook": {
+     "followers": 8855,
+     "views": 1092780,
+     "url": "https://www.facebook.com/deependably"
+    },
+    "instagram": {
+     "followers": 92,
+     "views": 143323,
+     "url": "https://www.instagram.com/deependables/"
+    }
+   }
+  },
+  {
+   "id": "yt:UCzn5kw_YreTJu4m_Wnd8u6w",
+   "name": "Wrestlefestwest",
+   "system": "network",
+   "project": "Network",
+   "audience": 4610,
+   "views": 97,
+   "avatar": "img/avatar-UCzn5kw_YreTJu4m_Wnd8u6w-6894fc8b.webp",
+   "platforms": {
+    "youtube": {
+     "followers": 4610,
+     "views": 97,
+     "url": "https://www.youtube.com/@wrestlefestwest"
+    }
+   }
+  },
+  {
+   "id": "orig:cosmos",
+   "name": "Space Simulated",
+   "system": "original",
+   "project": "Project 1",
+   "audience": 890,
+   "views": 451885,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 271,
+     "views": 98629,
+     "url": "https://www.youtube.com/@spacesimulated"
+    },
+    "facebook": {
+     "followers": 96,
+     "views": 46732,
+     "url": "https://www.facebook.com/spacesimulated"
+    },
+    "instagram": {
+     "followers": 523,
+     "views": 306524,
+     "url": "https://www.instagram.com/spacesimulated1/"
+    }
+   }
+  },
+  {
+   "id": "orig:mech",
+   "name": "Inside The Machine",
+   "system": "original",
+   "project": "Project 2",
+   "audience": 730,
+   "views": 406049,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 490,
+     "views": 195764,
+     "url": "https://www.youtube.com/@machineinsidious"
+    },
+    "facebook": {
+     "followers": 139,
+     "views": 83502,
+     "url": "https://www.facebook.com/machineinsidious"
+    },
+    "instagram": {
+     "followers": 101,
+     "views": 126783,
+     "url": "https://www.instagram.com/machineinsidious/"
+    }
+   }
+  },
+  {
+   "id": "orig:whatif",
+   "name": "What if",
+   "system": "original",
+   "project": "Project 1",
+   "audience": 674,
+   "views": 376710,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 553,
+     "views": 180960,
+     "url": "https://www.youtube.com/@whatilosophy"
+    },
+    "facebook": {
+     "followers": 19,
+     "views": 24001,
+     "url": "https://www.facebook.com/simulatedwhatifs"
+    },
+    "instagram": {
+     "followers": 102,
+     "views": 171749,
+     "url": "https://www.instagram.com/whatilosophy/"
+    }
+   }
+  },
+  {
+   "id": "orig:fracture",
+   "name": "Fracture Atlas",
+   "system": "original",
+   "project": "Project 4",
+   "audience": 470,
+   "views": 395880,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 146,
+     "views": 92982,
+     "url": "https://www.youtube.com/@fractureatlas"
+    },
+    "facebook": {
+     "followers": 166,
+     "views": 112439,
+     "url": "https://www.facebook.com/fractureatlas"
+    },
+    "instagram": {
+     "followers": 158,
+     "views": 190459,
+     "url": "https://www.instagram.com/fractureatlas/"
+    }
+   }
+  },
+  {
+   "id": "orig:history",
+   "name": "History Simulated",
+   "system": "original",
+   "project": "Project 1",
+   "audience": 417,
+   "views": 260102,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 8,
+     "views": 3533,
+     "url": "https://www.youtube.com/@historysimulated1"
+    },
+    "facebook": {
+     "followers": 44,
+     "views": 21604,
+     "url": "https://www.facebook.com/historysimulated"
+    },
+    "instagram": {
+     "followers": 365,
+     "views": 234965,
+     "url": "https://www.instagram.com/historysimulated/"
+    }
+   }
+  },
+  {
+   "id": "orig:sims",
+   "name": "Oddly Simulated",
+   "system": "original",
+   "project": "Project 2",
+   "audience": 310,
+   "views": 383301,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 215,
+     "views": 109453,
+     "url": "https://www.youtube.com/@oddlysimulations"
+    },
+    "facebook": {
+     "followers": 25,
+     "views": 29953,
+     "url": "https://www.facebook.com/oddlysimulated"
+    },
+    "instagram": {
+     "followers": 70,
+     "views": 243895,
+     "url": "https://www.instagram.com/oddlysimulations/"
+    }
+   }
+  },
+  {
+   "id": "orig:colossal",
+   "name": "Colossal Scale",
+   "system": "original",
+   "project": "Project 4",
+   "audience": 232,
+   "views": 177852,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 56,
+     "views": 42312,
+     "url": "https://www.youtube.com/@colossalscales"
+    },
+    "facebook": {
+     "followers": 137,
+     "views": 53218,
+     "url": "https://www.facebook.com/colossalscales"
+    },
+    "instagram": {
+     "followers": 39,
+     "views": 82322,
+     "url": "https://www.instagram.com/colossal.scale/"
+    }
+   }
+  },
+  {
+   "id": "orig:downwash",
+   "name": "Downwash",
+   "system": "original",
+   "project": "Project 4",
+   "audience": 231,
+   "views": 186970,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 112,
+     "views": 75710,
+     "url": "https://www.youtube.com/@downwashphysics"
+    },
+    "facebook": {
+     "followers": 19,
+     "views": 24618,
+     "url": "https://www.facebook.com/downwashphysics"
+    },
+    "instagram": {
+     "followers": 100,
+     "views": 86642,
+     "url": "https://www.instagram.com/downwashphysics/"
+    }
+   }
+  },
+  {
+   "id": "yt:UCiqsvhMapz_7Sp5YUpebuMA",
+   "name": "copomaniacs",
+   "system": "network",
+   "project": "Network",
+   "audience": 159,
+   "views": 52342,
+   "avatar": "img/avatar-UCiqsvhMapz_7Sp5YUpebuMA-78ee4be6.webp",
+   "platforms": {
+    "youtube": {
+     "followers": 159,
+     "views": 52342,
+     "url": "https://www.youtube.com/@copomaniacs"
+    }
+   }
+  },
+  {
+   "id": "orig:mind",
+   "name": "Mind Tricked",
+   "system": "original",
+   "project": "Project 2",
+   "audience": 150,
+   "views": 212203,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 80,
+     "views": 80590,
+     "url": "https://www.youtube.com/@mindsparta"
+    },
+    "facebook": {
+     "followers": 49,
+     "views": 38734,
+     "url": "https://www.facebook.com/mindsparta"
+    },
+    "instagram": {
+     "followers": 21,
+     "views": 92879,
+     "url": "https://www.instagram.com/mind.sparta/"
+    }
+   }
+  },
+  {
+   "id": "orig:body",
+   "name": "Body Disclosures",
+   "system": "original",
+   "project": "Project 1",
+   "audience": 134,
+   "views": 110303,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 45,
+     "views": 34324,
+     "url": "https://www.youtube.com/@bodydisclosures"
+    },
+    "facebook": {
+     "followers": 23,
+     "views": 8017,
+     "url": "https://www.facebook.com/bodydisclosures"
+    },
+    "instagram": {
+     "followers": 66,
+     "views": 67962,
+     "url": "https://www.instagram.com/bodydisclosures/"
+    }
+   }
+  },
+  {
+   "id": "orig:wattage",
+   "name": "In Phone Charges",
+   "system": "original",
+   "project": "Project 4",
+   "audience": 86,
+   "views": 96683,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 30,
+     "views": 19237,
+     "url": "https://www.youtube.com/@inphonecharges"
+    },
+    "facebook": {
+     "followers": 12,
+     "views": 14815,
+     "url": "https://www.facebook.com/inphonecharges"
+    },
+    "instagram": {
+     "followers": 44,
+     "views": 62631,
+     "url": "https://www.instagram.com/inphonecharges/"
+    }
+   }
+  },
+  {
+   "id": "orig:cutaway",
+   "name": "Model Cutaway",
+   "system": "original",
+   "project": "Project 4",
+   "audience": 31,
+   "views": 53963,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 10,
+     "views": 6103,
+     "url": "https://www.youtube.com/@ModelCutaway"
+    },
+    "facebook": {
+     "followers": 4,
+     "views": 7578,
+     "url": "https://www.facebook.com/modelcutaway"
+    },
+    "instagram": {
+     "followers": 17,
+     "views": 40282,
+     "url": "https://www.instagram.com/model.cutaway/"
+    }
+   }
+  },
+  {
+   "id": "orig:upright",
+   "name": "Upright Robots",
+   "system": "original",
+   "project": "Project 4",
+   "audience": 13,
+   "views": 4451,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 4,
+     "views": 0,
+     "url": "https://www.youtube.com/@UprightRobots"
+    },
+    "facebook": {
+     "followers": 6,
+     "views": 2042,
+     "url": "https://www.facebook.com/uprightrobots"
+    },
+    "instagram": {
+     "followers": 3,
+     "views": 2409,
+     "url": "https://www.instagram.com/uprightrobots/"
+    }
+   }
+  },
+  {
+   "id": "orig:voyage",
+   "name": "Signal Voyage",
+   "system": "original",
+   "project": "Project 4",
+   "audience": 10,
+   "views": 4759,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 7,
+     "views": 1267,
+     "url": "https://www.youtube.com/@signalvoyager"
+    },
+    "facebook": {
+     "followers": 0,
+     "views": 427,
+     "url": "https://www.facebook.com/signalvoyage1"
+    },
+    "instagram": {
+     "followers": 3,
+     "views": 3065,
+     "url": "https://www.instagram.com/signalvoyage/"
+    }
+   }
+  },
+  {
+   "id": "yt:UCmV1h7hrozVDUQiTjYBLBQA",
+   "name": "Tactical Autopsy",
+   "system": "network",
+   "project": "Network",
+   "audience": 4,
+   "views": 559,
+   "avatar": "img/avatar-UCmV1h7hrozVDUQiTjYBLBQA-bf98d73a.webp",
+   "platforms": {
+    "youtube": {
+     "followers": 4,
+     "views": 559,
+     "url": "https://www.youtube.com/@tactopsy"
+    }
+   }
+  },
+  {
+   "id": "yt:UCNIwgMGMluG2aH5P9_PeWdg",
+   "name": "Reel Forge Demo",
+   "system": "network",
+   "project": "Network",
+   "audience": 3,
+   "views": 3266,
+   "avatar": "img/avatar-UCNIwgMGMluG2aH5P9_PeWdg-2b482d9f.webp",
+   "platforms": {
+    "youtube": {
+     "followers": 3,
+     "views": 3266,
+     "url": "https://www.youtube.com/@reelforgedemo"
+    }
+   }
+  },
+  {
+   "id": "orig:unseen",
+   "name": "Unseen View",
+   "system": "original",
+   "project": "Project 4",
+   "audience": 3,
+   "views": 1297,
+   "avatar": null,
+   "platforms": {
+    "youtube": {
+     "followers": 3,
+     "views": 1297,
+     "url": "https://www.youtube.com/@un.seenveew"
+    }
+   }
+  },
+  {
+   "id": "yt:UCG_TR8X0zujM62jvLd1Pn8g",
+   "name": "Histiology",
+   "system": "network",
+   "project": "Network",
+   "audience": 3,
+   "views": 577,
+   "avatar": "img/avatar-UCG_TR8X0zujM62jvLd1Pn8g-deb7a7ca.webp",
+   "platforms": {
+    "youtube": {
+     "followers": 3,
+     "views": 577,
+     "url": "https://www.youtube.com/@histiology1"
+    }
+   }
+  },
+  {
+   "id": "yt:UCKx5eCiCK1L_VukwsyTalQQ",
+   "name": "Unpacked AM",
+   "system": "network",
+   "project": "Network",
+   "audience": 2,
+   "views": 812,
+   "avatar": "img/avatar-UCKx5eCiCK1L_VukwsyTalQQ-a119a192.webp",
+   "platforms": {
+    "youtube": {
+     "followers": 2,
+     "views": 812,
+     "url": "https://www.youtube.com/@unpackedam"
+    }
+   }
+  },
+  {
+   "id": "yt:UC1aelx2uo7qTMDGN3HqPNPw",
+   "name": "Financenstein",
+   "system": "network",
+   "project": "Network",
+   "audience": 1,
+   "views": 37,
+   "avatar": "img/avatar-UC1aelx2uo7qTMDGN3HqPNPw-823a6f8f.webp",
+   "platforms": {
+    "youtube": {
+     "followers": 1,
+     "views": 37,
+     "url": "https://www.youtube.com/@financenstein"
+    }
+   }
+  },
+  {
+   "id": "yt:UC5ksBWVQS2bJX6ulr0rZthg",
+   "name": "Storingly",
+   "system": "network",
+   "project": "Network",
+   "audience": 1,
+   "views": 35,
+   "avatar": "img/avatar-UC5ksBWVQS2bJX6ulr0rZthg-561f5a47.webp",
+   "platforms": {
+    "youtube": {
+     "followers": 1,
+     "views": 35,
+     "url": "https://www.youtube.com/@storingly"
+    }
+   }
+  },
+  {
+   "id": "yt:UC-FuizvBR0r3Hql7ih-1jxg",
+   "name": "Money Decoder 2.0",
+   "system": "network",
+   "project": "Network",
+   "audience": 0,
+   "views": 288,
+   "avatar": "img/avatar-UC-FuizvBR0r3Hql7ih-1jxg-b5196d12.webp",
+   "platforms": {
+    "youtube": {
+     "followers": 0,
+     "views": 288,
+     "url": "https://www.youtube.com/@moneydecoder2.0"
+    }
+   }
+  },
+  {
+   "id": "yt:UCX9At0AZU336gxh_UYS-EBA",
+   "name": "Seniology",
+   "system": "network",
+   "project": "Network",
+   "audience": 0,
+   "views": 84,
+   "avatar": "img/avatar-UCX9At0AZU336gxh_UYS-EBA-9ca19ce5.webp",
+   "platforms": {
+    "youtube": {
+     "followers": 0,
+     "views": 84,
+     "url": "https://www.youtube.com/@seniology"
+    }
+   }
+  }
+ ]
+}

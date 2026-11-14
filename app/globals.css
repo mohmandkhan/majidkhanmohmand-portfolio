@@ -1,0 +1,215 @@
+@import 'tailwindcss';
+
+/*
+  majidkhanmohmand.com — "an estate, mapped". The work is an estate: about 80 live applications in six districts (the
+  brands of StoresWiki LLC), so the site is drawn as a survey of it at night — ink-blue ground, chalk lettering, contour
+  lines, and light only where something runs. Colour belongs to the districts alone (each brand's own hue, checked for
+  colour-blind separation and always labelled); the interface itself stays chalk on ink. Instrument Serif letters the
+  map and the headlines; Instrument Sans does everything else, in tabular figures where it counts.
+*/
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+@theme {
+  --font-serif: 'Instrument Serif', ui-serif, Georgia, serif;
+  --font-sans: 'Instrument Sans Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-night: var(--night);
+  --color-ground: var(--ground);
+  --color-raise: var(--raise);
+  --color-contour: var(--contour);
+  --color-contour-2: var(--contour-2);
+  --color-chalk: var(--chalk);
+  --color-chalk-2: var(--chalk-2);
+  --color-haze: var(--haze);
+  --color-mist: var(--mist);
+
+  --color-d-storeswiki: var(--d-storeswiki);
+  --color-d-cabscloud: var(--d-cabscloud);
+  --color-d-autogineer: var(--d-autogineer);
+  --color-d-codeengineers: var(--d-codeengineers);
+  --color-d-marketstudio: var(--d-marketstudio);
+  --color-d-media: var(--d-media);
+}
+
+/* night survey (the default) */
+:root,
+[data-theme='dark'] {
+  --night: #0b1322;
+  --ground: #111c2f;
+  --raise: #16233a;
+  --contour: #1f2e49;
+  --contour-2: #2a3c5c;
+  --chalk: #ecf1f8;
+  --chalk-2: #c9d3e2;
+  --haze: #93a1b8;
+  --mist: #5f6f8a;
+  --d-storeswiki: #4f7bff;
+  --d-cabscloud: #2fc7a8;
+  --d-autogineer: #f2c14e;
+  --d-codeengineers: #e0b0ff;
+  --d-marketstudio: #ff6f4f;
+  --d-media: #8b98ae;
+  color-scheme: dark;
+}
+
+/* day survey */
+[data-theme='light'] {
+  --night: #f3f6f9;
+  --ground: #ffffff;
+  --raise: #eef2f7;
+  --contour: #d7dfe8;
+  --contour-2: #c3cedb;
+  --chalk: #0e1829;
+  --chalk-2: #2b3a52;
+  --haze: #56667e;
+  --mist: #8796ab;
+  --d-storeswiki: #2f5be0;
+  --d-cabscloud: #0e8f76;
+  --d-autogineer: #a87a00;
+  --d-codeengineers: #9b4fd1;
+  --d-marketstudio: #d9472a;
+  --d-media: #5b6a82;
+  color-scheme: light;
+}
+
+html {
+  background: var(--night);
+  color: var(--chalk);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  overflow-x: clip;
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  font-variation-settings: 'wdth' 100;
+}
+
+.serif {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.tight {
+  font-variation-settings: 'wdth' 82;
+}
+.num {
+  font-feature-settings: 'tnum' 1, 'lnum' 1;
+}
+
+:focus-visible {
+  outline: 2px solid var(--chalk);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: var(--d-storeswiki);
+  color: #fff;
+}
+
+/* the survey grid behind the hero: graticule lines, faint */
+.graticule {
+  background-image:
+    linear-gradient(to right, var(--contour) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--contour) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image: radial-gradient(ellipse at 60% 40%, black 30%, transparent 75%);
+}
+
+/* lights: on load each district's lights brighten in turn (filter, never opacity: a page whose animations are paused —
+   a hidden tab — still shows every light) */
+@keyframes ignite {
+  from {
+    filter: brightness(0.55) saturate(0.6);
+  }
+}
+.light {
+  animation: ignite 900ms cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  animation-delay: var(--d, 0ms);
+  transition: transform 220ms ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.light:hover,
+.light:focus-visible,
+.light[data-on='true'] {
+  transform: scale(1.35);
+}
+/* the roads to the shared platform carry traffic: their dashes run outward from the core, slowly */
+@keyframes traffic {
+  to {
+    stroke-dashoffset: -18;
+  }
+}
+.traffic {
+  animation: traffic 2.8s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .light,
+  .traffic {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* figures that plot themselves once, as they come into view (components/Plot.tsx sets data-play): a line is drawn,
+   a bar grows from its start, a label follows. Without data-play every figure is simply finished. */
+@keyframes plot-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+}
+@keyframes plot-grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes plot-fade {
+  from {
+    opacity: 0;
+  }
+}
+[data-play] .plot-draw {
+  animation: plot-draw 1050ms cubic-bezier(0.45, 0.05, 0.25, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 480ms + 120ms);
+}
+[data-play] .plot-grow {
+  animation: plot-grow 900ms cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 110ms + 80ms);
+  transform-origin: left center;
+  transform-box: fill-box;
+}
+[data-play] .plot-fade {
+  animation: plot-fade 650ms ease-out backwards;
+  animation-delay: calc(var(--i, 0) * 110ms + 380ms);
+}
+
+/* the CV prints on A4 */
+@media print {
+  html,
+  body {
+    background: #fff !important;
+    color: #111 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  a {
+    color: #111 !important;
+    text-decoration: none !important;
+  }
+  @page {
+    size: A4;
+    margin: 14mm 14mm 16mm;
+  }
+}

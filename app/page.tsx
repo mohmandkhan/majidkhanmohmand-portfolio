@@ -45,7 +45,8 @@ export default function Home() {
       {/* ─── the hero: the name, and the estate it runs ─── */}
       <section className="relative overflow-hidden">
         <div className="graticule pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div className="relative mx-auto max-w-[1240px] px-5 pt-14 sm:px-8 md:pt-20">
+        {/* on a phone the text starts below the estate's floating Ecosystem launcher (fixed, 70–161 px from the top) */}
+        <div className="relative mx-auto max-w-[1240px] px-5 pt-[108px] sm:px-8 sm:pt-14 md:pt-20">
           <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-end">
             <div>
               <p className="text-[15px] text-haze">{person.role}, {person.location}</p>

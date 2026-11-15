@@ -90,8 +90,8 @@ export default function CV() {
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="mt-8 break-inside-avoid-page">
-      <h2 className="border-b border-contour pb-1.5 text-[13px] font-semibold tracking-[0.04em] text-haze print:border-black/20 print:text-[9pt] print:text-black">{title}</h2>
+    <section className="mt-8">
+      <h2 className="break-after-avoid border-b border-contour pb-1.5 text-[13px] font-semibold tracking-[0.04em] text-haze print:border-black/20 print:text-[9pt] print:text-black">{title}</h2>
       <div className="mt-3 text-[15px] leading-relaxed text-chalk-2 print:text-[9.5pt] print:leading-snug print:text-black">{children}</div>
     </section>
   );

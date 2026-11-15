@@ -201,8 +201,13 @@ body {
     background: #fff !important;
     color: #111 !important;
   }
-  .no-print {
+  .no-print,
+  body > div {
+    /* body > div: the estate's Ecosystem launcher and its panel, which the script appends to <body> */
     display: none !important;
+  }
+  li {
+    break-inside: avoid;
   }
   a {
     color: #111 !important;

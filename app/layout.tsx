@@ -53,6 +53,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* The estate's Ecosystem waffle (cloud.autogineer.com): the script alone floats its launcher on the right edge.
             Never a [data-ecosystem-launcher] placeholder. CSP in vercel.json allows that origin. */}
         <Script src="https://cloud.autogineer.com/ecosystem.js" strategy="afterInteractive" />
+        {/* The flagship product film (showcase/embed): it places itself after the hero of the landing page only, inside
+            its own shadow root; YouTube loads only when the visitor presses play. CSP in vercel.json allows the origin. */}
+        <Script src="https://flagships.storeswiki.com/film.js" strategy="afterInteractive" />
       </body>
     </html>
   );
